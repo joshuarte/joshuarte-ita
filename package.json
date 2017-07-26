@@ -6,7 +6,6 @@
   "author": "Luca Joshua Mosca <joshuarte@hotmail.it>",
   "license": "MIT",
   "dependencies": {
-    "blendid": "^4.1.1",
-    "init": "^0.1.2"
+    "blendid": "^4.1.1"
   }
 }

@@ -1,18 +1,53 @@
 {% from 'macros/helpers.html' import sprite %}
 <!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>{% block title %}{{ title }}{% endblock %}</title>
-    <link rel="stylesheet" href="stylesheets/app.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    {% include "shared/app-icons.html" %}
-    {% block head %}{% endblock %}
-  </head>
-  <body>
-    {% block content %}{% endblock %}
-    {% block javascript %}
-      <script src="javascripts/app.js"></script>
-    {% endblock %}
-  </body>
+<html lang="it">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="description" content="{{ description }}">
+  <meta name="author" content="{{ author }}">
+  <!-- Open Graph Protocol -->
+  <meta property="og:title" content="{{ogType.title}}" />
+  <meta property="og:description" content="{{ogType.description}}" />
+  <meta property="og:url" content="{{ogType.url}}" />
+  <meta property="og:image" content="{{ogType.image}}" />
+  <script type="text/javascript" charset="UTF-8" src="http://www.joshuarte.it/cookie.js"></script>
+  <!-- End Open Graph Protocol -->
+  <title>{% block title %}{{ title }}{% endblock %}</title>
+  <!-- ForOutdatedBrowser -->
+  <script>
+    var $buoop = {
+      vs: {
+        i: 11,
+        f: 25,
+        o: 12.1,
+        s: 7
+      },
+      c: 2
+    };
+
+    function $buo_f() {
+      var e = document.createElement("script");
+      e.src = "//browser-update.org/update.min.js";
+      document.body.appendChild(e);
+    };
+    try {
+      document.addEventListener("DOMContentLoaded", $buo_f, false)
+    } catch (e) {
+      window.attachEvent("onload", $buo_f)
+    }
+  </script>
+  <link rel="stylesheet" href="stylesheets/app.css"> {% include "shared/app-icons.html" %} {% block head %}{% endblock %}
+</head>
+
+<body id="page-top" data-module="ctrl">
+  {% block content %}{% endblock %} {% block javascript %}
+  <script src="javascripts/app.js"></script>
+  {% endblock %}
+
+  {% include "shared/privacy.html" %}
+</body>
+
 </html>

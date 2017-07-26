@@ -1,3 +1,10 @@
 body {
-  font-family: sans-serif;
+    font-family: $ff-main;
+    font-size: 100%;
+    line-height: 1.5;
+    font-weight: $fw-normal;
+}
+
+b, strong {
+    font-weight: $fw-semibold;
 }

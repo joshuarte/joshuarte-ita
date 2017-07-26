@@ -7,5 +7,8 @@
 {% extends 'layouts/application.html' %}
 
 {% block content %}
-  <h1 data-module="example">{{ message }}</h1>
+  <div class="main-container">
+    {% include "shared/cta.html" %}
+    {% include "shared/sidenav.html" %}
+  </div>
 {% endblock %}
