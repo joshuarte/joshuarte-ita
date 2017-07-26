@@ -1,0 +1,31 @@
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+
+body {
+  color: $color_text-main;
+  background-color: $color_background-main;
+}
+
+main {
+    background-color: #F6F6F6;
+
+    @include respond-to('medium'){
+        padding-bottom: rem-calc(80);
+    }
+}
+
+a {
+    text-decoration: underline;
+    color: $color_primary;
+    transition: color 0.3s ease-out;
+
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+abbr[title] {
+    text-decoration: none;
+    cursor: help;
+}

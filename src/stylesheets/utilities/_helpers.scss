@@ -1,0 +1,32 @@
+// Helper classes only
+
+.u-hidden {
+    display: none;
+}
+
+// TODO remove class and extend placeholder
+.visuallyhidden {
+    @extend %visuallyhidden;
+}
+
+.u-newline {
+    display: block;
+}
+
+.u-newline-medium-up {
+    @include respond-to('medium') {
+        display: block;
+    }
+}
+
+.u-newline-large-up {
+    @include respond-to('large') {
+        display: block;
+    }
+}
+
+.u-force-fullheight {
+    @include respond-to('large') {    
+        min-height: calc(100vh - 161px);
+    }
+}
