@@ -1,11 +1,23 @@
 module.exports = {
-  html        : true,
-  images      : true,
-  fonts       : true,
-  static      : true,
-  svgSprite   : true,
-  ghPages     : true,
-  stylesheets : true,
+  html: true,
+  images: true,
+  fonts: true,
+  static: true,
+  svgSprite: true,
+  ghPages: true,
+
+  stylesheets: {
+    autoprefixer: {
+      browsers: ["last 3 version"]
+    },
+    sass: {
+      indentedSyntax: false,
+      includePaths: [
+        "./node_modules",
+      ]
+    },
+    extensions: ["sass", "scss", "css"]
+  },
 
   javascripts: {
     entry: {

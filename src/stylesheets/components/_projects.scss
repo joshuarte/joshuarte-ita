@@ -1,0 +1,107 @@
+.right-portfolio {
+    display:block;
+    @include respond-to('large') {
+        position: fixed;
+        right: 0;
+        height: 100%;
+        overflow-y: scroll;
+        animation: slideInRight 0.4s cubic-bezier(0.63, 0.03, 0.36, 1) 1;
+        .btn {
+            width: 100%;
+        }
+        .content {
+            padding: 50px;
+        }
+        article {
+            &:hover,
+            &:active,
+            &:focus {
+                .item {
+                    h2 {
+                        /* background: linear-gradient(to right, #fff, #fff); */
+                        -webkit-background-clip: text;
+                        -webkit-text-fill-color: transparent;
+                    }
+                    p {
+                        color: $white;
+                        .ion {
+                            color: $white;
+                        }
+                    }
+                    &:before {
+                        shape-inside: polygon(0 0, 100% 0%, 100% 100%, 0% 100%);
+                        -webkit-clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 100%);
+                        clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 100%);
+                        opacity: 0.5;
+                    }
+                    &:after {
+                        opacity: 0;
+                    }
+                }
+            }
+        }
+        .item {
+            display: block;
+            transition: background .5s ease;
+            img {
+                filter: grayscale(100%);
+            }
+            .caption {
+                position: absolute;
+                top: 50%;
+                margin: 0;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                z-index: 3;
+                display: flex;
+                align-items: flex-start;
+                justify-content: center;
+                flex-direction: column;
+                p {
+                    transition: all .5s ease;
+                    display: flex;
+                    align-items: center;
+                    .ion {
+                        color: #ddd;
+                    }
+                }
+                h2 {
+                    background: linear-gradient(to right, #c2321f, #5ecbe6);
+                    transition: background .5s ease;
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                    text-transform: capitalize;
+                }
+            }
+            &:before {
+                background: linear-gradient(to right, #c2321f, #5ecbe6);
+                content: '';
+                display: block;
+                height: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                opacity: 0;
+                width: 100%;
+                z-index: 3;
+                transition: all .5s ease;
+                shape-inside: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
+                -webkit-clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
+                clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
+            }
+            &:after {
+                background: linear-gradient(to right, #fff, #fff);
+                content: '';
+                display: block;
+                height: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                opacity: 0.95;
+                width: 100%;
+                z-index: 2;
+                transition: all .5s ease;
+            }
+        }
+    }
+}
