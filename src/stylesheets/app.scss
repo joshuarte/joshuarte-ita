@@ -1,5 +1,9 @@
 @charset 'utf-8';
 
+// Vendors
+@import "bootstrap-sass/assets/stylesheets/bootstrap";
+@import "normalize-scss/sass/normalize";
+
 // Utilities
 @import 'utilities/variables';
 @import 'utilities/functions';
@@ -13,11 +17,11 @@
 @import 'base/typography';
 @import 'base/form';
 
-// Vendors
-@import "bootstrap/scss/bootstrap";
+
 
 // Components
 @import 'components/projects'; 
+@import 'components/logo'; 
 
 //Layout
 @import 'layout/bio'; 

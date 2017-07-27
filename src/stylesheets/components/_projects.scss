@@ -11,6 +11,12 @@
         }
         .content {
             padding: 50px;
+            .ljm{
+                width: 100px;
+            }
+            .mb{
+                width: 50px;
+            }
         }
         article {
             &:hover,
@@ -23,9 +29,9 @@
                         -webkit-text-fill-color: transparent;
                     }
                     p {
-                        color: $white;
+                        color: white;
                         .ion {
-                            color: $white;
+                            color: white;
                         }
                     }
                     &:before {

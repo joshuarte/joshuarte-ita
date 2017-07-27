@@ -1,7 +1,7 @@
 /// Colors
-$color_primary: #E5870F;
-$color_primary-light: #ECA833;
-$color_secondary: #48B3B7;
+$color_primary: #63C5E0;
+$color_primary-light: tint($color_primary, 60%);
+$color_secondary: #C2321F;
 
 $color_text-main: #767676;
 $color_text-midtone: #565656;
@@ -35,9 +35,9 @@ $breakpoints: (
 );
 
 /// Typography
-$rem-base: 16px !default;
+$rem-base: 14px !default;
 
-$ff-main: "museo-sans", sans-serif;
+$ff-main: "Source Sans Pro", sans-serif;
 
 $fw-light: 100;
 $fw-normal: 300;

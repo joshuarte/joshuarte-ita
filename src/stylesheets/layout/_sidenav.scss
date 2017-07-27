@@ -1,0 +1,8 @@
+//slideOutRight
+.right {
+    transition: all .5s ease;   
+    transform: translateX(0%);  
+    &.slideOutRight {
+        transform: translateX(100%) !important;
+    }
+}

@@ -1,16 +1,17 @@
-*, *:before, *:after {
+*,
+*:before,
+*:after {
     box-sizing: border-box;
 }
 
 body {
-  color: $color_text-main;
-  background-color: $color_background-main;
+    color: $color_text-main;
+    background-color: $color_background-main;
 }
 
 main {
     background-color: #F6F6F6;
-
-    @include respond-to('medium'){
+    @include respond-to('medium') {
         padding-bottom: rem-calc(80);
     }
 }
@@ -19,7 +20,6 @@ a {
     text-decoration: underline;
     color: $color_primary;
     transition: color 0.3s ease-out;
-
     &:hover {
         text-decoration: none;
     }
@@ -29,3 +29,80 @@ abbr[title] {
     text-decoration: none;
     cursor: help;
 }
+
+// =============================================================================
+// BROWSER FIXES
+// =============================================================================
+body::-webkit-scrollbar {
+    display: none;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    &::selection {
+        background-color: $color-primary;
+        color: white;
+    }
+}
+
+:focus {
+    outline: 0;
+}
+
+html {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    height: 100%;
+    width: 100%;
+}
+
+.no-padding{
+    padding: 0;
+}
+/* COOKIE */
+#cookiescript_injected {
+    background-color: none !important;
+    background: linear-gradient(to right, rgba(194, 50, 31, 0.25), rgba(94, 203, 230, 0.25));
+    transition: all 0.3s ease;
+    &:hover {
+        background-color: none !important;
+        background: linear-gradient(to right, #c2321f, #5ecbe6);
+    }
+    @include respond-to('large') {
+        position: fixed !important;
+        bottom: 20px !important;
+        right: auto !important;
+        width: 300px !important;
+        height: auto !important;
+        left: 20px !important;
+        float: none !important;
+    }
+}
+
+//rapid flex
+.h-align {
+        &-center {
+            display:flex;
+            align-items:center;
+            justify-content:center;
+        }
+        &-left {
+            display:flex;
+            align-items:center;
+            justify-content:flex-start;
+        }
+        &-right {
+            display:flex;
+            align-items:center;
+            justify-content:flex-end;
+        }
+        &-space {
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+        }
+    }

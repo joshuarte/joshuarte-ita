@@ -13,28 +13,31 @@
 		background: url(../images/bg.jpg) no-repeat top center;
 		background-size: 100%;
 		min-height: 400px;
-		display:flex;
-		flex-direction:column;
-		align-items:center;
-		justify-content:flex-end;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: flex-end;
 	}
 	.right {
+		::-webkit-scrollbar {
+			display: none;
+		}
 		display:block;
 		.content {
-			display:block;
+			display: block;
 			padding: 30px;
 			overflow: scroll;
 		}
-		svg {
+/* 		svg {
 			width: 100%;
-		}
+		} */
 	}
 	@include respond-to('large') {
 		flex-direction: row;
 		.inner {
 			width: 50%;
 			height: 100%;
-			transition: width .5s ease;
+			transition: all .5s ease;
 		}
 		.left {
 			position: fixed;
@@ -57,7 +60,7 @@
 			height: 100%;
 			z-index: 2;
 			background: #fff;
-			overflow-y: scroll;
+			overflow-y: hidden;
 			.content {
 				display: flex;
 				flex-direction: column;

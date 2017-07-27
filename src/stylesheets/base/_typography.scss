@@ -8,3 +8,28 @@ body {
 b, strong {
     font-weight: $fw-semibold;
 }
+
+p{
+    font-size: rem-calc(16);
+    font-family: "Source Sans Pro",sans-serif;
+    font-weight: normal;
+    color: #999;
+    margin: 0;
+}
+h2, .h2{
+    color: #fff;
+    font-size: rem-calc(66);
+}
+h3, .h3{
+    font-size: rem-calc(20);
+    font-weight: bold;
+    margin: 0;
+}
+
+.link, a {
+    color: #000;
+    text-decoration: none;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
