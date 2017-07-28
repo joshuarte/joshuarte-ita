@@ -67,7 +67,7 @@ body {
 #cookiescript_injected {
     background-color: none !important;
     background: linear-gradient(to right, rgba(194, 50, 31, 0.25), rgba(94, 203, 230, 0.25));
-    transition: all 0.3s ease;
+    transition: all .4s ease;
     &:hover {
         background-color: none !important;
         background: linear-gradient(to right, #c2321f, #5ecbe6);

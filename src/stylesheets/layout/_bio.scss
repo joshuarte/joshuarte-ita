@@ -36,7 +36,6 @@ nav a {
             padding: 10px 20px;
             width: 100%;
             height: 100%;
-            background: #fff;
             background: linear-gradient(to right, #c2321f, #5ecbe6);
             transition: all .5s ease;
             transform: translateX(-25%);
@@ -63,10 +62,11 @@ nav a {
             span {
                 background: linear-gradient(to right, #fff, #fff);
                 transition: all .5s ease;
-                color: #a53d25;
+                color: #a53d25 !important;
             }
             &:before {
-                background: linear-gradient(to right, #fff, #fff);
+                  background: transparent;
+                -webkit-text-fill-color: #fff;  
             }
         }
     }

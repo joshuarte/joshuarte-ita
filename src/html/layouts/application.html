@@ -13,7 +13,7 @@
   <meta property="og:description" content="{{ogType.description}}" />
   <meta property="og:url" content="{{ogType.url}}" />
   <meta property="og:image" content="{{ogType.image}}" />
-  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600" rel="stylesheet">
   <script type="text/javascript" charset="UTF-8" src="http://www.joshuarte.it/cookie.js"></script>
   <!-- End Open Graph Protocol -->
   <title>{% block title %}{{ title }}{% endblock %}</title>
@@ -44,6 +44,7 @@
 </head>
 
 <body id="page-top" data-module="ctrl">
+  <div class="loader"></div>
   {% block content %}{% endblock %} {% block javascript %}
   <script src="javascripts/app.js"></script>
   {% endblock %}
