@@ -73,7 +73,7 @@
 
         <div class="row module__bottom">
             <div class="col-sm-10 col-sm-offset-2">
-                <p class="h-align-left hidden-xs hidden-sm"><a href="#" data-toggle="modal" data-target="#myModal"><strong>privacy</strong></a>&nbsp; | &copy;2016 -
+                <p class="h-align-left hidden-xs hidden-sm"><a href="#" data-module="modalToggle"><strong>privacy</strong></a>&nbsp; | &copy;2016 -
                     &nbsp;
                     <svg class="ljm" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                         width="100" viewBox="0 0 199.436 25.011" enable-background="new 0 0 199.436 25.011" xml:space="preserve">
@@ -120,9 +120,6 @@
 	c0.401,0,0.726-0.132,0.726-0.457c0-0.286-0.21-0.477-0.668-0.477c-0.191,0-0.325,0.019-0.401,0.037V2.996z" />
                     </svg>
                 </p>
-                <p class="h-align-left visible-xs visible-sm">
-                    <a href="#" data-toggle="modal" data-target="#myModal"><strong>privacy</strong></a>&nbsp; | &copy;2016
-                    - LJM &amp; MB
             </div>
         </div>
 
@@ -149,3 +146,5 @@
         </div>
     </nav>
 </div>
+
+  {% include "shared/privacy.html" %}

@@ -1,12 +1,9 @@
 <!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog  modal-lg" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">Informativa sulla privacy</h4>
+<div class="popup">
+            <div class="popup__header">
+                <h4>Informativa sulla privacy</h4>
             </div>
-            <div class="modal-body">
+            <div class="popup__body">
                 <h4>PRIVACY POLICY</h4>
 
                 <p>Luca Joshua Mosca si impegna a proteggere la privacy degli utenti. Nella presente informativa sulla privacy
@@ -107,11 +104,11 @@
                     visualizzare le informazioni personali &egrave; necessario immettere il proprio nome di accesso e la
                     password. Nel Profile Center &egrave; possibile:</p>
 
-                <ul>
-                    <li>Visualizzare e modificare le informazioni personali gi&aacute; fornite in Luca Joshua Mosca.</li>
-                    <li>Indicare a Luca Joshua Mosca se si desidera ricevere informazioni di marketing.</li>
-                    <li>Indicare se si desidera essere contattati da terze parti.</li>
-                    <li>Abbonarsi o annullare l'abbonamento a notiziari su servizi e prodotti.</li>
+                <ul class="list-unstyled">
+                    <li><p>Visualizzare e modificare le informazioni personali gi&aacute; fornite in Luca Joshua Mosca.</p></li>
+                    <li><p>Indicare a Luca Joshua Mosca se si desidera ricevere informazioni di marketing.</p></li>
+                    <li><p>Indicare se si desidera essere contattati da terze parti.</p></li>
+                    <li><p>Abbonarsi o annullare l'abbonamento a notiziari su servizi e prodotti.</p></li>
                 </ul>
 
                 <p>È possibile che alcuni servizi offerti in Luca Joshua Mosca raccolgano informazioni non accessibili tramite
@@ -180,20 +177,16 @@
                     o tramite il servizio postale all'indirizzo indicato di seguito e faremo il possibile per determinare
                     prontamente e rimediare al problema.</p>
 
-                <p>Luca Joshua Mosca</p>
 
-                <p>NAPOLI
+                <p><b>NAPOLI</b>
                     <br>T. 347 24 17 599</p>
-
-                <p>Email: luca.mosca@emmemedia.com</p>
-
+                <p>Email: {{social.mail}}</p>
+                    <div class="clearfix">&nbsp;</div>
 
             </div>
-            <div class="modal-footer">
+            <div class="popup__footer">
                 <nav class="btn-transition text-center">
-                    <a href="#" data-hover="CHIUDI" data-dismiss="modal"><span>CHIUDI</span></a>
+                    <a href="#" data-hover="CHIUDI" data-module="modalToggle"><span>CHIUDI</span></a>
                 </nav>
             </div>
-        </div>
-    </div>
 </div>
