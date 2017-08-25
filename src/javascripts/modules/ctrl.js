@@ -4,7 +4,7 @@ import 'velocity-animate';
 export default class Ctrl {
   constructor(el) {
     this.el = el
-    console.log('Controller module loaded');
+    /* console.log('Controller module loaded'); */
 
     var width = 100,
       perfData = window.performance.timing, // The PerformanceTiming interface represents timing-related performance information for the given page.

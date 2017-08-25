@@ -11,7 +11,7 @@ export default class scrollTop {
         }
 
         this.el = el
-        console.log('scrollTop module loaded');
+        /* console.log('scrollTop module loaded'); */
 
         this.el.addEventListener('click', function (event) {
             jump('#page-top', {

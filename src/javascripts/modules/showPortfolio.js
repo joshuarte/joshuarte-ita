@@ -20,7 +20,7 @@ export default class showPortfolio {
 
         /* var sideNav = document.getElementsById("right") */
         this.el = el
-        console.log('Show Portfolio module loaded');
+        /* console.log('Show Portfolio module loaded'); */
 
         var sideNav = document.querySelectorAll('.right')[0];
 
