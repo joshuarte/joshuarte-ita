@@ -1,6 +1,10 @@
 .right-portfolio {
     display: block;
     article {
+        margin-bottom: 25px;
+        @include respond-to('medium'){
+            margin: 0;                  
+        }
         &:hover,
         &:active,
         &:focus {
@@ -8,7 +12,7 @@
                 h2 {
                     /* background: linear-gradient(to right, #fff, #fff); */
                     -webkit-background-clip: text;
-                    -webkit-text-fill-color: transparent;
+                    -webkit-text-fill-color: white;
                 }
                 p {
                     color: white;
@@ -49,6 +53,7 @@
                 transition: all .5s ease;
                 display: flex;
                 align-items: center;
+                font-weight: bold;
                 .fa {
                     color: #ddd;
                 }
@@ -111,7 +116,8 @@
         }
     }
      &::-webkit-scrollbar {
-            width: 5px;
+            width: 25px;
+            cursor: -webkit-grab;
         }
         /* Track */
         /* &::-webkit-scrollbar-track {
@@ -120,8 +126,10 @@
         /* Handle */
         &::-webkit-scrollbar-thumb {
             background: linear-gradient(to bottom, #c2321f, #5ecbe6);
+            cursor: -webkit-grab;
         }
         &::-webkit-scrollbar-thumb:window-inactive {
             background: linear-gradient(to bottom, #c2321f, #5ecbe6);
+            cursor: -webkit-grab;
         }
 }

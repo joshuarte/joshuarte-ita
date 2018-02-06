@@ -52,7 +52,7 @@
 		align-items: center;
 		justify-content: flex-end;
 		height: 70vh;
-		
+		min-height: 450px;
 	}
 	.right {
 		/* ::-webkit-scrollbar {
@@ -86,8 +86,8 @@
 			position: fixed;
 			left: 0;
 			overflow: hidden;
-			background: url(../images/bg.png) no-repeat center center, #5ecbe6;
-			background-size: auto;
+			background: url(../images/bg.png) no-repeat center 10%, #5ecbe6;
+			background-size: 120%;
 			display: flex;
 			flex-direction: column;
 			align-items: center;

@@ -40,6 +40,13 @@
             background: linear-gradient(to bottom, transparent, #fff);
         }
     }
+    ul{
+        list-style: none;
+
+        li{
+            margin-bottom: 15px;
+        }
+    }
 }
 
 .popup{

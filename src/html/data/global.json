@@ -10,166 +10,142 @@
   },
   "ogType": {
     "title": "Joshuarte",
-    "description": "Lorem ipsum sit dolor amet.",
+    "description": "Frontend since 1990.",
     "url": "https://www.joshuarte.it",
-    "image": ""
+    "image": "http://www.joshuarte.it/images/bg.jpg"
   },
   "projects": [
     {
+      "name": "ONS Onlus",
+      "imageUrl": "ons.jpg",
+      "jobDescription": " ",
+      "url": "https://www.onsonlus.it"
+    },
+    {
+      "name": "CioppiShop",
+      "imageUrl": "cioppi-shop.jpg",
+      "jobDescription": "Frontend @ Emmemedia",
+      "url": "http://www.cioppishop.it/"
+    },
+    {
       "name": "Maison Signore",
       "imageUrl": "maison-signore.jpg",
-      "jobDescription": "Frontend at Emmemedia",
+      "jobDescription": "Frontend @ Emmemedia",
       "url": "http://www.maisonsignore.it/"
     },
     {
       "name": "Atelier Signore",
       "imageUrl": "atelier-signore.jpg",
-      "jobDescription": "Frontend at Emmemedia",
+      "jobDescription": "Frontend @ Emmemedia",
       "url": "http://www.ateliersignore.it/"
     },
     {
       "name": "Sterilfarma",
       "imageUrl": "sterilfarma.jpg",
-      "jobDescription": "Frontend at Emmemedia",
+      "jobDescription": "Frontend @ Emmemedia",
       "url": "https://www.sterilfarma.it"
     },
     {
       "name": "Christian La Rusca",
       "imageUrl": "larusca.jpg",
-      "jobDescription": "Frontend at Emmemedia",
+      "jobDescription": "Frontend @ Emmemedia",
       "url": "http://www.larusca.it/"
     },
     {
       "name": "AutoScala",
       "imageUrl": "autoscala.jpg",
-      "jobDescription": "Frontend at Emmemedia",
+      "jobDescription": "Frontend @ Emmemedia",
       "url": "http://www.auto-scala.com/"
-    },
-    {
-      "name": "Marc Ellis",
-      "imageUrl": "marc-ellis.jpg",
-      "jobDescription": "Frontend at Emmemedia",
-      "url": "http://www.marcellisnewyork.com/"
     },
     {
       "name": "La Terra Degli Aranci",
       "imageUrl": "la-terra-degli-aranci.jpg",
-      "jobDescription": "Frontend at Emmemedia",
+      "jobDescription": "Frontend @ Emmemedia",
       "url": "http://www.laterradegliaranci.it/"
     },
     {
       "name": "Roberto Giannotti",
       "imageUrl": "roberto-giannotti.jpg",
-      "jobDescription": "Frontend at Emmemedia",
+      "jobDescription": "Frontend @ Emmemedia",
       "url": "http://www.robertogiannotti.com/unangelodimamma/"
     },
     {
       "name": "Mario Di Costanzo Pastrychef",
       "imageUrl": "mario-di-costanzo.jpg",
-      "jobDescription": "Frontend at Emmemedia",
+      "jobDescription": "Frontend @ Emmemedia",
       "url": "http://www.mariodicostanzo.it/"
     },
     {
       "name": "Arredare Insieme",
       "imageUrl": "arredare-insieme.jpg",
-      "jobDescription": "Frontend at Emmemedia",
+      "jobDescription": "Frontend @ Emmemedia",
       "url": "http://arredareinsieme.it/"
     },
     {
       "name": "De Vivo Showroom",
       "imageUrl": "de-vivo.jpg",
-      "jobDescription": "Frontend at Emmemedia",
+      "jobDescription": "Frontend @ Emmemedia",
       "url": "http://www.devivoshowroom.it/"
-    },
-    {
-      "name": "Ilaria Ludovici",
-      "imageUrl": "ilaria-ludovici.jpg",
-      "jobDescription": "Frontend at Emmemedia",
-      "url": "http://www.ilarialudovici.it/"
-    },
-    {
-      "name": "Tufano Luigi Gomme",
-      "imageUrl": "tufano-luigi.jpg",
-      "jobDescription": "Frontend at Emmemedia",
-      "url": "http://www.autopneumatici.it/"
     },
     {
       "name": "Date System",
       "imageUrl": "date-system.jpg",
-      "jobDescription": "Frontend at Emmemedia",
+      "jobDescription": "Frontend @ Emmemedia",
       "url": "http://www.datesystem.eu/"
     },
     {
       "name": "Allutec",
       "imageUrl": "allutec.jpg",
-      "jobDescription": "Frontend at Emmemedia",
+      "jobDescription": "Frontend @ Emmemedia",
       "url": "http://www.allutec.it/"
     },
     {
       "name": "Medical Skin Care",
       "imageUrl": "medical-skin-care.jpg",
-      "jobDescription": "Frontend at Emmemedia",
+      "jobDescription": "Frontend @ Emmemedia",
       "url": "http://www.medicalskincare.it/"
     },
     {
       "name": "Victoria F",
       "imageUrl": "victoria-f.jpg",
-      "jobDescription": "Frontend at Emmemedia",
+      "jobDescription": "Frontend @ Emmemedia",
       "url": "http://victoriaf.it/"
     },
     {
       "name": "Giulloc",
       "imageUrl": "giulloc.jpg",
-      "jobDescription": "Frontend at Emmemedia",
+      "jobDescription": "Frontend @ Emmemedia",
       "url": "http://giulloc.fr/"
     },
     {
       "name": "Centro Keiron",
       "imageUrl": "centro-keiron.jpg",
-      "jobDescription": "Frontend at Emmemedia",
+      "jobDescription": "Frontend @ Emmemedia",
       "url": "http://centro-keiron.com/"
     },
     {
       "name": "Villa Diamante",
       "imageUrl": "villa-diamante.jpg",
-      "jobDescription": "Frontend at Emmemedia",
+      "jobDescription": "Frontend @ Emmemedia",
       "url": "http://www.villadiamante.it/"
     },
     {
       "name": "Didiesse",
       "imageUrl": "didiesse.jpg",
-      "jobDescription": "Frontend at Emmemedia",
+      "jobDescription": "Frontend @ Emmemedia",
       "url": "http://www.didiessesrl.eu/"
     },
     {
       "name": "Radici Firenze",
       "imageUrl": "radici-firenze.jpg",
-      "jobDescription": "Frontend at Emmemedia",
+      "jobDescription": "Frontend @ Emmemedia",
       "url": "http://www.radicifirenze.it/"
-    },
-    {
-      "name": "Giovanna Panico",
-      "imageUrl": "giovanna-panico.jpg",
-      "jobDescription": "Frontend at Emmemedia",
-      "url": "http://www.giovannapanico.it/"
     },
     {
       "name": "Tenuta Astroni",
       "imageUrl": "tenuta-astroni.jpg",
-      "jobDescription": "Frontend at Emmemedia",
+      "jobDescription": "Frontend @ Emmemedia",
       "url": "http://www.tenutastroni.it/"
-    },
-    {
-      "name": "Donna Curvy",
-      "imageUrl": "donna-curvy.jpg",
-      "jobDescription": "Frontend at Emmemedia",
-      "url": "http://donnacurvy.it/"
-    },
-    {
-      "name": "Portrose",
-      "imageUrl": "portrose.jpg",
-      "jobDescription": "Frontend at Emmemedia",
-      "url": "http://www.portrose.it/"
     }
   ]
 }

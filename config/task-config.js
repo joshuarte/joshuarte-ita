@@ -1,5 +1,8 @@
 module.exports = {
-  html: true,
+  html:  {
+    min: true,
+    excludeFolders: ["layouts", "shared", "macros", "data", "components"], 
+  },
   images: true,
   fonts: true,
   static: true,
@@ -36,7 +39,7 @@ module.exports = {
   },
 
   production: {
-    rev: true
+    rev: false
   }
 }
 
