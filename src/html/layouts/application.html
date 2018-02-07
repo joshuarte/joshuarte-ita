@@ -17,29 +17,6 @@
   <script type="text/javascript" charset="UTF-8" src="http://www.joshuarte.it/cookie.js"></script>
   <!-- End Open Graph Protocol -->
   <title>{% block title %}{{ title }}{% endblock %}</title>
-  <!-- ForOutdatedBrowser -->
-  <script>
-    var $buoop = {
-      vs: {
-        i: 11,
-        f: 25,
-        o: 12.1,
-        s: 7
-      },
-      c: 2
-    };
-
-    function $buo_f() {
-      var e = document.createElement("script");
-      e.src = "//browser-update.org/update.min.js";
-      document.body.appendChild(e);
-    };
-    try {
-      document.addEventListener("DOMContentLoaded", $buo_f, false)
-    } catch (e) {
-      window.attachEvent("onload", $buo_f)
-    }
-  </script>
   <link rel="stylesheet" href="stylesheets/app.css"> {% include "shared/app-icons.html" %} {% block head %}{% endblock %}
 </head>
 

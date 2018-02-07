@@ -16,6 +16,12 @@
   },
   "projects": [
     {
+      "name": "Un filo invisibile",
+      "imageUrl": "unhcr1.jpg",
+      "jobDescription": "Frontend @ Bluelabs",
+      "url": "https://unfiloinvisibile.unhcr.it/"
+    },
+    {
       "name": "ONS Onlus",
       "imageUrl": "ons.jpg",
       "jobDescription": " ",
