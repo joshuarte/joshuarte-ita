@@ -16,6 +16,12 @@
   },
   "projects": [
     {
+      "name": "COOPI",
+      "imageUrl": "coopi.jpg",
+      "jobDescription": "Frontend @ Bluelabs",
+      "url": "https://www.coopi.org/"
+    },
+    {
       "name": "Un filo invisibile",
       "imageUrl": "unhcr1.jpg",
       "jobDescription": "Frontend @ Bluelabs",
