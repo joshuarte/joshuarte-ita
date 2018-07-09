@@ -16,6 +16,18 @@
   },
   "projects": [
     {
+      "name": "Masilicò",
+      "imageUrl": "masilico.jpg",
+      "jobDescription": "Frontend @ Bluelabs",
+      "url": "https://www.masilico.com"
+    },
+    {
+      "name": "Dr. Cristiano Giardiello",
+      "imageUrl": "giardiello.jpg",
+      "jobDescription": " ",
+      "url": "http://www.cristianogiardiello.it/"
+    },
+    {
       "name": "COOPI",
       "imageUrl": "coopi.jpg",
       "jobDescription": "Frontend @ Bluelabs",
