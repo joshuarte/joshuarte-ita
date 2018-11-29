@@ -1,7 +1,7 @@
 {
   "title": "JOSHUARTE",
   "description": "Lorem ipsum sit dolor amet.",
-  "baseURL": "https://joshuarte.it",
+  "baseURL": "https://www.joshuarte.it",
   "author": "Luca Joshua Mosca",
   "social": {
     "facebook": "https://www.facebook.com/joshuarte",
@@ -16,6 +16,18 @@
   },
   "projects": [
     {
+      "name": "Fondazione Telethon",
+      "imageUrl": "telethon.jpg",
+      "jobDescription": "Frontend @ Bluelabs",
+      "url": "https://nataleaziende.telethon.it/natale/ecard-sorriso/"
+    },
+    {
+      "name": "Liu Jo \n AI 18",
+      "imageUrl": "liujo.jpg",
+      "jobDescription": "Frontend @ Bluelabs",
+      "url": "https://www.liujouomo.it/preview-autunno-inverno-18/"
+    },
+    {
       "name": "Masilicò",
       "imageUrl": "masilico.jpg",
       "jobDescription": "Frontend @ Bluelabs",
@@ -24,7 +36,7 @@
     {
       "name": "Dr. Cristiano Giardiello",
       "imageUrl": "giardiello.jpg",
-      "jobDescription": " ",
+      "jobDescription": "Freelance Project",
       "url": "http://www.cristianogiardiello.it/"
     },
     {
@@ -42,8 +54,14 @@
     {
       "name": "ONS Onlus",
       "imageUrl": "ons.jpg",
-      "jobDescription": " ",
+      "jobDescription": "Freelance Project",
       "url": "https://www.onsonlus.it"
+    },
+    {
+      "name": "Eutanasia Legale",
+      "imageUrl": "coscioni.jpg",
+      "jobDescription": "Frontend @ Bluelabs",
+      "url": "https://www.eutanasialegale.it/"
     },
     {
       "name": "CioppiShop",

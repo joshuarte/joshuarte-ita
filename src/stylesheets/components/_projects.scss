@@ -46,7 +46,7 @@
             transform: translate(-50%, -50%);
             z-index: 3;
             display: flex;
-            align-items: flex-start;
+            align-items: center;
             justify-content: center;
             flex-direction: column;
             p {
@@ -64,6 +64,7 @@
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
                 text-transform: capitalize;
+                text-align: center;
             }
         }
         &:before {
