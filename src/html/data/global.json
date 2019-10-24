@@ -16,8 +16,20 @@
   },
   "projects": [
     {
-      "name": "Fondazione Telethon",
+      "name": "Telethon Shop Solidale",
       "imageUrl": "telethon.jpg",
+      "jobDescription": "Frontend @ Bluelabs",
+      "url": "https://nataleaziende.telethon.it/natale/ecard-sorriso/"
+    },
+    {
+      "name": "Dr. Cristiano Giardiello",
+      "imageUrl": "giardiello.jpg",
+      "jobDescription": "Freelance Project",
+      "url": "http://www.cristianogiardiello.it/"
+    },
+    {
+      "name": "Natale Aziende Telethon",
+      "imageUrl": "telethon-natale.jpg",
       "jobDescription": "Frontend @ Bluelabs",
       "url": "https://nataleaziende.telethon.it/natale/ecard-sorriso/"
     },
@@ -32,12 +44,6 @@
       "imageUrl": "masilico.jpg",
       "jobDescription": "Frontend @ Bluelabs",
       "url": "https://www.masilico.com"
-    },
-    {
-      "name": "Dr. Cristiano Giardiello",
-      "imageUrl": "giardiello.jpg",
-      "jobDescription": "Freelance Project",
-      "url": "http://www.cristianogiardiello.it/"
     },
     {
       "name": "COOPI",
