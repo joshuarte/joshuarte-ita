@@ -9,13 +9,12 @@
     "mail": "joshuarte@gmail.com"
   },
   "ogType": {
-    "title": "Joshuarte",
+    "title": "Joshuarte | Frontend since 1990.",
     "description": "Frontend since 1990.",
     "url": "https://www.joshuarte.it",
     "image": "http://www.joshuarte.it/images/bg.jpg"
   },
-  "projects": [
-    {
+  "projects": [{
       "name": "Telethon Shop Solidale",
       "imageUrl": "telethon.jpg",
       "jobDescription": "Frontend @ Bluelabs",
@@ -31,7 +30,7 @@
       "name": "Natale Aziende Telethon",
       "imageUrl": "telethon-natale.jpg",
       "jobDescription": "Frontend @ Bluelabs",
-      "url": "https://nataleaziende.telethon.it/natale/ecard-sorriso/"
+      "url": "https://nataleaziende.telethon.it/"
     },
     {
       "name": "Liu Jo \n AI 18",
@@ -195,5 +194,23 @@
       "jobDescription": "Frontend @ Emmemedia",
       "url": "http://www.tenutastroni.it/"
     }
-  ]
+  ],
+  "articles": [{
+    "name": "dott. cristiano giardiello: from zero to hero",
+    "imageUrl": "test.png",
+    "jobDescription": "Discover the experience that led Dr. Cristiano Giardiello to the publication of his new brand, with his new identity and his new website completely built from scratch.",
+    "url": "#"
+  },
+  {
+    "name": "misinformation 3.0",
+    "imageUrl": "test.png",
+    "jobDescription": "Read more in our article about the misinformation that is continually produced in our sector: why and how to get better information?",
+    "url": "#"
+  },
+  {
+    "name": "low-budget ecommerce: discover shopify, woocommerce and other solutions that fit your business",
+    "imageUrl": "test.png",
+    "jobDescription": "Do you struggle with high-budget expecations on how to run without efforts your online business? Check this article, we'll help you setup your low-budget company or project with this simple strategy.",
+    "url": "#"
+  }]
 }

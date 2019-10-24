@@ -1,0 +1,14 @@
+{#
+  Nunjucks Templating!
+  Homepage: https://mozilla.github.io/nunjucks/
+  Docs: https://mozilla.github.io/nunjucks/api.html
+#}
+
+{% extends 'layouts/application.html' %}
+
+{% block content %}
+  <div class="main-container">
+    {% include "shared/cta.html" %}
+    {% include "shared/sidenav.html" %}
+  </div>
+{% endblock %}

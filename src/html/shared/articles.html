@@ -1,0 +1,18 @@
+{% for article in articles %}
+<article class="col-md-12 no-padding">
+    <div class="item" target="_blank">
+        <div class="item__wrapper">
+            <img src="images/articles/{{article.imageUrl}}" class="img-responsive"
+                alt="frontend developer web designer napoli {{article.name}}">
+        </div>
+        <div class="caption">
+            <h3>&lt;{{article.name}}/&gt;</h3>
+            <p>{{article.jobDescription}} <span class="ion ion-android-exit"></span>
+            </p>
+            <nav class="btn-transition">
+                <a href="{{article.url}}" data-hover="READ MORE"><span>READ MORE</span></a>
+            </nav>
+        </div>
+    </div>
+</article>
+{% endfor %}

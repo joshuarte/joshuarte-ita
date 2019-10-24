@@ -48,7 +48,8 @@
                     <h3>&lt;coding skills/&gt;</h3>
                 </div>
                 <div class="col-sm-10">
-                    <p>Usually coding with <b>#Vue</b> <b>#Nuxt</b> <b>#ES6</b> <b>#shopify</b> <b>#woocommerce</b> <b>#HTML5</b>
+                    <p>Usually coding with <b>#Vue</b> <b>#Nuxt</b> <b>#ES6</b> <b>#shopify</b> <b>#woocommerce</b>
+                        <b>#HTML5</b>
                         <b>#nunjucks</b>
                         <b>#W3C</b> <b>#SCSS</b> <b>#flexbox</b> <b>#cssgrid</b> <b>#webpack</b> <b>#yarn</b>
                         <b>#git</b> <b>#datamaps</b>.</p>
@@ -180,14 +181,39 @@
             </div>
         </div>
 
-        <nav class="btn-transition hidden-xs">
-            <a href="#" id="show-portfolio" data-hover="LATEST WORKS" data-module="showPortfolio">
-                <span>LATEST WORKS</span>
-            </a>
-        </nav>
+        <div class="row">
+            <div class="col-sm-6">
+                <nav class="btn-transition hidden-xs">
+                    <a href="#" id="show-portfolio" data-hover="LATEST WORKS" data-module="showPortfolio">
+                        <span>LATEST WORKS</span>
+                    </a>
+                </nav>
+            </div>
+            <div class="col-sm-6">
+                <nav class="btn-transition hidden-xs">
+                    <a href="#" id="show-articles" data-hover="LATEST ARTICLES" data-module="showArticles">
+                        <span>LATEST ARTICLES</span>
+                    </a>
+                </nav>
+            </div>
+        </div>
+
         <div class="clearfix visible-xs">&nbsp;</div>
         <h3 class="visible-xs">&lt;latest works/&gt;</h3>
     </div>
+</div>
+<div class="inner right-blog">
+    <div class="content3">
+        {% include "shared/articles.html" %}
+    </div>
+    <div class="clearfix  hidden-xs">&nbsp;</div>
+    <nav class="btn-transition hidden-xs">
+        <div class="content">
+            <a href="#" id="show-bio" data-hover="BACK TO BIO" data-module="showArticles">
+                <span>BACK TO BIO</span>
+            </a>
+        </div>
+    </nav>
 </div>
 <div class="inner right-portfolio">
     <div class="content2">
