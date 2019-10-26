@@ -25,12 +25,13 @@
             width: 50%;
 
             p {
+                font-size: 18px;
                 transition: all .5s ease;
                 margin-bottom: 25px;
             }
 
             h3 {
-                font-size: 22px;
+                font-size: 24px;
                 margin-top: 0;
                 margin-bottom: 12px;
                 color: #c2321f;
@@ -121,5 +122,23 @@
     &::-webkit-scrollbar-thumb:window-inactive {
         background: linear-gradient(to bottom, #c2321f, #5ecbe6);
         cursor: -webkit-grab;
+    }
+}
+
+.content--articles {
+
+    h4 {
+        font-size: 24px
+    }
+
+    p {
+        font-weight: normal;
+        font-size: 18px;
+        margin-bottom: rem-calc(30);
+    }
+
+    img {
+        max-width: 97%;
+        margin-bottom: rem-calc(60);
     }
 }
