@@ -4,7 +4,7 @@
   "baseURL": "https://www.joshuarte.it",
   "author": "Luca Joshua Mosca",
   "social": {
-    "facebook": "https://www.facebook.com/joshuarte",
+    "discord": "https://discordapp.com/channels/@joshuarte",
     "linkedin": "https://it.linkedin.com/in/joshuarte",
     "mail": "joshuarte@gmail.com"
   },
@@ -14,7 +14,62 @@
     "url": "https://www.joshuarte.it",
     "image": "http://www.joshuarte.it/images/bg.jpg"
   },
-  "projects": [{
+  "projects": [
+    {
+      "name": "Imagineed",
+      "imageUrl": "imagineed.png",
+      "jobDescription": "Web application development made with ❤️ and Nuxt.js",
+      "url": "https://www.imagineed.it/overlordz/"
+    },
+    {
+      "name": "OverlordZ",
+      "imageUrl": "overlordz.png",
+      "jobDescription": "Game design and Development w/game maker studio 2",
+      "url": "https://play.google.com/store/apps/details?id=com.imagineed.overlordz"
+    },
+    {
+      "name": "Città di Empoli",
+      "imageUrl": "cittaempoli.png",
+      "jobDescription": "Custom WordPress Development w/roots.io @WeRad",
+      "url": "https://portalecultura.empoli.gov.it/"
+    },
+    {
+      "name": "TreEffe Group",
+      "imageUrl": "3effe.png",
+      "jobDescription": "Frontend development lead @ WeRad",
+      "url": "https://treeffegroup.it/"
+    },
+    {
+      "name": "TNS Cosmetics",
+      "imageUrl": "tns.png",
+      "jobDescription": "Frontend development and maintenance @ WeRad",
+      "url": "https://www.tnscosmetics.it/"
+    },
+    {
+      "name": "Fixabot",
+      "imageUrl": "fixabot.png",
+      "jobDescription": "Game development @ Global Game Jam 2019",
+      "url": "https://v3.globalgamejam.org/2020/games/fix-bot-7"
+    },
+    {
+      "name": "Drowssap",
+      "imageUrl": "drowssap.png",
+      "jobDescription": "Frontend and web app development @ Bluelabs",
+      "url": "https://www.drowssap.it/"
+    },
+    {
+      "name": "Science for Democracy",
+      "imageUrl": "sfd.png",
+      "jobDescription": "Frontend @ Bluelabs",
+      "url": "https://sciencefordemocracy.org/"
+    },
+    {
+      "name": "Illo.tv",
+      "imageUrl": "illo.png",
+      "jobDescription": "Frontend @ Bluelabs",
+      "url": "https://illo.tv/"
+    },
+    {
       "name": "Telethon Shop Solidale",
       "imageUrl": "telethon.jpg",
       "jobDescription": "Frontend @ Bluelabs",
@@ -195,10 +250,12 @@
       "url": "http://www.tenutastroni.it/"
     }
   ],
-  "articles": [{
-    "name": "dott. cristiano giardiello: from zero to hero",
-    "imageUrl": "giardiello.jpg",
-    "jobDescription": "Discover the experience that led Dr. Cristiano Giardiello to the publication of his new brand, with his new identity and his new website completely built from scratch.",
-    "url": "/cristiano-giardiello.html"
-  }]
+  "articles": [
+    {
+      "name": "dott. cristiano giardiello: from zero to hero",
+      "imageUrl": "giardiello.jpg",
+      "jobDescription": "Discover the experience that led Dr. Cristiano Giardiello to the publication of his new brand, with his new identity and his new website completely built from scratch.",
+      "url": "/cristiano-giardiello.html"
+    }
+  ]
 }
