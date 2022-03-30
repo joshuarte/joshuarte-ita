@@ -1,6 +1,6 @@
 {
   "title": "JOSHUARTE",
-  "description": "Lorem ipsum sit dolor amet.",
+  "description": "Frontend since 1990.",
   "baseURL": "https://www.joshuarte.it",
   "author": "Luca Joshua Mosca",
   "social": {
@@ -16,10 +16,16 @@
   },
   "projects": [
     {
+      "name": "Starcade Productions",
+      "imageUrl": "starcade.png",
+      "jobDescription": "Web development made with Roots.io",
+      "url": "https://www.starcade.it"
+    },
+    {
       "name": "Imagineed",
       "imageUrl": "imagineed.png",
       "jobDescription": "Web application development made with ❤️ and Nuxt.js",
-      "url": "https://www.imagineed.it/overlordz/"
+      "url": "https://www.joshuarte.it/overlordz/"
     },
     {
       "name": "OverlordZ",
