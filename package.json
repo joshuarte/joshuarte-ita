@@ -2,6 +2,7 @@
   "name": "joshuarteit",
   "version": "1.0.0",
   "main": "index.js",
+  "nvm": "8",
   "repository": "https://lucajoshua@bitbucket.org/lucajoshua/joshuarteit.git",
   "author": "Luca Joshua Mosca <joshuarte@hotmail.it>",
   "license": "MIT",
