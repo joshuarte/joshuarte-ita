@@ -1,5 +1,9 @@
 import { defineConfig } from "vite";
 import nunjucksPlugin from "./vite-plugin-nunjucks.js";
+import fs from "fs";
+const globalData = JSON.parse(
+  fs.readFileSync("./src/html/data/global.json", "utf-8")
+);
 
 export default defineConfig({
   plugins: [
@@ -7,8 +11,7 @@ export default defineConfig({
       templatesDir: "./src/html",
       outputFile: "./index.html",
       context: {
-        title: "Il mio progetto con Nunjucks",
-        // puoi aggiungere altre variabili dinamiche qui
+        ...globalData,
       },
     }),
   ],

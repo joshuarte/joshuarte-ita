@@ -1,12 +1,17 @@
 {% for project in projects %}
 <article class="col-md-12 no-padding">
-    <a class="item" href="{{project.url}}" target="_blank">
-        <img src="images/projects/{{project.imageUrl}}" class="img-responsive" alt="frontend developer web designer napoli {{project.name}}">
-        <div class="caption">
-            <h2>{{project.name}}</h2>
-            <p>{{project.jobDescription}} <span class="ion ion-android-exit"></span>
-            </p>
-        </div>
-    </a>
+  <a class="item" href="{{project.url}}" target="_blank">
+    <img
+      src="/images/projects/{{project.imageUrl}}"
+      class="img-responsive"
+      alt="frontend developer web designer napoli {{project.name}}"
+    />
+    <div class="caption">
+      <h2>{{project.name}}</h2>
+      <p>
+        {{project.jobDescription}} <span class="ion ion-android-exit"></span>
+      </p>
+    </div>
+  </a>
 </article>
 {% endfor %}

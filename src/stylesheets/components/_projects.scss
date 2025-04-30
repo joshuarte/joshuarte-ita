@@ -3,6 +3,7 @@
 
     article {
         margin-bottom: 25px;
+        position: relative;
 
         @include respond-to('medium') {
             margin: 0;
