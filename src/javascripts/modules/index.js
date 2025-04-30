@@ -3,15 +3,22 @@
   specifying module file-names.
 */
 
-const moduleElements = document.querySelectorAll('[data-module]')
+const modules = import.meta.glob("/src/javascripts/modules/*.js");
+const moduleElements = document.querySelectorAll("[data-module]");
 
-for (var i = 0; i < moduleElements.length; i++) {
-  const el = moduleElements[i]
-  const name = el.getAttribute('data-module')
-  const Module = require(`./${name}`).default
-  new Module(el)
+for (const el of moduleElements) {
+  const name = el.getAttribute("data-module"); // es. "ctrl"
+  const path = `/src/javascripts/modules/${name}.js`;
+
+  if (modules[path]) {
+    modules[path]().then((mod) => {
+      const Module = mod.default;
+      new Module(el);
+    });
+  } else {
+    console.warn(`⚠️ Modulo "${name}" non trovato a ${path}`);
+  }
 }
-
 /*
   Usage:
   ======

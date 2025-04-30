@@ -1,18 +1,23 @@
 {
-  "name": "joshuarteit",
-  "version": "1.0.0",
-  "main": "index.js",
-  "nvm": "8",
-  "repository": "https://lucajoshua@bitbucket.org/lucajoshua/joshuarteit.git",
-  "author": "Luca Joshua Mosca <joshuarte@hotmail.it>",
-  "license": "MIT",
+  "name": "workspace",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^6.3.1"
+  },
   "dependencies": {
-    "blendid": "^4.1.1",
-    "bootstrap-sass": "^3.3.7",
+    "bootstrap": "^5.3.5",
     "font-awesome": "^4.7.0",
     "jump.js": "^1.0.2",
-    "normalize-scss": "^7.0.0",
-    "velocity-animate": "^1.5.0"
-  },
-  "devDependencies": {}
+    "normalize.css": "^8.0.1",
+    "nunjucks": "^3.2.4",
+    "sass": "^1.87.0",
+    "velocity-animate": "^1.5.2"
+  }
 }

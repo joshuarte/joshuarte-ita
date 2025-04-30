@@ -2,8 +2,7 @@
 
 // Vendors
 @import "font-awesome/scss/font-awesome";
-@import "bootstrap-sass/assets/stylesheets/bootstrap";
-@import "normalize-scss/sass/normalize";
+@import "bootstrap/scss/bootstrap";
 
 // Utilities
 @import 'utilities/variables';
@@ -13,12 +12,10 @@
 @import 'utilities/helpers';
 
 // Base
-/* @import "normalize.css/normalize"; */
+@import "normalize.css/normalize"; 
 @import 'base/base';
 @import 'base/typography';
 @import 'base/form';
-
-
 
 // Components
 @import 'components/projects'; 
