@@ -1,267 +1,286 @@
 {
-  "title": "JOSHUARTE",
-  "description": "Frontend since 1990.",
-  "baseURL": "https://www.joshuarte.it",
-  "author": "Luca Joshua Mosca",
-  "social": {
-    "discord": "https://discordapp.com/channels/@joshuarte",
-    "linkedin": "https://it.linkedin.com/in/joshuarte",
-    "mail": "joshuarte@gmail.com"
+  "home": {
+      "title": "JOSHUARTE",
+      "description": "Frontend since 1990.",
+      "baseURL": "https://www.joshuarte.it",
+      "author": "Luca Joshua Mosca",
+      "social": {
+          "discord": "https://discordapp.com/channels/@joshuarte",
+          "linkedin": "https://it.linkedin.com/in/joshuarte",
+          "mail": "joshuarte@gmail.com"
+      },
+      "ogType": {
+          "title": "Joshuarte | Frontend since 1990.",
+          "description": "Frontend since 1990.",
+          "url": "https://www.joshuarte.it",
+          "image": "http://www.joshuarte.it/images/bg.jpg"
+      },
+      "projects": [
+          {
+              "name": "Starcade Productions",
+              "imageUrl": "starcade.png",
+              "jobDescription": "Web development made with Roots.io",
+              "url": "https://www.starcade.it"
+          },
+          {
+              "name": "Imagineed",
+              "imageUrl": "imagineed.png",
+              "jobDescription": "Web application development made with ❤️ and Nuxt.js",
+              "url": "https://www.joshuarte.it/overlordz/"
+          },
+          {
+              "name": "OverlordZ",
+              "imageUrl": "overlordz.png",
+              "jobDescription": "Game design and Development w/game maker studio 2",
+              "url": "https://play.google.com/store/apps/details?id=com.imagineed.overlordz"
+          },
+          {
+              "name": "Città di Empoli",
+              "imageUrl": "cittaempoli.png",
+              "jobDescription": "Custom WordPress Development w/roots.io @WeRad",
+              "url": "https://portalecultura.empoli.gov.it/"
+          },
+          {
+              "name": "TreEffe Group",
+              "imageUrl": "3effe.png",
+              "jobDescription": "Frontend development lead @ WeRad",
+              "url": "https://treeffegroup.it/"
+          },
+          {
+              "name": "TNS Cosmetics",
+              "imageUrl": "tns.png",
+              "jobDescription": "Frontend development and maintenance @ WeRad",
+              "url": "https://www.tnscosmetics.it/"
+          },
+          {
+              "name": "Fixabot",
+              "imageUrl": "fixabot.png",
+              "jobDescription": "Game development @ Global Game Jam 2019",
+              "url": "https://v3.globalgamejam.org/2020/games/fix-bot-7"
+          },
+          {
+              "name": "Drowssap",
+              "imageUrl": "drowssap.png",
+              "jobDescription": "Frontend and web app development @ Bluelabs",
+              "url": "https://www.drowssap.it/"
+          },
+          {
+              "name": "Science for Democracy",
+              "imageUrl": "sfd.png",
+              "jobDescription": "Frontend @ Bluelabs",
+              "url": "https://sciencefordemocracy.org/"
+          },
+          {
+              "name": "Illo.tv",
+              "imageUrl": "illo.png",
+              "jobDescription": "Frontend @ Bluelabs",
+              "url": "https://illo.tv/"
+          },
+          {
+              "name": "Telethon Shop Solidale",
+              "imageUrl": "telethon.jpg",
+              "jobDescription": "Frontend @ Bluelabs",
+              "url": "https://shop.telethon.it/"
+          },
+          {
+              "name": "Dr. Cristiano Giardiello",
+              "imageUrl": "giardiello.jpg",
+              "jobDescription": "Freelance Project",
+              "url": "http://www.cristianogiardiello.it/"
+          },
+          {
+              "name": "Natale Aziende Telethon",
+              "imageUrl": "telethon-natale.jpg",
+              "jobDescription": "Frontend @ Bluelabs",
+              "url": "https://nataleaziende.telethon.it/"
+          },
+          {
+              "name": "Liu Jo \n AI 18",
+              "imageUrl": "liujo.jpg",
+              "jobDescription": "Frontend @ Bluelabs",
+              "url": "https://www.liujouomo.it/preview-autunno-inverno-18/"
+          },
+          {
+              "name": "Masilicò",
+              "imageUrl": "masilico.jpg",
+              "jobDescription": "Frontend @ Bluelabs",
+              "url": "https://www.masilico.com"
+          },
+          {
+              "name": "COOPI",
+              "imageUrl": "coopi.jpg",
+              "jobDescription": "Frontend @ Bluelabs",
+              "url": "https://www.coopi.org/"
+          },
+          {
+              "name": "Un filo invisibile",
+              "imageUrl": "unhcr1.jpg",
+              "jobDescription": "Frontend @ Bluelabs",
+              "url": "https://unfiloinvisibile.unhcr.it/"
+          },
+          {
+              "name": "ONS Onlus",
+              "imageUrl": "ons.jpg",
+              "jobDescription": "Freelance Project",
+              "url": "https://www.onsonlus.it"
+          },
+          {
+              "name": "Eutanasia Legale",
+              "imageUrl": "coscioni.jpg",
+              "jobDescription": "Frontend @ Bluelabs",
+              "url": "https://www.eutanasialegale.it/"
+          },
+          {
+              "name": "CioppiShop",
+              "imageUrl": "cioppi-shop.jpg",
+              "jobDescription": "Frontend @ Emmemedia",
+              "url": "http://www.cioppishop.it/"
+          },
+          {
+              "name": "Maison Signore",
+              "imageUrl": "maison-signore.jpg",
+              "jobDescription": "Frontend @ Emmemedia",
+              "url": "http://www.maisonsignore.it/"
+          },
+          {
+              "name": "Atelier Signore",
+              "imageUrl": "atelier-signore.jpg",
+              "jobDescription": "Frontend @ Emmemedia",
+              "url": "http://www.ateliersignore.it/"
+          },
+          {
+              "name": "Sterilfarma",
+              "imageUrl": "sterilfarma.jpg",
+              "jobDescription": "Frontend @ Emmemedia",
+              "url": "https://www.sterilfarma.it"
+          },
+          {
+              "name": "Christian La Rusca",
+              "imageUrl": "larusca.jpg",
+              "jobDescription": "Frontend @ Emmemedia",
+              "url": "http://www.larusca.it/"
+          },
+          {
+              "name": "AutoScala",
+              "imageUrl": "autoscala.jpg",
+              "jobDescription": "Frontend @ Emmemedia",
+              "url": "http://www.auto-scala.com/"
+          },
+          {
+              "name": "La Terra Degli Aranci",
+              "imageUrl": "la-terra-degli-aranci.jpg",
+              "jobDescription": "Frontend @ Emmemedia",
+              "url": "http://www.laterradegliaranci.it/"
+          },
+          {
+              "name": "Roberto Giannotti",
+              "imageUrl": "roberto-giannotti.jpg",
+              "jobDescription": "Frontend @ Emmemedia",
+              "url": "http://www.robertogiannotti.com/unangelodimamma/"
+          },
+          {
+              "name": "Mario Di Costanzo Pastrychef",
+              "imageUrl": "mario-di-costanzo.jpg",
+              "jobDescription": "Frontend @ Emmemedia",
+              "url": "http://www.mariodicostanzo.it/"
+          },
+          {
+              "name": "Arredare Insieme",
+              "imageUrl": "arredare-insieme.jpg",
+              "jobDescription": "Frontend @ Emmemedia",
+              "url": "http://arredareinsieme.it/"
+          },
+          {
+              "name": "De Vivo Showroom",
+              "imageUrl": "de-vivo.jpg",
+              "jobDescription": "Frontend @ Emmemedia",
+              "url": "http://www.devivoshowroom.it/"
+          },
+          {
+              "name": "Date System",
+              "imageUrl": "date-system.jpg",
+              "jobDescription": "Frontend @ Emmemedia",
+              "url": "http://www.datesystem.eu/"
+          },
+          {
+              "name": "Allutec",
+              "imageUrl": "allutec.jpg",
+              "jobDescription": "Frontend @ Emmemedia",
+              "url": "http://www.allutec.it/"
+          },
+          {
+              "name": "Medical Skin Care",
+              "imageUrl": "medical-skin-care.jpg",
+              "jobDescription": "Frontend @ Emmemedia",
+              "url": "http://www.medicalskincare.it/"
+          },
+          {
+              "name": "Victoria F",
+              "imageUrl": "victoria-f.jpg",
+              "jobDescription": "Frontend @ Emmemedia",
+              "url": "http://victoriaf.it/"
+          },
+          {
+              "name": "Giulloc",
+              "imageUrl": "giulloc.jpg",
+              "jobDescription": "Frontend @ Emmemedia",
+              "url": "http://giulloc.fr/"
+          },
+          {
+              "name": "Centro Keiron",
+              "imageUrl": "centro-keiron.jpg",
+              "jobDescription": "Frontend @ Emmemedia",
+              "url": "http://centro-keiron.com/"
+          },
+          {
+              "name": "Villa Diamante",
+              "imageUrl": "villa-diamante.jpg",
+              "jobDescription": "Frontend @ Emmemedia",
+              "url": "http://www.villadiamante.it/"
+          },
+          {
+              "name": "Didiesse",
+              "imageUrl": "didiesse.jpg",
+              "jobDescription": "Frontend @ Emmemedia",
+              "url": "http://www.didiessesrl.eu/"
+          },
+          {
+              "name": "Radici Firenze",
+              "imageUrl": "radici-firenze.jpg",
+              "jobDescription": "Frontend @ Emmemedia",
+              "url": "http://www.radicifirenze.it/"
+          },
+          {
+              "name": "Tenuta Astroni",
+              "imageUrl": "tenuta-astroni.jpg",
+              "jobDescription": "Frontend @ Emmemedia",
+              "url": "http://www.tenutastroni.it/"
+          }
+      ],
+      "articles": [
+          {
+              "name": "dott. cristiano giardiello: from zero to hero",
+              "imageUrl": "giardiello.jpg",
+              "jobDescription": "Discover the experience that led Dr. Cristiano Giardiello to the publication of his new brand, with his new identity and his new website completely built from scratch.",
+              "url": "/cristiano-giardiello.html"
+          }
+      ]
   },
-  "ogType": {
-    "title": "Joshuarte | Frontend since 1990.",
-    "description": "Frontend since 1990.",
-    "url": "https://www.joshuarte.it",
-    "image": "http://www.joshuarte.it/images/bg.jpg"
-  },
-  "projects": [
-    {
-      "name": "Starcade Productions",
-      "imageUrl": "starcade.png",
-      "jobDescription": "Web development made with Roots.io",
-      "url": "https://www.starcade.it"
-    },
-    {
-      "name": "Imagineed",
-      "imageUrl": "imagineed.png",
-      "jobDescription": "Web application development made with ❤️ and Nuxt.js",
-      "url": "https://www.joshuarte.it/overlordz/"
-    },
-    {
-      "name": "OverlordZ",
-      "imageUrl": "overlordz.png",
-      "jobDescription": "Game design and Development w/game maker studio 2",
-      "url": "https://play.google.com/store/apps/details?id=com.imagineed.overlordz"
-    },
-    {
-      "name": "Città di Empoli",
-      "imageUrl": "cittaempoli.png",
-      "jobDescription": "Custom WordPress Development w/roots.io @WeRad",
-      "url": "https://portalecultura.empoli.gov.it/"
-    },
-    {
-      "name": "TreEffe Group",
-      "imageUrl": "3effe.png",
-      "jobDescription": "Frontend development lead @ WeRad",
-      "url": "https://treeffegroup.it/"
-    },
-    {
-      "name": "TNS Cosmetics",
-      "imageUrl": "tns.png",
-      "jobDescription": "Frontend development and maintenance @ WeRad",
-      "url": "https://www.tnscosmetics.it/"
-    },
-    {
-      "name": "Fixabot",
-      "imageUrl": "fixabot.png",
-      "jobDescription": "Game development @ Global Game Jam 2019",
-      "url": "https://v3.globalgamejam.org/2020/games/fix-bot-7"
-    },
-    {
-      "name": "Drowssap",
-      "imageUrl": "drowssap.png",
-      "jobDescription": "Frontend and web app development @ Bluelabs",
-      "url": "https://www.drowssap.it/"
-    },
-    {
-      "name": "Science for Democracy",
-      "imageUrl": "sfd.png",
-      "jobDescription": "Frontend @ Bluelabs",
-      "url": "https://sciencefordemocracy.org/"
-    },
-    {
-      "name": "Illo.tv",
-      "imageUrl": "illo.png",
-      "jobDescription": "Frontend @ Bluelabs",
-      "url": "https://illo.tv/"
-    },
-    {
-      "name": "Telethon Shop Solidale",
-      "imageUrl": "telethon.jpg",
-      "jobDescription": "Frontend @ Bluelabs",
-      "url": "https://shop.telethon.it/"
-    },
-    {
-      "name": "Dr. Cristiano Giardiello",
-      "imageUrl": "giardiello.jpg",
-      "jobDescription": "Freelance Project",
-      "url": "http://www.cristianogiardiello.it/"
-    },
-    {
-      "name": "Natale Aziende Telethon",
-      "imageUrl": "telethon-natale.jpg",
-      "jobDescription": "Frontend @ Bluelabs",
-      "url": "https://nataleaziende.telethon.it/"
-    },
-    {
-      "name": "Liu Jo \n AI 18",
-      "imageUrl": "liujo.jpg",
-      "jobDescription": "Frontend @ Bluelabs",
-      "url": "https://www.liujouomo.it/preview-autunno-inverno-18/"
-    },
-    {
-      "name": "Masilicò",
-      "imageUrl": "masilico.jpg",
-      "jobDescription": "Frontend @ Bluelabs",
-      "url": "https://www.masilico.com"
-    },
-    {
-      "name": "COOPI",
-      "imageUrl": "coopi.jpg",
-      "jobDescription": "Frontend @ Bluelabs",
-      "url": "https://www.coopi.org/"
-    },
-    {
-      "name": "Un filo invisibile",
-      "imageUrl": "unhcr1.jpg",
-      "jobDescription": "Frontend @ Bluelabs",
-      "url": "https://unfiloinvisibile.unhcr.it/"
-    },
-    {
-      "name": "ONS Onlus",
-      "imageUrl": "ons.jpg",
-      "jobDescription": "Freelance Project",
-      "url": "https://www.onsonlus.it"
-    },
-    {
-      "name": "Eutanasia Legale",
-      "imageUrl": "coscioni.jpg",
-      "jobDescription": "Frontend @ Bluelabs",
-      "url": "https://www.eutanasialegale.it/"
-    },
-    {
-      "name": "CioppiShop",
-      "imageUrl": "cioppi-shop.jpg",
-      "jobDescription": "Frontend @ Emmemedia",
-      "url": "http://www.cioppishop.it/"
-    },
-    {
-      "name": "Maison Signore",
-      "imageUrl": "maison-signore.jpg",
-      "jobDescription": "Frontend @ Emmemedia",
-      "url": "http://www.maisonsignore.it/"
-    },
-    {
-      "name": "Atelier Signore",
-      "imageUrl": "atelier-signore.jpg",
-      "jobDescription": "Frontend @ Emmemedia",
-      "url": "http://www.ateliersignore.it/"
-    },
-    {
-      "name": "Sterilfarma",
-      "imageUrl": "sterilfarma.jpg",
-      "jobDescription": "Frontend @ Emmemedia",
-      "url": "https://www.sterilfarma.it"
-    },
-    {
-      "name": "Christian La Rusca",
-      "imageUrl": "larusca.jpg",
-      "jobDescription": "Frontend @ Emmemedia",
-      "url": "http://www.larusca.it/"
-    },
-    {
-      "name": "AutoScala",
-      "imageUrl": "autoscala.jpg",
-      "jobDescription": "Frontend @ Emmemedia",
-      "url": "http://www.auto-scala.com/"
-    },
-    {
-      "name": "La Terra Degli Aranci",
-      "imageUrl": "la-terra-degli-aranci.jpg",
-      "jobDescription": "Frontend @ Emmemedia",
-      "url": "http://www.laterradegliaranci.it/"
-    },
-    {
-      "name": "Roberto Giannotti",
-      "imageUrl": "roberto-giannotti.jpg",
-      "jobDescription": "Frontend @ Emmemedia",
-      "url": "http://www.robertogiannotti.com/unangelodimamma/"
-    },
-    {
-      "name": "Mario Di Costanzo Pastrychef",
-      "imageUrl": "mario-di-costanzo.jpg",
-      "jobDescription": "Frontend @ Emmemedia",
-      "url": "http://www.mariodicostanzo.it/"
-    },
-    {
-      "name": "Arredare Insieme",
-      "imageUrl": "arredare-insieme.jpg",
-      "jobDescription": "Frontend @ Emmemedia",
-      "url": "http://arredareinsieme.it/"
-    },
-    {
-      "name": "De Vivo Showroom",
-      "imageUrl": "de-vivo.jpg",
-      "jobDescription": "Frontend @ Emmemedia",
-      "url": "http://www.devivoshowroom.it/"
-    },
-    {
-      "name": "Date System",
-      "imageUrl": "date-system.jpg",
-      "jobDescription": "Frontend @ Emmemedia",
-      "url": "http://www.datesystem.eu/"
-    },
-    {
-      "name": "Allutec",
-      "imageUrl": "allutec.jpg",
-      "jobDescription": "Frontend @ Emmemedia",
-      "url": "http://www.allutec.it/"
-    },
-    {
-      "name": "Medical Skin Care",
-      "imageUrl": "medical-skin-care.jpg",
-      "jobDescription": "Frontend @ Emmemedia",
-      "url": "http://www.medicalskincare.it/"
-    },
-    {
-      "name": "Victoria F",
-      "imageUrl": "victoria-f.jpg",
-      "jobDescription": "Frontend @ Emmemedia",
-      "url": "http://victoriaf.it/"
-    },
-    {
-      "name": "Giulloc",
-      "imageUrl": "giulloc.jpg",
-      "jobDescription": "Frontend @ Emmemedia",
-      "url": "http://giulloc.fr/"
-    },
-    {
-      "name": "Centro Keiron",
-      "imageUrl": "centro-keiron.jpg",
-      "jobDescription": "Frontend @ Emmemedia",
-      "url": "http://centro-keiron.com/"
-    },
-    {
-      "name": "Villa Diamante",
-      "imageUrl": "villa-diamante.jpg",
-      "jobDescription": "Frontend @ Emmemedia",
-      "url": "http://www.villadiamante.it/"
-    },
-    {
-      "name": "Didiesse",
-      "imageUrl": "didiesse.jpg",
-      "jobDescription": "Frontend @ Emmemedia",
-      "url": "http://www.didiessesrl.eu/"
-    },
-    {
-      "name": "Radici Firenze",
-      "imageUrl": "radici-firenze.jpg",
-      "jobDescription": "Frontend @ Emmemedia",
-      "url": "http://www.radicifirenze.it/"
-    },
-    {
-      "name": "Tenuta Astroni",
-      "imageUrl": "tenuta-astroni.jpg",
-      "jobDescription": "Frontend @ Emmemedia",
-      "url": "http://www.tenutastroni.it/"
-    }
-  ],
-  "articles": [
-    {
-      "name": "dott. cristiano giardiello: from zero to hero",
-      "imageUrl": "giardiello.jpg",
-      "jobDescription": "Discover the experience that led Dr. Cristiano Giardiello to the publication of his new brand, with his new identity and his new website completely built from scratch.",
-      "url": "/cristiano-giardiello.html"
-    }
-  ]
+  "mnm": {
+      "title": "MOSCANELLAMMERDA",
+      "description": "Vignette e storie dimmerda",
+      "baseURL": "https://www.joshuarte.it/moscanellammerda",
+      "author": "Luca Joshua Mosca",
+      "social": {
+          "discord": "https://discordapp.com/channels/@joshuarte",
+          "linkedin": "https://it.linkedin.com/in/joshuarte",
+          "mail": "joshuarte@gmail.com"
+      },
+      "ogType": {
+          "title": "MOSCANELLAMMERDA",
+          "description": "MOSCANELLAMMERDA",
+          "url": "https://www.joshuarte.it/moscanellammerda",
+          "image": "http://www.joshuarte.it/images/bg.jpg"
+      }
+  }
 }

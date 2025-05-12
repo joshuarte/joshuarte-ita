@@ -2,27 +2,34 @@ import nunjucks from "nunjucks";
 import fs from "fs";
 import path from "path";
 
-export default function nunjucksPlugin({
-  templatesDir = "./src/html",
-  outputFile = "./index.html",
-  context = {},
-} = {}) {
+export default function nunjucksPlugin(pages = []) {
   return {
     name: "vite-plugin-nunjucks",
     apply: "serve",
     configureServer(server) {
       const compile = () => {
-        const env = nunjucks.configure(templatesDir, { autoescape: true });
-        const rendered = env.render("index.njk", context);
-        fs.writeFileSync(outputFile, rendered);
-        console.log(`[nunjucks] Recompiled ${outputFile}`);
+        const env = nunjucks.configure(pages[0].templatesDir, {
+          autoescape: true,
+        });
+
+        pages.forEach(({ templateFile, outputFile, context }) => {
+          const rendered = env.render(templateFile, context);
+
+          // In modalità DEV, salva nella root del progetto
+          fs.writeFileSync(outputFile, rendered);
+          console.log(`[nunjucks] Compiled ${templateFile} → ${outputFile}`);
+        });
       };
 
       compile();
 
-      server.watcher.add(templatesDir);
+      // Listener per il watch di tutte le directory di template
+      pages.forEach(({ templatesDir }) => {
+        server.watcher.add(templatesDir);
+      });
+
       server.watcher.on("change", (file) => {
-        if (file.startsWith(templatesDir)) {
+        if (pages.some(({ templatesDir }) => file.startsWith(templatesDir))) {
           compile();
         }
       });
