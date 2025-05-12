@@ -37,6 +37,10 @@
                 &:after {
                     opacity: 0;
                 }
+
+                img {
+                    filter: grayscale(100%);
+                }
             }
         }
         
@@ -48,10 +52,6 @@
     .item {
         display: block;
         transition: background .5s ease;
-
-        img {
-            filter: grayscale(100%);
-        }
 
         .caption {
             position: absolute;
@@ -65,13 +65,16 @@
             flex-direction: column;
             padding: 25px;
             text-align: left;
-            width: 50%;
+            width: 65%;
 
             p {
                 transition: all .5s ease;
                 display: flex;
                 align-items: center;
                 font-weight: bold;
+                color: white;
+                line-height: 1.2;
+                margin-top: 10px;
 
                 .fa {
                     color: #ddd;
@@ -106,14 +109,14 @@
         }
 
         &:after {
-            background: linear-gradient(to right, #fff, #fff);
+            background: linear-gradient(to right, black, #fff);
             content: '';
             display: block;
             height: 100%;
             position: absolute;
             top: 0;
             left: 0;
-            opacity: 0.75;
+            opacity: 0.6;
             width: 100%;
             z-index: 2;
             transition: all .5s ease;

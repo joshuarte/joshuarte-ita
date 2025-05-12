@@ -7,6 +7,7 @@
       "social": {
           "discord": "https://discordapp.com/channels/@joshuarte",
           "linkedin": "https://it.linkedin.com/in/joshuarte",
+          "instagram": "https://www.instagram.com/moscanellammerda/",
           "mail": "joshuarte@gmail.com"
       },
       "ogType": {
@@ -16,6 +17,36 @@
           "image": "http://www.joshuarte.it/images/bg.jpg"
       },
       "projects": [
+            {
+                "name": "Fanpage",
+                "imageUrl": "fanpage.png",
+                "jobDescription": "Web Components & Software development - Design System Mantainer - Performance and a11y expert @ Ciaopeople",
+                "url": "https://www.fanpage.it"
+            },
+            {
+                "name": "Geopop",
+                "imageUrl": "geopop.png",
+                "jobDescription": "Web Components & Software development - Design System Mantainer - Performance and a11y expert @ Ciaopeople",
+                "url": "https://www.geopop.it"
+            },
+            {
+                "name": "Kodami",
+                "imageUrl": "kodami.png",
+                "jobDescription": "Web Components & Software development - Design System Mantainer - Performance and a11y expert @ Ciaopeople",
+                "url": "https://www.kodami.it"
+            },
+            {
+                "name": "Lexplain",
+                "imageUrl": "lexplain.png",
+                "jobDescription": "Web Components & Software development - Design System Mantainer - Performance and a11y expert @ Ciaopeople",
+                "url": "https://www.lexplain.it"
+            },
+            {
+                "name": "Ohga",
+                "imageUrl": "ohga.png",
+                "jobDescription": "Web Components & Software development - Design System Mantainer - Performance and a11y expert @ Ciaopeople",
+                "url": "https://www.ohga.it"
+            },
           {
               "name": "Starcade Productions",
               "imageUrl": "starcade.png",
