@@ -31,7 +31,13 @@
     ></script>
     <!-- End Open Graph Protocol -->
     <title>{{title}}</title>
+    
+    <!-- Stili critici per il loader -->
+    {% include "shared/critical-styles.njk" %}
+    
+    <!-- Stili non critici -->
     <link rel="stylesheet" href="stylesheets/app.css" />
+    
     <!-- Google tag (gtag.js) -->
     <script
       async
