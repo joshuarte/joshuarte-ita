@@ -34,4 +34,18 @@ export default defineConfig({
       },
     },
   ],
+  server: {
+    hmr: {
+      overlay: true,
+    },
+    watch: {
+      usePolling: true,
+      interval: 100,
+      ignored: ['**/node_modules/**']
+    },
+    fs: {
+      strict: false,
+      allow: ['..']
+    }
+  },
 });
