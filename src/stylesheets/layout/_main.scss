@@ -1,14 +1,4 @@
-.loader {
-    position: fixed;
-    z-index: 999;
-    top: 0;
-    left: 50%;
-    right: 50%;
-    height: 0%;
-	width: 5px;
-	transform-origin: center;
-    background: linear-gradient(to bottom, #c2321f, #5ecbe6);
-}
+
 .main-container {
 	display: flex;
 	align-items: stretch;
@@ -20,28 +10,12 @@
 	.inner {
 		width: 100%;
 		height: auto;
-	}
-	#left-mask {
-		position: absolute;
-		right: 0;
-		width: 100%;
-		height: 100%;
-		content: "";
-		background: #fff;
-		z-index: 9;
-		transition: width .5s ease;
-		animation-timing-function: ease-in-out;
-	}
-	#right-mask {
-		position: absolute;
-		right: 0;
-		width: 100%;
-		height: 100%;
-		content: "";
-		background: #fff;
-		z-index: 9;
-		transition: width .5s ease;
-		animation-timing-function: ease-in-out;
+		.list-inline {
+			padding-bottom: 40px;
+			display: flex;
+    		align-items: center;
+    		gap: 10px;
+		}
 	}
 	.left {
 		background: url(../images/bg.jpg) no-repeat top center;
@@ -54,7 +28,6 @@
 		height: 70vh;
 		min-height: 450px;
         z-index: 5;
-		padding-bottom: 40px;
 
 		&--giardiello {
 			background: url(../images/projects/giardiello.jpg) no-repeat top right !important;

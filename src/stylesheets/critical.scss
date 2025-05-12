@@ -1,27 +1,90 @@
 @charset 'utf-8';
 
+// Variables
+$loader-width: 5px;
+$loader-gradient: linear-gradient(to bottom, #c2321f, #5ecbe6);
+$transition-timing: .5s ease;
+
+// Mixins
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == 'large' {
+    @media (min-width: 1024px) {
+      @content;
+    }
+  }
+}
+
+// Loader
+.loader {
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 50%;
+  right: 50%;
+  height: 0%;
+  width: $loader-width;
+  transform-origin: center;
+  background: $loader-gradient;
+}
+
+// Popup
+.popup {
+  transition: all $transition-timing;
+  width: 100%;
+  position: fixed;
+  z-index: 99;
+  left: 0;
+  height: 100vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  background: #fff;
+  transform: translateX(-100%);
+  padding: 40px;
+
+  @include respond-to('large') {
+    width: 50%;
+  }
+
+  &::-webkit-scrollbar {
+    width: $loader-width;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $loader-gradient;
+  }
+
+  &::-webkit-scrollbar-thumb:window-inactive {
+    background: $loader-gradient;
+  }
+
+  &.fadeInDown {
+    transform: translateX(0%);
+  }
+}
+
+// Masks
+%mask-base {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  content: "";
+  background: #fff;
+  z-index: 9;
+  transition: width $transition-timing;
+  animation-timing-function: ease-in-out;
+}
+
 #left-mask {
-  position: absolute;
-  right: 0;
-  width: 100%;
-  height: 100%;
-  content: "";
-  background: #fff;
-  z-index: 9;
-  transition: width .5s ease;
-  animation-timing-function: ease-in-out;
+  @extend %mask-base;
 }
+
 #right-mask {
-  position: absolute;
-  right: 0;
-  width: 100%;
-  height: 100%;
-  content: "";
-  background: #fff;
-  z-index: 9;
-  transition: width .5s ease;
-  animation-timing-function: ease-in-out;
+  @extend %mask-base;
 }
+
+// Utility classes
 .prova {
-  color: green
+  color: green;
 }

@@ -34,20 +34,52 @@
     
     <!-- Stili critici per il loader -->
     <style>
-#left-mask {
-  position: absolute;
-  right: 0;
-  width: 100%;
-  height: 100%;
-  content: "";
-  background: #fff;
-  z-index: 9;
-  transition: width 0.5s ease;
-  animation-timing-function: ease-in-out;
+.loader {
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 50%;
+  right: 50%;
+  height: 0%;
+  width: 5px;
+  transform-origin: center;
+  background: linear-gradient(to bottom, #c2321f, #5ecbe6);
 }
 
-#right-mask {
-  position: absolute;
+.popup {
+  transition: all 0.5s ease;
+  width: 100%;
+  position: fixed;
+  z-index: 99;
+  left: 0;
+  height: 100vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  background: #fff;
+  transform: translateX(-100%);
+  padding: 40px;
+}
+@media (min-width: 1024px) {
+  .popup {
+    width: 50%;
+  }
+}
+.popup::-webkit-scrollbar {
+  width: 5px;
+}
+.popup::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #c2321f, #5ecbe6);
+}
+.popup::-webkit-scrollbar-thumb:window-inactive {
+  background: linear-gradient(to bottom, #c2321f, #5ecbe6);
+}
+.popup.fadeInDown {
+  transform: translateX(0%);
+}
+
+#right-mask, #left-mask {
+  position: fixed;
+  top: 0;
   right: 0;
   width: 100%;
   height: 100%;
@@ -117,7 +149,7 @@
   <div id="right-mask"></div>
   <div class="content">
     <div class="row module__bottom">
-      <div class="col-sm-10 col-sm-offset-2 module-notop">
+      <div class="col-sm-10 offset-sm-2 module-notop">
         <svg
           class="logo"
           version="1.1"
@@ -334,8 +366,8 @@
     </div>
 
     <div class="row module__bottom">
-      <div class="col-sm-10 col-sm-offset-2">
-        <p class="h-align-left hidden-xs hidden-sm">
+      <div class="col-sm-10 offset-sm-2">
+        <p class="h-align-left ">
           <a href="#" data-module="modalToggle"> <strong>privacy</strong> </a
           >&nbsp; | &copy;2019 - &nbsp;
           <svg
@@ -377,8 +409,8 @@
     </div>
 
     <div class="row">
-      <div class="col-sm-8 col-sm-offset-2">
-        <nav class="btn-transition hidden-xs">
+      <div class="col-sm-8 offset-sm-2">
+        <nav class="btn-transition d-none d-sm-block">
           <a
             href="#"
             id="show-portfolio"
@@ -393,9 +425,9 @@
   </div>
 </div>
 
-<div class="main-container right visible-xs">
+<div class="main-container right 	d-block d-sm-none">
   <div class="content">
-    <h3 class="visible-xs">&lt;latest works/&gt;</h3>
+    <h3 class="	d-block d-sm-none">&lt;latest works/&gt;</h3>
   </div>
 </div>
 
@@ -1046,8 +1078,8 @@
 
 
   </div>
-  <div class="clearfix  hidden-xs">&nbsp;</div>
-  <nav class="btn-transition hidden-xs">
+  <div class="clearfix  d-none d-sm-block">&nbsp;</div>
+  <nav class="btn-transition d-none d-sm-block">
     <div class="content">
       <a
         href="#"
@@ -1059,9 +1091,14 @@
       </a>
     </div>
   </nav>
-  <nav class="btn-transition visible-xs">
+  <nav class="btn-transition 	d-block d-sm-none">
     <div class="content">
-      <a data-module="scrollTop" data-hover="BACK TO BIO">
+      <a
+        href="#"
+        id="show-bio"
+        data-hover="BACK TO BIO"
+        data-module="scrollTop"
+      >
         <span>BACK TO BIO</span>
       </a>
     </div>
