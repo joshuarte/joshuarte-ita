@@ -1,3 +1,3 @@
-import "../src/stylesheets/app.scss";
-import "../src/javascripts/app";
+import "./stylesheets/app.scss";
+import "./javascripts/app";
 console.log("vite carica");

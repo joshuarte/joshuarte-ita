@@ -1,4 +1,16 @@
 <style>
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
 .loader {
   position: fixed;
   z-index: 999;
@@ -33,9 +45,6 @@
   width: 5px;
 }
 .popup::-webkit-scrollbar-thumb {
-  background: linear-gradient(to bottom, #c2321f, #5ecbe6);
-}
-.popup::-webkit-scrollbar-thumb:window-inactive {
   background: linear-gradient(to bottom, #c2321f, #5ecbe6);
 }
 .popup.fadeInDown {

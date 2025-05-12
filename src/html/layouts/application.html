@@ -1,36 +1,40 @@
 <!DOCTYPE html>
 <html lang="it">
   <head>
+    <meta charset="UTF-8">
     <meta name="google-adsense-account" content="ca-pub-7716592172266156" />
-    <script
-      async
-      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7716592172266156"
-      crossorigin="anonymous"
-    ></script>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta
-      name="viewport"
-      content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="{{ description }}" />
     <meta name="author" content="{{ author }}" />
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="{{ogType.url}}" />
+    
     <!-- Open Graph Protocol -->
     <meta property="og:title" content="{{ogType.title}}" />
     <meta property="og:description" content="{{ogType.description}}" />
     <meta property="og:url" content="{{ogType.url}}" />
     <meta property="og:image" content="{{ogType.image}}" />
-    <link
-      href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600"
-      rel="stylesheet"
-    />
-    <script
-      type="text/javascript"
-      charset="UTF-8"
-      src="http://www.joshuarte.it/cookie.js"
-    ></script>
-    <!-- End Open Graph Protocol -->
+    <meta property="og:type" content="website" />
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="{{ogType.title}}" />
+    <meta name="twitter:description" content="{{ogType.description}}" />
+    <meta name="twitter:image" content="{{ogType.image}}" />
+    
     <title>{{title}}</title>
+    
+    <!-- Preload fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600&display=swap" rel="stylesheet" />
+    
+    <!-- Preload critical scripts -->
+    <link rel="preload" href="https://www.joshuarte.it/cookie.js" as="script" />
+    
+    <!-- Preload strategy for LCP images -->
+    <link rel="preload" as="image" href="/images/bg.jpg" fetchpriority="high">
     
     <!-- Stili critici per il loader -->
     {% include "shared/critical-styles.njk" %}
@@ -38,28 +42,51 @@
     <!-- Stili non critici -->
     <link rel="stylesheet" href="stylesheets/app.css" />
     
-    <!-- Google tag (gtag.js) -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-W7H28M8MDY"
-    ></script>
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Luca Joshua Mosca",
+      "url": "{{ogType.url}}",
+      "jobTitle": "Senior Developer e Game Designer",
+      "knowsAbout": ["Frontend Development", "Game Design", "UI/UX", "Web Development"],
+      "sameAs": [
+        "https://discordapp.com/channels/@joshuarte",
+        "https://it.linkedin.com/in/joshuarte"
+      ]
+    }
+    </script>
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-W7H28M8MDY"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
+      function gtag() { dataLayer.push(arguments); }
       gtag("js", new Date());
       gtag("config", "G-W7H28M8MDY");
     </script>
+    
+    <!-- AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7716592172266156" crossorigin="anonymous"></script>
+    
+    <!-- Cookie script con HTTPS -->
+    <script async src="https://www.joshuarte.it/cookie.js"></script>
 
-    {% include "shared/app-icons.html" %} {% block head %}{% endblock %}
+    {% include "shared/app-icons.html" %}
+    {% block head %}{% endblock %}
   </head>
 
   <body id="page-top" data-module="ctrl">
     <div class="loader"></div>
-    {% block content %}{% endblock %} {% block javascript %} {% endblock %}
+    
+    <main>
+      {% block content %}{% endblock %}
+    </main>
+    
+    {% block javascript %}{% endblock %}
 
-    <!-- AGGIUNGI QUESTO -->
+    <!-- Script modulare -->
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>

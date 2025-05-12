@@ -53,6 +53,22 @@
         display: block;
         transition: background .5s ease;
 
+        img {
+            transition: opacity 0.5s ease-in-out;
+            opacity: 1;
+            
+            &.lazy-image {
+                opacity: 0;
+                transform: translateY(10px);
+                transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+                
+                &.loaded {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+        }
+
         .caption {
             position: absolute;
             top: 0;
@@ -156,7 +172,7 @@
     }
 
     &::-webkit-scrollbar {
-        width: 25px;
+        width: 5px;
         cursor: -webkit-grab;
     }
 
@@ -166,11 +182,6 @@
         } */
     /* Handle */
     &::-webkit-scrollbar-thumb {
-        background: linear-gradient(to bottom, #c2321f, #5ecbe6);
-        cursor: -webkit-grab;
-    }
-
-    &::-webkit-scrollbar-thumb:window-inactive {
         background: linear-gradient(to bottom, #c2321f, #5ecbe6);
         cursor: -webkit-grab;
     }

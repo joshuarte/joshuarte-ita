@@ -5,7 +5,9 @@ import path from "path";
 export default function nunjucksPlugin(pages = []) {
   return {
     name: "vite-plugin-nunjucks",
-    apply: "serve",
+    // Applichiamo per entrambe le modalità: sviluppo e build
+    apply: 'serve',
+
     configureServer(server) {
       const compile = () => {
         const env = nunjucks.configure(pages[0].templatesDir, {
@@ -14,8 +16,17 @@ export default function nunjucksPlugin(pages = []) {
         });
 
         pages.forEach(({ templateFile, outputFile, context }) => {
-          const rendered = env.render(templateFile, context);
+          // Support context as a function to get fresh data
+          const contextData = typeof context === 'function' ? context() : context;
+          const rendered = env.render(templateFile, contextData);
           const outputPath = path.resolve(outputFile);
+          
+          // Assicuriamoci che la directory esista
+          const outputDir = path.dirname(outputPath);
+          if (!fs.existsSync(outputDir)) {
+            fs.mkdirSync(outputDir, { recursive: true });
+          }
+          
           fs.writeFileSync(outputPath, rendered);
           console.log(`[nunjucks] Compiled ${templateFile} → ${outputFile}`);
         });
@@ -67,5 +78,31 @@ export default function nunjucksPlugin(pages = []) {
         next();
       });
     },
+    
+    // Aggiungiamo un hook per la build mode per compilare i template anche durante il build
+    buildStart() {
+      if (process.env.NODE_ENV === 'production' || process.env.NODE_ENV === undefined) {
+        console.log('Compilazione dei template in modalità build...');
+        const env = nunjucks.configure(pages[0].templatesDir, {
+          autoescape: true
+        });
+
+        pages.forEach(({ templateFile, outputFile, context }) => {
+          // Support context as a function to get fresh data
+          const contextData = typeof context === 'function' ? context() : context;
+          const rendered = env.render(templateFile, contextData);
+          const outputPath = path.resolve(outputFile);
+          
+          // Assicuriamoci che la directory esista
+          const outputDir = path.dirname(outputPath);
+          if (!fs.existsSync(outputDir)) {
+            fs.mkdirSync(outputDir, { recursive: true });
+          }
+          
+          fs.writeFileSync(outputPath, rendered);
+          console.log(`[build] Compiled ${templateFile} → ${outputFile}`);
+        });
+      }
+    }
   };
 }

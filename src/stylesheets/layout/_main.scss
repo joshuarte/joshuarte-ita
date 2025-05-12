@@ -34,6 +34,10 @@
 			padding-left: 20px;
 		}
 
+		p {
+			color: white;
+		}
+
 		&--giardiello {
 			background: url(../images/projects/giardiello.jpg) no-repeat top right !important;
 			background-size: cover !important;
@@ -71,7 +75,6 @@
 			position: fixed;
 			left: 0;
 			overflow: hidden;
-			background: url(../images/bg.png) no-repeat center 10%, #5ecbe6;
 			background-size: cover;
 			display: flex;
 			flex-direction: column;
@@ -96,9 +99,14 @@
 				padding: 40px;
 				height: 100%;
 			}
-			h2 {
-				width: 9.1vw;
-				background: linear-gradient(to right, #c2321f, #5ecbe6);
+
+			.section-heading {
+				color: black;
+				width: auto;
+				font-weight: bold;
+				background-color: transparent;
+				position: sticky;
+				top: 0px;
 			}
 		}
 	}

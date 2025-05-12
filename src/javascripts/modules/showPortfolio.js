@@ -25,6 +25,7 @@ export default class showPortfolio {
         var sideNav = document.querySelectorAll('.right')[0];
 
         this.el.addEventListener('click', function(event){
+            event.preventDefault();
             sideNav.classList.toggle("slideOutRight");
         })
     }

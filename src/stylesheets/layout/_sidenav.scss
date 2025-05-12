@@ -12,40 +12,66 @@
     padding-bottom: 30px;
 }
 
+// Contenitore esterno che conterrà sia il contenuto scrollabile che le sfumature
+.scrolling-content-wrapper {
+    position: relative;
+    // Assicuriamoci che il contenitore abbia un'altezza fissa per permettere lo scroll
+    @include respond-to('medium') {
+        max-height: 60vh; // Altezza del 60% della viewport
+        position: relative;
+        
+        // Sfumatura superiore fissa
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 30px;
+            background: linear-gradient(to bottom, #fff, rgba(255,255,255,0));
+            z-index: 10;
+            pointer-events: none; // Permette di interagire con i contenuti sottostanti
+        }
+        
+        // Sfumatura inferiore fissa
+        &::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 50px;
+            background: linear-gradient(to top, #fff, rgba(255,255,255,0));
+            z-index: 10;
+            pointer-events: none; // Permette di interagire con i contenuti sottostanti
+        }
+    }
+}
+
+// Contenuto scrollabile interno
 .scrolling-content {
     @include respond-to('medium') {
-        overflow-y: scroll;
+        overflow-y: auto;
         overflow-x: hidden;
-        padding-right: 5px;
-        position: relative;
-
+        max-height: 60vh; // La stessa altezza del contenitore
+        padding-right: 15px; // Spazio per la scrollbar
+        padding-top: 25px; // Spazio per la sfumatura superiore
+        padding-bottom: 25px; // Spazio per la sfumatura inferiore
+        
         &::-webkit-scrollbar {
             width: 5px;
         }
 
-        /* Track */
-        /* &::-webkit-scrollbar-track {
-            -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-        } */
         /* Handle */
         &::-webkit-scrollbar-thumb {
             background: linear-gradient(to bottom, #c2321f, #5ecbe6);
+            border-radius: 5px;
         }
 
-        &::-webkit-scrollbar-thumb:window-inactive {
-            background: linear-gradient(to bottom, #c2321f, #5ecbe6);
-        }
 
-        /* &:after {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-            height: 40px;
-            background: linear-gradient(to bottom, transparent, #fff);
-        } */
     }
 
+    // Stili comuni per tutti i dispositivi
     ul {
         list-style: none;
 
@@ -64,5 +90,29 @@
                 width: 50%;
             }
         }
+    }
+}
+
+// Versione mobile
+@include respond-to('xsmall-only') {
+    .scrolling-content-wrapper {
+        position: relative;
+        
+        // Sfumatura inferiore per mobile
+        &::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 40px;
+            background: linear-gradient(to top, #fff, rgba(255,255,255,0));
+            z-index: 10;
+            pointer-events: none;
+        }
+    }
+    
+    .scrolling-content {
+        padding-bottom: 20px;
     }
 }

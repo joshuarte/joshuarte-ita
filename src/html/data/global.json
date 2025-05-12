@@ -1,7 +1,7 @@
 {
   "home": {
-      "title": "JOSHUARTE",
-      "description": "Frontend since 1990.",
+      "title": "JOSHUARTE | Frontend Developer & UI/UX Designer",
+      "description": "Senior Frontend Developer & UI/UX Designer specializzato in JavaScript, React, Vue.js, Web Performance e Accessibilità. Portfolio di progetti web e game development.",
       "baseURL": "https://www.joshuarte.it",
       "author": "Luca Joshua Mosca",
       "social": {
@@ -11,280 +11,280 @@
           "mail": "joshuarte@gmail.com"
       },
       "ogType": {
-          "title": "Joshuarte | Frontend since 1990.",
-          "description": "Frontend since 1990.",
+          "title": "Joshuarte | Frontend Developer & UI/UX Designer | Portfolio",
+          "description": "Portfolio di Luca Joshua Mosca, Senior Frontend Developer & UI/UX Designer con 12+ anni di esperienza in web development, responsive design, JavaScript e game development.",
           "url": "https://www.joshuarte.it",
-          "image": "http://www.joshuarte.it/images/bg.jpg"
+          "image": "https://www.joshuarte.it/images/bg.jpg"
       },
       "projects": [
             {
                 "name": "Fanpage",
                 "imageUrl": "fanpage.png",
-                "jobDescription": "Web Components & Software development - Design System Mantainer - Performance and a11y expert @ Ciaopeople",
+                "jobDescription": "Lead mantenitore dei Web Components, ottimizzazione Core Web Vitals, sviluppo pannelli amministrazione e implementazione Design System accessibile WCAG 2.1 @ Ciaopeople",
                 "url": "https://www.fanpage.it"
             },
             {
                 "name": "Geopop",
                 "imageUrl": "geopop.png",
-                "jobDescription": "Web Components & Software development - Design System Mantainer - Performance and a11y expert @ Ciaopeople",
+                "jobDescription": "Sviluppo frontend responsive, ingegnerizzazione componenti riutilizzabili, miglioramento SEO e implementazione monitoraggio performance in real-time @ Ciaopeople",
                 "url": "https://www.geopop.it"
             },
             {
                 "name": "Kodami",
                 "imageUrl": "kodami.png",
-                "jobDescription": "Web Components & Software development - Design System Mantainer - Performance and a11y expert @ Ciaopeople",
+                "jobDescription": "Architettura JavaScript modulare, ottimizzazione pagespeed, sviluppo componenti per CMS e implementazione standard di accessibilità per contenuti media @ Ciaopeople",
                 "url": "https://www.kodami.it"
             },
             {
                 "name": "Lexplain",
                 "imageUrl": "lexplain.png",
-                "jobDescription": "Web Components & Software development - Design System Mantainer - Performance and a11y expert @ Ciaopeople",
+                "jobDescription": "Progettazione architettura frontend scalabile, integrazione API RESTful, ottimizzazione mobile-first e sviluppo pannello amministrativo per gestione contenuti @ Ciaopeople",
                 "url": "https://www.lexplain.it"
             },
             {
                 "name": "Ohga",
                 "imageUrl": "ohga.png",
-                "jobDescription": "Web Components & Software development - Design System Mantainer - Performance and a11y expert @ Ciaopeople",
+                "jobDescription": "Redesign UI/UX completo, implementazione PWA con service worker, ottimizzazione caricamento lazy e misurazione dati di performance per analytics @ Ciaopeople",
                 "url": "https://www.ohga.it"
             },
           {
               "name": "Starcade Productions",
               "imageUrl": "starcade.png",
-              "jobDescription": "Web development made with Roots.io",
+              "jobDescription": "Sviluppo web completo, architettura frontend/backend e implementazione CMS Headless con Roots.io e WordPress",
               "url": "https://www.starcade.it"
           },
           {
               "name": "Imagineed",
               "imageUrl": "imagineed.png",
-              "jobDescription": "Web application development made with ❤️ and Nuxt.js",
+              "jobDescription": "Sviluppo web app con Vue.js e Nuxt.js, implementazione JAMstack, ottimizzazione SEO e performance",
               "url": "https://www.joshuarte.it/overlordz/"
           },
           {
               "name": "OverlordZ",
               "imageUrl": "overlordz.png",
-              "jobDescription": "Game design and Development w/game maker studio 2",
+              "jobDescription": "Sviluppo completo gioco mobile e sito web: game design, programmazione GameMaker Studio 2, UI/UX, grafica 2D e identity design per marketing digitale",
               "url": "https://play.google.com/store/apps/details?id=com.imagineed.overlordz"
           },
           {
               "name": "Città di Empoli",
               "imageUrl": "cittaempoli.png",
-              "jobDescription": "Custom WordPress Development w/roots.io @WeRad",
+              "jobDescription": "Sviluppo WordPress custom per PA, implementazione tema responsive conforme a requisiti AgID, ottimizzazione SEO e accessibilità completa WCAG 2.1 @ WeRad",
               "url": "https://portalecultura.empoli.gov.it/"
           },
           {
               "name": "TreEffe Group",
               "imageUrl": "3effe.png",
-              "jobDescription": "Frontend development lead @ WeRad",
+              "jobDescription": "Lead sviluppo frontend, architettura CSS/SCSS con metodologia BEM, ottimizzazione cross-browser e implementazione design responsive con principi atomic design @ WeRad",
               "url": "https://treeffegroup.it/"
           },
           {
               "name": "TNS Cosmetics",
               "imageUrl": "tns.png",
-              "jobDescription": "Frontend development and maintenance @ WeRad",
+              "jobDescription": "Sviluppo frontend e-commerce, ottimizzazione UX per aumentare conversioni, implementazione responsive e integrazioni API per gestione catalogo prodotti @ WeRad",
               "url": "https://www.tnscosmetics.it/"
           },
           {
               "name": "Fixabot",
               "imageUrl": "fixabot.png",
-              "jobDescription": "Game development @ Global Game Jam 2019",
+              "jobDescription": "Sviluppo completo del gioco: concept design, programmazione JavaScript/Canvas, creazione asset grafici, level design e implementazione fisica del movimento @ Global Game Jam 2019",
               "url": "https://v3.globalgamejam.org/2020/games/fix-bot-7"
           },
           {
               "name": "Drowssap",
               "imageUrl": "drowssap.png",
-              "jobDescription": "Frontend and web app development @ Bluelabs",
+              "jobDescription": "Sviluppo web app SPA con Vue.js, implementazione sicurezza avanzata per gestione password, autenticazione OAuth e ottimizzazione performance @ Bluelabs",
               "url": "https://www.drowssap.it/"
           },
           {
               "name": "Science for Democracy",
               "imageUrl": "sfd.png",
-              "jobDescription": "Frontend @ Bluelabs",
+              "jobDescription": "Sviluppo frontend con React, implementazione UX accessibile, ottimizzazione multilingua, audit SEO e ottimizzazione performance mobile @ Bluelabs",
               "url": "https://sciencefordemocracy.org/"
           },
           {
               "name": "Illo.tv",
               "imageUrl": "illo.png",
-              "jobDescription": "Frontend @ Bluelabs",
+              "jobDescription": "Sviluppo frontend per piattaforma video, ottimizzazione streaming e buffer, implementazione responsive per visualizzazione su tutti i dispositivi e accessibilità contenuti @ Bluelabs",
               "url": "https://illo.tv/"
           },
           {
               "name": "Telethon Shop Solidale",
               "imageUrl": "telethon.jpg",
-              "jobDescription": "Frontend @ Bluelabs",
+              "jobDescription": "Sviluppo frontend pixel perfect, implementazione pagine di donazione ottimizzate per conversione, integrazione con gateway di pagamento e testing cross-browser @ Bluelabs",
               "url": "https://shop.telethon.it/"
           },
           {
               "name": "Dr. Cristiano Giardiello",
               "imageUrl": "giardiello.jpg",
-              "jobDescription": "Freelance Project",
+              "jobDescription": "Progetto freelance completo: UX/UI design, sviluppo frontend/backend, ottimizzazione SEO per settore medico e implementazione sistema di prenotazione",
               "url": "http://www.cristianogiardiello.it/"
           },
           {
               "name": "Natale Aziende Telethon",
               "imageUrl": "telethon-natale.jpg",
-              "jobDescription": "Frontend @ Bluelabs",
+              "jobDescription": "Sviluppo frontend con particolare attenzione alla pixel perfection, landing page con alta conversione e integrazione con sistema CRM per tracciamento donazioni @ Bluelabs",
               "url": "https://nataleaziende.telethon.it/"
           },
           {
               "name": "Liu Jo \n AI 18",
               "imageUrl": "liujo.jpg",
-              "jobDescription": "Frontend @ Bluelabs",
+              "jobDescription": "Sviluppo frontend per campagna stagionale, ottimizzazione animazioni CSS/JS, implementazione responsive e integrazione analytics per monitoraggio conversioni @ Bluelabs",
               "url": "https://www.liujouomo.it/preview-autunno-inverno-18/"
           },
           {
               "name": "Masilicò",
               "imageUrl": "masilico.jpg",
-              "jobDescription": "Frontend @ Bluelabs",
+              "jobDescription": "Sviluppo frontend con focus su UI moderna, implementazione effetti parallax, ottimizzazione tempi di caricamento e responsive design per piattaforma editoriale @ Bluelabs",
               "url": "https://www.masilico.com"
           },
           {
               "name": "COOPI",
               "imageUrl": "coopi.jpg",
-              "jobDescription": "Frontend @ Bluelabs",
+              "jobDescription": "Frontend per organizzazione non profit, ottimizzazione form donazioni, implementazione UX accessibile e multilingua con supporto RTL per arabo @ Bluelabs",
               "url": "https://www.coopi.org/"
           },
           {
               "name": "Un filo invisibile",
               "imageUrl": "unhcr1.jpg",
-              "jobDescription": "Frontend @ Bluelabs",
+              "jobDescription": "Sviluppo frontend per campagna UNHCR, landing page ottimizzata per conversioni, storytelling interattivo e implementazione donazioni ricorrenti @ Bluelabs",
               "url": "https://unfiloinvisibile.unhcr.it/"
           },
           {
               "name": "ONS Onlus",
               "imageUrl": "ons.jpg",
-              "jobDescription": "Freelance Project",
+              "jobDescription": "Progetto freelance completo: sviluppo WordPress, tema custom accessibile, ottimizzazione SEO per il terzo settore e implementazione sistema donazioni",
               "url": "https://www.onsonlus.it"
           },
           {
               "name": "Eutanasia Legale",
               "imageUrl": "coscioni.jpg",
-              "jobDescription": "Frontend @ Bluelabs",
+              "jobDescription": "Frontend per campagna associazione Luca Coscioni, ottimizzazione form firme online, implementazione UX per aumento conversioni e supporto mobile @ Bluelabs",
               "url": "https://www.eutanasialegale.it/"
           },
           {
               "name": "CioppiShop",
               "imageUrl": "cioppi-shop.jpg",
-              "jobDescription": "Frontend @ Emmemedia",
+              "jobDescription": "Sviluppo frontend e-commerce con standard W3C, ottimizzazione pagine prodotto, accessibilità WCAG e implementazione funnel di acquisto ottimizzato @ Emmemedia",
               "url": "http://www.cioppishop.it/"
           },
           {
               "name": "Maison Signore",
               "imageUrl": "maison-signore.jpg",
-              "jobDescription": "Frontend @ Emmemedia",
+              "jobDescription": "Frontend responsive con particolare attenzione ai dettagli di design, ottimizzazione caricamento immagini, SEO per settore moda e accessibilità @ Emmemedia",
               "url": "http://www.maisonsignore.it/"
           },
           {
               "name": "Atelier Signore",
               "imageUrl": "atelier-signore.jpg",
-              "jobDescription": "Frontend @ Emmemedia",
+              "jobDescription": "Sviluppo frontend per brand di lusso, implementazione gallery prodotti ottimizzata, standard W3C e compatibilità cross-browser su dispositivi mobile e desktop @ Emmemedia",
               "url": "http://www.ateliersignore.it/"
           },
           {
               "name": "Sterilfarma",
               "imageUrl": "sterilfarma.jpg",
-              "jobDescription": "Frontend @ Emmemedia",
+              "jobDescription": "Frontend per sito farmaceutico, implementazione catalogo prodotti conforme a normative di settore, ottimizzazione SEO e accessibilità per utenti con disabilità @ Emmemedia",
               "url": "https://www.sterilfarma.it"
           },
           {
               "name": "Christian La Rusca",
               "imageUrl": "larusca.jpg",
-              "jobDescription": "Frontend @ Emmemedia",
+              "jobDescription": "Sviluppo frontend portfolio fotografo, ottimizzazione gallerie immagini, lazy loading avanzato e responsive design per diversi formati fotografici @ Emmemedia",
               "url": "http://www.larusca.it/"
           },
           {
               "name": "AutoScala",
               "imageUrl": "autoscala.jpg",
-              "jobDescription": "Frontend @ Emmemedia",
+              "jobDescription": "Frontend per concessionaria auto, implementazione catalogo veicoli W3C compliant, filtri di ricerca avanzati e ottimizzazione SEO locale @ Emmemedia",
               "url": "http://www.auto-scala.com/"
           },
           {
               "name": "La Terra Degli Aranci",
               "imageUrl": "la-terra-degli-aranci.jpg",
-              "jobDescription": "Frontend @ Emmemedia",
+              "jobDescription": "Sviluppo frontend per agriturismo, ottimizzazione SEO locale, implementazione gallery responsive e sistema di prenotazione integrato conforme a standard W3C @ Emmemedia",
               "url": "http://www.laterradegliaranci.it/"
           },
           {
               "name": "Roberto Giannotti",
               "imageUrl": "roberto-giannotti.jpg",
-              "jobDescription": "Frontend @ Emmemedia",
+              "jobDescription": "Frontend per campagna prodotto gioielli, ottimizzazione landing page per conversioni, accessibilità WCAG e animazioni CSS performanti @ Emmemedia",
               "url": "http://www.robertogiannotti.com/unangelodimamma/"
           },
           {
               "name": "Mario Di Costanzo Pastrychef",
               "imageUrl": "mario-di-costanzo.jpg",
-              "jobDescription": "Frontend @ Emmemedia",
+              "jobDescription": "Sviluppo frontend per chef pasticcere, ottimizzazione presentazione prodotti, gallery responsive W3C compliant e implementazione SEO per settore ristorazione @ Emmemedia",
               "url": "http://www.mariodicostanzo.it/"
           },
           {
               "name": "Arredare Insieme",
               "imageUrl": "arredare-insieme.jpg",
-              "jobDescription": "Frontend @ Emmemedia",
+              "jobDescription": "Frontend per showroom arredamento, implementazione catalogo prodotti, filtri di ricerca avanzati e ottimizzazione SEO locale con standard W3C @ Emmemedia",
               "url": "http://arredareinsieme.it/"
           },
           {
               "name": "De Vivo Showroom",
               "imageUrl": "de-vivo.jpg",
-              "jobDescription": "Frontend @ Emmemedia",
+              "jobDescription": "Sviluppo frontend per showroom moda, implementazione catalogo responsive, ottimizzazione performance e accessibilità conforme agli standard W3C @ Emmemedia",
               "url": "http://www.devivoshowroom.it/"
           },
           {
               "name": "Date System",
               "imageUrl": "date-system.jpg",
-              "jobDescription": "Frontend @ Emmemedia",
+              "jobDescription": "Frontend per azienda tech, implementazione sezioni prodotti, ottimizzazione SEO tecnico e accessibilità con validazione W3C per tutti i contenuti @ Emmemedia",
               "url": "http://www.datesystem.eu/"
           },
           {
               "name": "Allutec",
               "imageUrl": "allutec.jpg",
-              "jobDescription": "Frontend @ Emmemedia",
+              "jobDescription": "Sviluppo frontend per azienda manifatturiera, catalogo prodotti responsive, ottimizzazione caricamento risorse e validazione W3C per accessibilità @ Emmemedia",
               "url": "http://www.allutec.it/"
           },
           {
               "name": "Medical Skin Care",
               "imageUrl": "medical-skin-care.jpg",
-              "jobDescription": "Frontend @ Emmemedia",
+              "jobDescription": "Frontend per studio medico, implementazione catalogo trattamenti, ottimizzazione SEO per settore sanitario e accessibilità WCAG @ Emmemedia",
               "url": "http://www.medicalskincare.it/"
           },
           {
               "name": "Victoria F",
               "imageUrl": "victoria-f.jpg",
-              "jobDescription": "Frontend @ Emmemedia",
+              "jobDescription": "Sviluppo frontend per brand moda, implementazione responsive gallery, ottimizzazione performance e accessibilità con validazione W3C @ Emmemedia",
               "url": "http://victoriaf.it/"
           },
           {
               "name": "Giulloc",
               "imageUrl": "giulloc.jpg",
-              "jobDescription": "Frontend @ Emmemedia",
+              "jobDescription": "Frontend multilingua per brand internazionale, implementazione catalogo prodotti, ottimizzazione SEO multilingua e accessibilità standard W3C @ Emmemedia",
               "url": "http://giulloc.fr/"
           },
           {
               "name": "Centro Keiron",
               "imageUrl": "centro-keiron.jpg",
-              "jobDescription": "Frontend @ Emmemedia",
+              "jobDescription": "Sviluppo frontend per centro benessere, sistema prenotazioni, ottimizzazione SEO locale e implementazione standard accessibilità WCAG @ Emmemedia",
               "url": "http://centro-keiron.com/"
           },
           {
               "name": "Villa Diamante",
               "imageUrl": "villa-diamante.jpg",
-              "jobDescription": "Frontend @ Emmemedia",
+              "jobDescription": "Frontend per location eventi, virtual tour responsive, ottimizzazione SEO locale e implementazione standard W3C per accessibilità @ Emmemedia",
               "url": "http://www.villadiamante.it/"
           },
           {
               "name": "Didiesse",
               "imageUrl": "didiesse.jpg",
-              "jobDescription": "Frontend @ Emmemedia",
+              "jobDescription": "Sviluppo frontend per azienda prodotti caffè, catalogo prodotti responsive, ottimizzazione performance e implementazione standard accessibilità W3C @ Emmemedia",
               "url": "http://www.didiessesrl.eu/"
           },
           {
               "name": "Radici Firenze",
               "imageUrl": "radici-firenze.jpg",
-              "jobDescription": "Frontend @ Emmemedia",
+              "jobDescription": "Frontend per ristorante, ottimizzazione SEO locale, gallery menu responsive e implementazione standard W3C per migliorare accessibilità @ Emmemedia",
               "url": "http://www.radicifirenze.it/"
           },
           {
               "name": "Tenuta Astroni",
               "imageUrl": "tenuta-astroni.jpg",
-              "jobDescription": "Frontend @ Emmemedia",
+              "jobDescription": "Sviluppo frontend per azienda vinicola, catalogo prodotti, e-commerce vini e implementazione standard W3C per accessibilità e SEO @ Emmemedia",
               "url": "http://www.tenutastroni.it/"
           }
       ],
@@ -292,14 +292,14 @@
           {
               "name": "dott. cristiano giardiello: from zero to hero",
               "imageUrl": "giardiello.jpg",
-              "jobDescription": "Discover the experience that led Dr. Cristiano Giardiello to the publication of his new brand, with his new identity and his new website completely built from scratch.",
+              "jobDescription": "Case study di progettazione e sviluppo web: dall'analisi UX alla realizzazione frontend, ottimizzazione SEO e brand identity per il settore sanitario.",
               "url": "/cristiano-giardiello.html"
           }
       ]
   },
   "mnm": {
-      "title": "MOSCANELLAMMERDA",
-      "description": "Vignette e storie dimmerda",
+      "title": "MOSCANELLAMMERDA | Vignette & Design Creativo",
+      "description": "Portfolio di illustrazioni, vignette e design creativo di Luca Joshua Mosca, frontend developer e digital artist.",
       "baseURL": "https://www.joshuarte.it/moscanellammerda",
       "author": "Luca Joshua Mosca",
       "social": {
@@ -308,10 +308,10 @@
           "mail": "joshuarte@gmail.com"
       },
       "ogType": {
-          "title": "MOSCANELLAMMERDA",
-          "description": "MOSCANELLAMMERDA",
+          "title": "MOSCANELLAMMERDA | Illustrazioni & Design Creativo",
+          "description": "Portfolio artistico di Luca Joshua Mosca, frontend developer e illustratore digitale. Vignette, concept art e design creativo.",
           "url": "https://www.joshuarte.it/moscanellammerda",
-          "image": "http://www.joshuarte.it/images/bg.jpg"
+          "image": "https://www.joshuarte.it/images/bg.jpg"
       }
   }
 }

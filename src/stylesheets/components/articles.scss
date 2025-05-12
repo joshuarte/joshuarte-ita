@@ -133,10 +133,7 @@
         cursor: -webkit-grab;
     }
 
-    &::-webkit-scrollbar-thumb:window-inactive {
-        background: linear-gradient(to bottom, #c2321f, #5ecbe6);
-        cursor: -webkit-grab;
-    }
+
 }
 
 .content--articles {

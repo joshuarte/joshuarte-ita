@@ -4,12 +4,12 @@
 
   "html": {
     "src": "html",
-    "dest": "./"
+    "dest": "./dist"
   },
 
   "static": {
     "src": "static",
-    "dest": "./"
+    "dest": "./dist"
   },
 
   "javascripts": {

@@ -13,7 +13,17 @@ $transition-timing: .5s ease;
     }
   }
 }
-
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
 // Loader
 .loader {
   position: fixed;
@@ -53,9 +63,7 @@ $transition-timing: .5s ease;
     background: $loader-gradient;
   }
 
-  &::-webkit-scrollbar-thumb:window-inactive {
-    background: $loader-gradient;
-  }
+
 
   &.fadeInDown {
     transform: translateX(0%);

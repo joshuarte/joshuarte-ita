@@ -1,11 +1,20 @@
 {% for project in projects %}
 <article class="col-md-12 no-padding">
   <a class="item" href="{{project.url}}" target="_blank">
+    {% if loop.index <= 2 %}
     <img
       src="/images/projects/{{project.imageUrl}}"
       class="img-responsive"
       alt="frontend developer web designer napoli {{project.name}}"
     />
+    {% else %}
+    <img
+      src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3C%2Fsvg%3E"
+      data-src="/images/projects/{{project.imageUrl}}"
+      class="img-responsive lazy-image"
+      alt="frontend developer web designer napoli {{project.name}}"
+    />
+    {% endif %}
     <div class="caption">
       <h2>{{project.name}}</h2>
       <p>
