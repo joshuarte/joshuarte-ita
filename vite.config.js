@@ -174,51 +174,38 @@ export default defineConfig(({ command }) => {
         fs.writeFileSync(path.resolve(htmlOutputBase, 'robots.txt'), robotsContent);
 
         // Crea il file .htaccess per gestire i redirect
-        const htaccessContent = `# Forza HTTPS
+        const htaccessContent = `# .htaccess basilare con regole essenziali
+
+# Abilita il modulo rewrite
 RewriteEngine On
+
+# Redirect da non-www a www
+RewriteCond %{HTTP_HOST} !^www\\. [NC]
+RewriteCond %{HTTP_HOST} ^(.+)$ [NC]
+RewriteRule ^ https://www.%1%{REQUEST_URI} [L,R=301]
+
+# Forza HTTPS
 RewriteCond %{HTTPS} off
 RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
-# Redirect da non-www a www
-RewriteCond %{HTTP_HOST} !^www\. [NC]
-RewriteRule ^ https://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+# Gestisci percorso specifico per moscanellammerda
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^moscanellammerda$ moscanellammerda.html [L]
 
-# Altre regole di rewrite
-<IfModule mod_rewrite.c>
-  RewriteEngine On
-  
-  # Gestisci file specifici senza estensione
-  RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteRule ^moscanellammerda$ moscanellammerda.html [L]
-  
-  # Assicurati che il percorso main.js funzioni
-  RewriteRule ^main\.js$ /main.js [L]
-</IfModule>
-
-# Migliora la sicurezza
-<IfModule mod_headers.c>
-  Header set X-Content-Type-Options "nosniff"
-  Header set X-XSS-Protection "1; mode=block"
-  Header set X-Frame-Options "SAMEORIGIN"
-  Header set Referrer-Policy "strict-origin-when-cross-origin"
+# Cache control basilare
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/jpg "access plus 1 month"
+  ExpiresByType image/jpeg "access plus 1 month"
+  ExpiresByType image/png "access plus 1 month"
+  ExpiresByType text/css "access plus 1 week"
+  ExpiresByType application/javascript "access plus 1 week"
 </IfModule>
 
 # Compressione Gzip
 <IfModule mod_deflate.c>
-  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/x-javascript application/json
-</IfModule>
-
-# Cache control
-<IfModule mod_expires.c>
-  ExpiresActive On
-  ExpiresByType image/jpg "access plus 1 year"
-  ExpiresByType image/jpeg "access plus 1 year"
-  ExpiresByType image/gif "access plus 1 year"
-  ExpiresByType image/png "access plus 1 year"
-  ExpiresByType image/svg+xml "access plus 1 year"
-  ExpiresByType text/css "access plus 1 month"
-  ExpiresByType application/javascript "access plus 1 month"
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript
 </IfModule>`;
         fs.writeFileSync(path.resolve(htmlOutputBase, '.htaccess'), htaccessContent);
 
@@ -326,35 +313,69 @@ RewriteRule ^ https://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
     };
   };
 
+  // Funzione di utilità per compilare gli stili critici
+  function compileCriticalStyles() {
+    try {
+      const criticalPath = path.resolve('src/stylesheets/critical.scss');
+      // Verifica che il file esista prima di procedere
+      if (!fs.existsSync(criticalPath)) {
+        console.error(`File non trovato: ${criticalPath}`);
+        return;
+      }
+      
+      console.log('Compilo gli stili critici...');
+      
+      const result = sass.compile(criticalPath, {
+        style: isProd ? "compressed" : "expanded",
+        loadPaths: ['node_modules', 'src/stylesheets'],
+        sourceMap: !isProd,
+        sourceMapIncludeSources: !isProd,
+        importers: [{
+          findFileUrl(url) {
+            if (url.startsWith('~')) {
+              return new URL(`file://${path.resolve('node_modules', url.substring(1))}`);
+            }
+            return null;
+          }
+        }]
+      });
+      
+      // Assicurati che il commento di chiusura sia completamente rimosso e poi aggiunto correttamente
+      let css = result.css;
+      
+      // Rimuovi eventuali commenti aperti alla fine
+      css = css.replace(/\/\*([^*]*\*+[^*/])*[^*]*\*+\/|\/\*[^*]*(\*(?!\/)[^*]*)*$/g, '');
+      
+      // Aggiungi il commento di chiusura
+      const template = `<style>\n${css}\n\n/* Fine stili critici */\n</style>`;
+      const outputPath = path.resolve('src/html/shared/critical-styles.njk');
+      
+      // Assicurati che la directory esista
+      const outputDir = path.dirname(outputPath);
+      if (!fs.existsSync(outputDir)) {
+        fs.mkdirSync(outputDir, { recursive: true });
+      }
+      
+      fs.writeFileSync(outputPath, template);
+      console.log('Template critical-styles.njk aggiornato con successo!');
+    } catch (error) {
+      console.error('Errore nella compilazione SCSS:', error.message);
+      console.error(error.stack);
+    }
+  }
+
   // Plugin per la compilazione degli stili critici
   const criticalStylesPlugin = () => {
     return {
       name: 'critical-styles',
       enforce: 'post',
       buildStart() {
-        // Compila gli stili critici
-        try {
-          const criticalPath = path.resolve('src/stylesheets/critical.scss');
-          const result = sass.compile(criticalPath);
-          const template = `<style>\n${result.css}\n</style>`;
-          fs.writeFileSync('src/html/shared/critical-styles.njk', template);
-          console.log('Template critical-styles.njk aggiornato con successo');
-        } catch (error) {
-          console.error('Errore nella compilazione SCSS:', error);
-        }
+        compileCriticalStyles();
       },
       handleHotUpdate({ file }) {
         if (file === path.resolve('src/stylesheets/critical.scss')) {
           console.log('File critical.scss modificato, aggiorno il template...');
-          try {
-            const criticalPath = path.resolve('src/stylesheets/critical.scss');
-            const result = sass.compile(criticalPath);
-            const template = `<style>\n${result.css}\n</style>`;
-            fs.writeFileSync('src/html/shared/critical-styles.njk', template);
-            console.log('Template critical-styles.njk aggiornato con successo');
-          } catch (error) {
-            console.error('Errore nella compilazione SCSS:', error);
-          }
+          compileCriticalStyles();
         }
       }
     };

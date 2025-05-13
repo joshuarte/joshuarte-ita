@@ -1,5 +1,8 @@
 @charset 'utf-8';
-
+@import 'utilities/variables';
+// Vendors
+@import "font-awesome/scss/font-awesome";
+@import "bootstrap/scss/bootstrap";
 // Variables
 $loader-width: 5px;
 $loader-gradient: linear-gradient(to bottom, #c2321f, #5ecbe6);
@@ -70,29 +73,28 @@ $transition-timing: .5s ease;
   }
 }
 
-// Masks
-%mask-base {
-  position: fixed;
-  top: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
-  content: "";
-  background: #fff;
-  z-index: 9;
-  transition: width $transition-timing;
-  animation-timing-function: ease-in-out;
-}
 
-#left-mask {
-  @extend %mask-base;
-}
 
-#right-mask {
-  @extend %mask-base;
-}
+@import 'utilities/variables';
+@import 'utilities/functions';
+@import 'utilities/mixins';
+@import 'utilities/placeholders';
+@import 'utilities/helpers';
 
-// Utility classes
-.prova {
-  color: green;
-}
+// Base
+@import "normalize.css/normalize"; 
+@import 'base/base';
+@import 'base/typography';
+@import 'base/form';
+
+// Components
+@import 'components/articles'; 
+@import 'components/logo'; 
+@import 'components/external-link-icon'; 
+
+//Layout
+@import 'layout/bio'; 
+@import 'layout/sidenav'; 
+@import 'skills';
+@import 'layout/cta'; 
+@import 'layout/main';

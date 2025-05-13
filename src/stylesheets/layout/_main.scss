@@ -30,6 +30,11 @@
 		height: 70vh;
 		min-height: 450px;
 		z-index: 5;
+		max-height: 650px;
+
+		@include respond-to('large') {
+			max-height: none;
+		}
 
 		h2 {
 			padding-right: 20px;

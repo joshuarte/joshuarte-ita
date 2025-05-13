@@ -1,4 +1,5 @@
 $typo-spacing: 15px;
+
 nav a {
     position: relative;
     display: block;
@@ -11,7 +12,9 @@ nav a {
     font-weight: 400;
     text-shadow: 0 0 1px rgba(255, 255, 255, 0.3);
     font-size: 1.35em;
-    &.hover, &:focus{
+
+    &.hover,
+    &:focus {
         outline: none;
     }
 }
@@ -19,15 +22,18 @@ nav a {
 .btn-transition {
     position: relative;
     z-index: 1;
+
     a {
         overflow: hidden;
         margin: 0;
+
         span {
             display: block;
             padding: 10px 20px;
             background: linear-gradient(to right, #c2321f, #5ecbe6);
             transition: all .5s ease;
         }
+
         &:before {
             position: absolute;
             top: 0;
@@ -39,34 +45,38 @@ nav a {
             background: linear-gradient(to right, #c2321f, #5ecbe6);
             transition: all .5s ease;
             transform: translateX(-25%);
-            -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             content: attr(data-hover);
         }
+
         &:hover,
         &:active,
         &:focus {
             span {
                 transform: translateX(100%);
             }
+
             &:before {
                 transform: translateX(0%);
             }
         }
     }
+
     &-alt {
         @extend .btn-transition;
         padding-top: $typo-spacing;
         padding-bottom: $typo-spacing;
+
         a {
             span {
                 background: linear-gradient(to right, #fff, #fff);
                 transition: all .5s ease;
                 color: #a53d25 !important;
             }
+
             &:before {
-                  background: transparent;
-                -webkit-text-fill-color: #fff;  
+                background: transparent;
+                -webkit-text-fill-color: #fff;
             }
         }
     }

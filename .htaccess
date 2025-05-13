@@ -1,10 +1,45 @@
+# Abilita il modulo rewrite
 RewriteEngine On
 
-# Se il file o la directory richiesta non esiste fisicamente
+# Forza HTTPS
+RewriteCond %{HTTPS} off
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Redirect da non-www a www (corretto per evitare loop infiniti)
+RewriteCond %{HTTP_HOST} !^www\. [NC]
+RewriteCond %{HTTP_HOST} ^(.+)$ [NC]
+RewriteRule ^ https://www.%1%{REQUEST_URI} [L,R=301]
+
+# Gestisci file specifici senza estensione
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-# Reindirizza le richieste senza estensione alla versione .html
-RewriteRule ^([^\.]+)$ $1.html [NC,L]
+RewriteRule ^moscanellammerda$ moscanellammerda.html [L]
 
+# Assicurati che il percorso main.js funzioni
+RewriteRule ^main\.js$ /main.js [L]
 # Opzionale: gestisci anche le sottodirectory
 RewriteRule ^([^\.]+)/([^\.]+)$ $1/$2.html [NC,L] 
+# Migliora la sicurezza
+<IfModule mod_headers.c>
+  Header set X-Content-Type-Options "nosniff"
+  Header set X-XSS-Protection "1; mode=block"
+  Header set X-Frame-Options "SAMEORIGIN"
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+# Compressione Gzip
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/x-javascript application/json
+</IfModule>
+
+# Cache control
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/jpg "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/gif "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType text/css "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+</IfModule>

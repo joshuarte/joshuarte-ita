@@ -12,7 +12,7 @@ body {
 main {
     background-color: #F6F6F6;
     @include respond-to('medium') {
-        padding-bottom: rem-calc(80);
+        padding-bottom: 5.7143rem;
     }
 }
 
@@ -29,10 +29,7 @@ abbr[title] {
     text-decoration: none;
     cursor: help;
 }
-
-// =============================================================================
-// BROWSER FIXES
-// =============================================================================
+ 
 body::-webkit-scrollbar {
     display: none;
 }
@@ -66,27 +63,7 @@ body {
 .no-padding{
     padding: 0;
 }
-/* COOKIE */
-#cookiescript_injected {
-    background-color: none !important;
-    background: linear-gradient(to right, rgba(194, 50, 31, 0.25), rgba(94, 203, 230, 0.25));
-    transition: all .4s ease;
-    &:hover {
-        background-color: none !important;
-        background: linear-gradient(to right, #c2321f, #5ecbe6);
-    }
-    @include respond-to('large') {
-        position: fixed !important;
-        bottom: 20px !important;
-        right: auto !important;
-        width: 300px !important;
-        height: auto !important;
-        left: 20px !important;
-        float: none !important;
-    }
-}
 
-//rapid flex
 .h-align {
         &-center {
             display:flex;
