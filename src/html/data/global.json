@@ -117,7 +117,7 @@
                 "name": "Dr. Cristiano Giardiello",
                 "imageUrl": "giardiello.jpg",
                 "jobDescription": "Progetto freelance completo: UX/UI design, sviluppo frontend/backend, ottimizzazione SEO per settore medico e implementazione sistema di prenotazione + Foto shooting",
-                "url": "http://www.cristianogiardiello.it/"
+                "url": "https://www.cristianogiardiello.it/"
             },
             {
                 "name": "Natale Aziende Telethon",
@@ -165,19 +165,19 @@
                 "name": "CioppiShop",
                 "imageUrl": "cioppi-shop.jpg",
                 "jobDescription": "Sviluppo frontend e-commerce con standard W3C, ottimizzazione pagine prodotto, accessibilità WCAG e implementazione funnel di acquisto ottimizzato @ Emmemedia",
-                "url": "http://www.cioppishop.it/"
+                "url": "https://www.cioppishop.it/"
             },
             {
                 "name": "Maison Signore",
                 "imageUrl": "maison-signore.jpg",
                 "jobDescription": "Frontend responsive con particolare attenzione ai dettagli di design, ottimizzazione caricamento immagini, SEO per settore moda e accessibilità @ Emmemedia",
-                "url": "http://www.maisonsignore.it/"
+                "url": "https://www.maisonsignore.it/"
             },
             {
                 "name": "Atelier Signore",
                 "imageUrl": "atelier-signore.jpg",
                 "jobDescription": "Sviluppo frontend per brand di lusso, implementazione gallery prodotti ottimizzata, standard W3C e compatibilità cross-browser su dispositivi mobile e desktop @ Emmemedia",
-                "url": "http://www.ateliersignore.it/"
+                "url": "https://www.ateliersignore.it/"
             },
             {
                 "name": "Sterilfarma",
@@ -189,103 +189,103 @@
                 "name": "Christian La Rusca",
                 "imageUrl": "larusca.jpg",
                 "jobDescription": "Sviluppo frontend portfolio fotografo, ottimizzazione gallerie immagini, lazy loading avanzato e responsive design per diversi formati fotografici @ Emmemedia",
-                "url": "http://www.larusca.it/"
+                "url": "https://www.larusca.it/"
             },
             {
                 "name": "AutoScala",
                 "imageUrl": "autoscala.jpg",
                 "jobDescription": "Frontend per concessionaria auto, implementazione catalogo veicoli W3C compliant, filtri di ricerca avanzati e ottimizzazione SEO locale @ Emmemedia",
-                "url": "http://www.auto-scala.com/"
+                "url": "https://www.auto-scala.com/"
             },
             {
                 "name": "La Terra Degli Aranci",
                 "imageUrl": "la-terra-degli-aranci.jpg",
                 "jobDescription": "Sviluppo frontend per agriturismo, ottimizzazione SEO locale, implementazione gallery responsive e sistema di prenotazione integrato conforme a standard W3C @ Emmemedia",
-                "url": "http://www.laterradegliaranci.it/"
+                "url": "https://www.laterradegliaranci.it/"
             },
             {
                 "name": "Roberto Giannotti",
                 "imageUrl": "roberto-giannotti.jpg",
                 "jobDescription": "Frontend per campagna prodotto gioielli, ottimizzazione landing page per conversioni, accessibilità WCAG e animazioni CSS performanti @ Emmemedia",
-                "url": "http://www.robertogiannotti.com/unangelodimamma/"
+                "url": "https://www.robertogiannotti.com/unangelodimamma/"
             },
             {
                 "name": "Mario Di Costanzo Pastrychef",
                 "imageUrl": "mario-di-costanzo.jpg",
                 "jobDescription": "Sviluppo frontend per chef pasticcere, ottimizzazione presentazione prodotti, gallery responsive W3C compliant e implementazione SEO per settore ristorazione @ Emmemedia",
-                "url": "http://www.mariodicostanzo.it/"
+                "url": "https://www.mariodicostanzo.it/"
             },
             {
                 "name": "Arredare Insieme",
                 "imageUrl": "arredare-insieme.jpg",
                 "jobDescription": "Frontend per showroom arredamento, implementazione catalogo prodotti, filtri di ricerca avanzati e ottimizzazione SEO locale con standard W3C @ Emmemedia",
-                "url": "http://arredareinsieme.it/"
+                "url": "https://arredareinsieme.it/"
             },
             {
                 "name": "De Vivo Showroom",
                 "imageUrl": "de-vivo.jpg",
                 "jobDescription": "Sviluppo frontend per showroom moda, implementazione catalogo responsive, ottimizzazione performance e accessibilità conforme agli standard W3C @ Emmemedia",
-                "url": "http://www.devivoshowroom.it/"
+                "url": "https://www.devivoshowroom.it/"
             },
             {
                 "name": "Date System",
                 "imageUrl": "date-system.jpg",
                 "jobDescription": "Frontend per azienda tech, implementazione sezioni prodotti, ottimizzazione SEO tecnico e accessibilità con validazione W3C per tutti i contenuti @ Emmemedia",
-                "url": "http://www.datesystem.eu/"
+                "url": "https://www.datesystem.eu/"
             },
             {
                 "name": "Allutec",
                 "imageUrl": "allutec.jpg",
                 "jobDescription": "Sviluppo frontend per azienda manifatturiera, catalogo prodotti responsive, ottimizzazione caricamento risorse e validazione W3C per accessibilità @ Emmemedia",
-                "url": "http://www.allutec.it/"
+                "url": "https://www.allutec.it/"
             },
             {
                 "name": "Medical Skin Care",
                 "imageUrl": "medical-skin-care.jpg",
                 "jobDescription": "Frontend per studio medico, implementazione catalogo trattamenti, ottimizzazione SEO per settore sanitario e accessibilità WCAG @ Emmemedia",
-                "url": "http://www.medicalskincare.it/"
+                "url": "https://www.medicalskincare.it/"
             },
             {
                 "name": "Victoria F",
                 "imageUrl": "victoria-f.jpg",
                 "jobDescription": "Sviluppo frontend per brand moda, implementazione responsive gallery, ottimizzazione performance e accessibilità con validazione W3C @ Emmemedia",
-                "url": "http://victoriaf.it/"
+                "url": "https://victoriaf.it/"
             },
             {
                 "name": "Giulloc",
                 "imageUrl": "giulloc.jpg",
                 "jobDescription": "Frontend multilingua per brand internazionale, implementazione catalogo prodotti, ottimizzazione SEO multilingua e accessibilità standard W3C @ Emmemedia",
-                "url": "http://giulloc.fr/"
+                "url": "https://giulloc.fr/"
             },
             {
                 "name": "Centro Keiron",
                 "imageUrl": "centro-keiron.jpg",
                 "jobDescription": "Sviluppo frontend per centro benessere, sistema prenotazioni, ottimizzazione SEO locale e implementazione standard accessibilità WCAG @ Emmemedia",
-                "url": "http://centro-keiron.com/"
+                "url": "https://centro-keiron.com/"
             },
             {
                 "name": "Villa Diamante",
                 "imageUrl": "villa-diamante.jpg",
                 "jobDescription": "Frontend per location eventi, virtual tour responsive, ottimizzazione SEO locale e implementazione standard W3C per accessibilità @ Emmemedia",
-                "url": "http://www.villadiamante.it/"
+                "url": "https://www.villadiamante.it/"
             },
             {
                 "name": "Didiesse",
                 "imageUrl": "didiesse.jpg",
                 "jobDescription": "Sviluppo frontend per azienda prodotti caffè, catalogo prodotti responsive, ottimizzazione performance e implementazione standard accessibilità W3C @ Emmemedia",
-                "url": "http://www.didiessesrl.eu/"
+                "url": "https://www.didiessesrl.eu/"
             },
             {
                 "name": "Radici Firenze",
                 "imageUrl": "radici-firenze.jpg",
                 "jobDescription": "Frontend per ristorante, ottimizzazione SEO locale, gallery menu responsive e implementazione standard W3C per migliorare accessibilità @ Emmemedia",
-                "url": "http://www.radicifirenze.it/"
+                "url": "https://www.radicifirenze.it/"
             },
             {
                 "name": "Tenuta Astroni",
                 "imageUrl": "tenuta-astroni.jpg",
                 "jobDescription": "Sviluppo frontend per azienda vinicola, catalogo prodotti, e-commerce vini e implementazione standard W3C per accessibilità e SEO @ Emmemedia",
-                "url": "http://www.tenutastroni.it/"
+                "url": "https://www.tenutastroni.it/"
             }
         ],
         "articles": [
