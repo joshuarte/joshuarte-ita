@@ -297,6 +297,18 @@
             }
         ]
     },
+    "404": {
+        "title": "404 - Pagina non trovata | JOSHUARTE",
+        "description": "La pagina che stai cercando non esiste o è stata spostata.",
+        "baseURL": "https://www.joshuarte.it",
+        "author": "Luca Joshua Mosca",
+        "ogType": {
+            "title": "404 - Pagina non trovata | JOSHUARTE",
+            "description": "La pagina che stai cercando non esiste o è stata spostata.",
+            "url": "https://www.joshuarte.it/404",
+            "image": "https://www.joshuarte.it/images/bg.jpg"
+        }
+    },
     "mnm": {
         "title": "MOSCANELLAMMERDA | Vignette & Design Creativo",
         "description": "Portfolio di illustrazioni, vignette e design creativo di Luca Joshua Mosca, frontend developer e digital artist.",

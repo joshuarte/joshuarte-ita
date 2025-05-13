@@ -5,11 +5,15 @@
   "type": "module",
   "scripts": {
     "dev": "vite --host --force",
-    "build": "vite build",
+    "build": "vite build && node optimize-bg-image.js",
+    "optimize-images": "node optimize-bg-image.js",
     "preview": "vite preview"
   },
   "devDependencies": {
+    "glob": "^11.0.2",
+    "imagemin-webp": "^8.0.0",
     "sass": "^1.88.0",
+    "sharp": "^0.34.1",
     "vite": "^6.3.1"
   },
   "dependencies": {

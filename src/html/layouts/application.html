@@ -25,22 +25,55 @@
     
     <title>{{title}}</title>
     
-    <!-- Preload fonts -->
+    <!-- Preload strategico delle immagini per LCP -->
+    <link rel="preload" as="image" imagesrcset="/images/bg.avif" type="image/avif" fetchpriority="high">
+    <link rel="preload" as="image" imagesrcset="/images/bg.webp" type="image/webp" fetchpriority="high">
+    <link rel="preload" as="image" href="/images/bg.jpg" fetchpriority="high">
+    
+    <!-- Font loading ottimizzato -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600&display=swap" rel="stylesheet" />
-    
-    <!-- Preload critical scripts -->
-    <link rel="preload" href="https://www.joshuarte.it/cookie.js" as="script" />
-    
-    <!-- Preload strategy for LCP images -->
-    <link rel="preload" as="image" href="/images/bg.jpg" fetchpriority="high">
+    <!-- Utilizziamo font-display: swap per evitare render-blocking -->
+    <style>
+      /* Stile inline per font fallback */
+      @font-face {
+        font-family: 'Source Sans Pro';
+        font-style: normal;
+        font-weight: 300;
+        font-display: swap;
+        src: local('Source Sans Pro Light'), local('SourceSansPro-Light');
+      }
+      @font-face {
+        font-family: 'Source Sans Pro';
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: local('Source Sans Pro Regular'), local('SourceSansPro-Regular');
+      }
+      @font-face {
+        font-family: 'Source Sans Pro';
+        font-style: normal;
+        font-weight: 600;
+        font-display: swap;
+        src: local('Source Sans Pro SemiBold'), local('SourceSansPro-SemiBold');
+      }
+    </style>
+    <!-- Font caricato in modo non bloccante -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600&display=swap" media="print" onload="this.media='all'">
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600&display=swap">
+    </noscript>
     
     <!-- Stili critici per il loader -->
     {% include "shared/critical-styles.njk" %}
     
-    <!-- Stili non critici -->
-    <link rel="stylesheet" href="stylesheets/app.css" />
+    <!-- Stili non critici caricati in modo non bloccante -->
+    <link rel="preload" href="stylesheets/app.css" as="style">
+    <link rel="stylesheet" href="stylesheets/app.css" media="print" onload="this.media='all'">
+    <noscript>
+      <link rel="stylesheet" href="stylesheets/app.css">
+    </noscript>
     
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -59,7 +92,7 @@
     </script>
     
     <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-W7H28M8MDY"></script>
+    <script defer src="https://www.googletagmanager.com/gtag/js?id=G-W7H28M8MDY"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag() { dataLayer.push(arguments); }
@@ -68,10 +101,10 @@
     </script>
     
     <!-- AdSense -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7716592172266156" crossorigin="anonymous"></script>
+    <script defer src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7716592172266156" crossorigin="anonymous"></script>
     
     <!-- Cookie script con HTTPS -->
-    <script async src="https://www.joshuarte.it/cookie.js"></script>
+    <script defer src="https://www.joshuarte.it/cookie.js"></script>
 
     {% include "shared/app-icons.html" %}
     {% block head %}{% endblock %}

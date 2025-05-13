@@ -4,6 +4,8 @@ import fs from "fs";
 import path from "path";
 import * as sass from 'sass';
 import nunjucks from 'nunjucks';
+import * as glob from 'glob';
+import sharp from 'sharp';
 
 // Determina se siamo in produzione o sviluppo
 const isProd = process.env.NODE_ENV === 'production';
@@ -14,6 +16,135 @@ export default defineConfig(({ command }) => {
 
   // Configurazione dei percorsi di output in base alla modalità
   const htmlOutputBase = isBuild ? './dist' : '.';
+
+  // Plugin per generare WebP durante la build
+  const webpConverterPlugin = () => {
+    return {
+      name: 'webp-converter',
+      apply: 'build',
+      enforce: 'post',
+      closeBundle: async () => {
+        // Prima di tutto verifica che il file moscanellammerda.html esista ancora
+        const mnmHtmlPath = path.resolve('dist/moscanellammerda.html');
+        let mnmHtmlContent = null;
+        
+        if (fs.existsSync(mnmHtmlPath)) {
+          // Salva il contenuto per ripristinarlo in seguito se necessario
+          mnmHtmlContent = fs.readFileSync(mnmHtmlPath, 'utf-8');
+        }
+        
+        const imageExtensions = ['jpg', 'jpeg', 'png'];
+        const outputDir = path.resolve('dist');
+        const imageFiles = [];
+
+        // Trova tutte le immagini nella cartella dist
+        for (const ext of imageExtensions) {
+          const files = await glob.glob(`${outputDir}/**/*.${ext}`);
+          imageFiles.push(...files);
+        }
+
+        console.log(`Convertendo ${imageFiles.length} immagini in WebP e AVIF...`);
+
+        // Converti ogni immagine in WebP e AVIF
+        const conversionPromises = imageFiles.map(async (file) => {
+          const webpOutputPath = file.replace(/\.(jpg|jpeg|png)$/i, '.webp');
+          const avifOutputPath = file.replace(/\.(jpg|jpeg|png)$/i, '.avif');
+          
+          const isBackgroundImage = file.includes('bg.jpg') || file.includes('bg.jpeg') || file.includes('bg.png');
+          
+          try {
+            // Ottimizzazione speciale per l'immagine di sfondo (più aggressiva)
+            if (isBackgroundImage) {
+              // Ottimizza l'immagine originale
+              const optimizedBuffer = await sharp(file)
+                .resize({ width: 1920, withoutEnlargement: true }) // Limita dimensione massima
+                .jpeg({ 
+                  quality: 75,
+                  progressive: true,
+                  mozjpeg: true // Usa mozjpeg per una maggiore compressione
+                })
+                .toBuffer();
+              
+              // Salva l'immagine originale ottimizzata
+              await sharp(optimizedBuffer).toFile(file);
+              console.log(`Ottimizzato originale: ${path.basename(file)} (risparmio: ${Math.round((fs.statSync(file).size - optimizedBuffer.length) / 1024)} KB)`);
+              
+              // Crea versione WebP
+              await sharp(optimizedBuffer)
+                .webp({ quality: 75, effort: 6 })
+                .toFile(webpOutputPath);
+              console.log(`Convertito sfondo in WebP: ${path.basename(file)} → ${path.basename(webpOutputPath)}`);
+              
+              // Crea versione AVIF (migliore compressione ma supporto browser più limitato)
+              await sharp(optimizedBuffer)
+                .avif({ quality: 65, effort: 9 })
+                .toFile(avifOutputPath);
+              console.log(`Convertito sfondo in AVIF: ${path.basename(file)} → ${path.basename(avifOutputPath)}`);
+            } else {
+              // Conversione standard per le altre immagini
+              await sharp(file)
+                .webp({ quality: 80, effort: 5 })
+                .toFile(webpOutputPath);
+              
+              await sharp(file)
+                .avif({ quality: 70, effort: 7 })
+                .toFile(avifOutputPath);
+              
+              console.log(`Convertito: ${path.basename(file)} → ${path.basename(webpOutputPath)}, ${path.basename(avifOutputPath)}`);
+            }
+          } catch (error) {
+            console.error(`Errore nella conversione di ${file}:`, error.message);
+          }
+        });
+
+        await Promise.all(conversionPromises);
+        console.log('Conversione WebP e AVIF completata.');
+
+        // Aggiorna i riferimenti alle immagini nei file HTML
+        await updateHtmlImageReferences(outputDir);
+        
+        // Verifica e ripristina il file moscanellammerda.html se necessario
+        if (mnmHtmlContent && !fs.existsSync(mnmHtmlPath)) {
+          console.log('Ripristino il file moscanellammerda.html che potrebbe essere stato eliminato...');
+          fs.writeFileSync(mnmHtmlPath, mnmHtmlContent);
+        }
+      }
+    };
+  };
+
+  // Funzione per aggiornare i riferimenti alle immagini nei file HTML
+  async function updateHtmlImageReferences(outputDir) {
+    const htmlFiles = await glob.glob(`${outputDir}/**/*.html`);
+    
+    htmlFiles.forEach(file => {
+      let content = fs.readFileSync(file, 'utf-8');
+      
+      // Aggiungi il supporto per picture/source con WebP e AVIF
+      content = content.replace(
+        /<img([^>]*)src=['"]([^'"]+\.(jpg|jpeg|png))['"]([^>]*)>/gi,
+        (match, before, src, ext, after) => {
+          const webpSrc = src.replace(/\.(jpg|jpeg|png)$/i, '.webp');
+          const avifSrc = src.replace(/\.(jpg|jpeg|png)$/i, '.avif');
+          
+          // Aggiungi lazy loading alle immagini che non sono LCP (Largest Contentful Paint)
+          let lazyLoading = '';
+          if (!src.includes('bg.jpg') && !src.includes('bg.jpeg') && !src.includes('bg.png')) {
+            lazyLoading = ' loading="lazy"';
+          }
+          
+          return `<picture>
+            <source srcset="${avifSrc}" type="image/avif">
+            <source srcset="${webpSrc}" type="image/webp">
+            <img${before}src="${src}"${lazyLoading}${after}>
+          </picture>`;
+        }
+      );
+      
+      fs.writeFileSync(file, content);
+    });
+    
+    console.log(`Aggiornati riferimenti alle immagini in ${htmlFiles.length} file HTML.`);
+  }
 
   // Define custom plugin for build mode
   const buildNunjucksPlugin = () => {
@@ -47,6 +178,16 @@ export default defineConfig(({ command }) => {
                 fs.readFileSync("./src/html/data/global.json", "utf-8")
               );
               return { ...globalData.mnm };
+            }
+          },
+          {
+            templateFile: "404.njk",
+            outputFile: `${htmlOutputBase}/404.html`,
+            context: () => {
+              const globalData = JSON.parse(
+                fs.readFileSync("./src/html/data/global.json", "utf-8")
+              );
+              return { ...globalData["404"] };
             }
           }
         ];
@@ -133,6 +274,30 @@ export default defineConfig(({ command }) => {
         // Processa i file HTML principali
         let indexProcessed = processHtmlFile(path.resolve(htmlOutputBase, 'index.html'));
         let mnmProcessed = processHtmlFile(path.resolve(htmlOutputBase, 'moscanellammerda.html'));
+        let errorPageProcessed = processHtmlFile(path.resolve(htmlOutputBase, '404.html'));
+
+        // Assicurati che il file moscanellammerda.html esista
+        if (!mnmProcessed || !fs.existsSync(path.resolve(htmlOutputBase, 'moscanellammerda.html'))) {
+          console.warn('File moscanellammerda.html mancante o corrotto. Rigenerazione in corso...');
+          
+          try {
+            const env = nunjucks.configure('./src/html', {
+              autoescape: true
+            });
+            
+            const globalData = JSON.parse(
+              fs.readFileSync("./src/html/data/global.json", "utf-8")
+            );
+            
+            const rendered = env.render("moscanellammerda.njk", { ...globalData.mnm });
+            fs.writeFileSync(path.resolve(htmlOutputBase, 'moscanellammerda.html'), rendered);
+            
+            console.log('File moscanellammerda.html rigenerato con successo');
+            mnmProcessed = true;
+          } catch (error) {
+            console.error('Errore durante la rigenerazione di moscanellammerda.html:', error);
+          }
+        }
 
         // Processa anche i file nella cartella assets
         const assetsDir = path.resolve(htmlOutputBase, 'assets');
@@ -174,38 +339,49 @@ export default defineConfig(({ command }) => {
         fs.writeFileSync(path.resolve(htmlOutputBase, 'robots.txt'), robotsContent);
 
         // Crea il file .htaccess per gestire i redirect
-        const htaccessContent = `# .htaccess basilare con regole essenziali
+        const htaccessContent = `# .htaccess semplificato
 
 # Abilita il modulo rewrite
 RewriteEngine On
 
-# Redirect da non-www a www
-RewriteCond %{HTTP_HOST} !^www\\. [NC]
-RewriteCond %{HTTP_HOST} ^(.+)$ [NC]
-RewriteRule ^ https://www.%1%{REQUEST_URI} [L,R=301]
+# Assicurati che l'encoding UTF-8 sia gestito correttamente
+AddDefaultCharset UTF-8
 
-# Forza HTTPS
-RewriteCond %{HTTPS} off
-RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+# Imposta la pagina 404 personalizzata
+ErrorDocument 404 /404.html
+
+# Gestisci estensioni .html in modo interno (senza redirect)
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.*)$ $1.html [L]
 
 # Gestisci percorso specifico per moscanellammerda
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^moscanellammerda$ moscanellammerda.html [L]
 
-# Cache control basilare
+# Cache control ottimizzato
 <IfModule mod_expires.c>
   ExpiresActive On
   ExpiresByType image/jpg "access plus 1 month"
   ExpiresByType image/jpeg "access plus 1 month"
   ExpiresByType image/png "access plus 1 month"
+  ExpiresByType image/gif "access plus 1 month"
+  ExpiresByType image/svg+xml "access plus 1 month"
+  ExpiresByType image/webp "access plus 1 month"
+  ExpiresByType image/avif "access plus 1 month"
+  ExpiresByType image/x-icon "access plus 1 month"
   ExpiresByType text/css "access plus 1 week"
+  ExpiresByType text/javascript "access plus 1 week"
   ExpiresByType application/javascript "access plus 1 week"
 </IfModule>
 
 # Compressione Gzip
 <IfModule mod_deflate.c>
-  AddOutputFilterByType DEFLATE text/html text/css application/javascript
+  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript
+  AddOutputFilterByType DEFLATE application/javascript application/x-javascript application/json
+  AddOutputFilterByType DEFLATE application/xml application/xhtml+xml application/rss+xml
 </IfModule>`;
         fs.writeFileSync(path.resolve(htmlOutputBase, '.htaccess'), htaccessContent);
 
@@ -217,7 +393,7 @@ RewriteRule ^moscanellammerda$ moscanellammerda.html [L]
             <priority>1.0</priority>
           </url>
           <url>
-            <loc>https://www.joshuarte.it/moscanellammerda.html</loc>
+            <loc>https://www.joshuarte.it/moscanellammerda</loc>
             <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>
             <priority>0.8</priority>
           </url>
@@ -248,11 +424,14 @@ RewriteRule ^moscanellammerda$ moscanellammerda.html [L]
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JOSHUARTE | Frontend Developer &amp; UI/UX Designer</title>
-    <link rel="stylesheet" href="./stylesheets/app.css">
+    <link rel="stylesheet" href="./stylesheets/app.css" />
   </head>
   <body>
-    <h1>JOSHUARTE</h1>
-    <p>Sito in manutenzione</p>
+    <main>
+      <h1>JOSHUARTE</h1>
+      <p>Pagina in manutenzione</p>
+      <a href="/">Torna alla home</a>
+    </main>
     <script type="module" src="./main.js"></script>
   </body>
 </html>`;
@@ -260,11 +439,49 @@ RewriteRule ^moscanellammerda$ moscanellammerda.html [L]
           }
         }
 
-        // Stesso procedimento per moscanellammerda.html
-        if (!mnmProcessed && fs.existsSync('./moscanellammerda.html')) {
-          let content = fs.readFileSync('./moscanellammerda.html', 'utf-8');
-          content = fixPaths(content);
-          fs.writeFileSync(path.resolve(htmlOutputBase, 'moscanellammerda.html'), content);
+        // Se non è stato possibile processare la pagina 404, crea un fallback
+        if (!errorPageProcessed) {
+          console.warn('File 404.html corrotto o mancante. Creazione di un fallback...');
+          
+          const fallbackErrorHtml = `<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Pagina non trovata | JOSHUARTE</title>
+    <link rel="stylesheet" href="./stylesheets/app.css" />
+    <style>
+      .error-page {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+      }
+      .error-page h1 {
+        font-size: 6rem;
+        margin: 0;
+      }
+      .error-page a {
+        display: inline-block;
+        margin-top: 2rem;
+        padding: 0.5rem 1rem;
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="error-page">
+      <div>
+        <h1>404</h1>
+        <p>Pagina non trovata</p>
+        <a href="/">Torna alla home</a>
+      </div>
+    </main>
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>`;
+          fs.writeFileSync(path.resolve(htmlOutputBase, '404.html'), fallbackErrorHtml);
         }
 
         // Rimuovi eventuali file .html.html duplicati
@@ -322,9 +539,9 @@ RewriteRule ^moscanellammerda$ moscanellammerda.html [L]
         console.error(`File non trovato: ${criticalPath}`);
         return;
       }
-      
+
       console.log('Compilo gli stili critici...');
-      
+
       const result = sass.compile(criticalPath, {
         style: isProd ? "compressed" : "expanded",
         loadPaths: ['node_modules', 'src/stylesheets'],
@@ -339,23 +556,23 @@ RewriteRule ^moscanellammerda$ moscanellammerda.html [L]
           }
         }]
       });
-      
+
       // Assicurati che il commento di chiusura sia completamente rimosso e poi aggiunto correttamente
       let css = result.css;
-      
+
       // Rimuovi eventuali commenti aperti alla fine
       css = css.replace(/\/\*([^*]*\*+[^*/])*[^*]*\*+\/|\/\*[^*]*(\*(?!\/)[^*]*)*$/g, '');
-      
+
       // Aggiungi il commento di chiusura
       const template = `<style>\n${css}\n\n/* Fine stili critici */\n</style>`;
       const outputPath = path.resolve('src/html/shared/critical-styles.njk');
-      
+
       // Assicurati che la directory esista
       const outputDir = path.dirname(outputPath);
       if (!fs.existsSync(outputDir)) {
         fs.mkdirSync(outputDir, { recursive: true });
       }
-      
+
       fs.writeFileSync(outputPath, template);
       console.log('Template critical-styles.njk aggiornato con successo!');
     } catch (error) {
@@ -441,6 +658,40 @@ RewriteRule ^moscanellammerda$ moscanellammerda.html [L]
     };
   };
 
+  // Plugin per copiare le immagini ottimizzate durante la build
+  const optimizedImagesCopyPlugin = () => {
+    return {
+      name: 'optimized-images-copy',
+      apply: 'build',
+      enforce: 'post',
+      closeBundle() {
+        console.log('Copiando le immagini ottimizzate...');
+        
+        const sourceDir = path.resolve('public/images-optimized');
+        const destDir = path.resolve('dist/images');
+        
+        // Assicurati che la directory di destinazione esista
+        if (!fs.existsSync(destDir)) {
+          fs.mkdirSync(destDir, { recursive: true });
+        }
+        
+        // Leggi tutti i file nella directory sorgente
+        const files = fs.readdirSync(sourceDir);
+        
+        // Copia ogni file nella directory di destinazione
+        files.forEach(file => {
+          const sourcePath = path.join(sourceDir, file);
+          const destPath = path.join(destDir, file);
+          
+          fs.copyFileSync(sourcePath, destPath);
+          console.log(`Copiato: ${file} (${Math.round(fs.statSync(sourcePath).size / 1024)} KB)`);
+        });
+        
+        console.log('Immagini ottimizzate copiate con successo!');
+      }
+    };
+  };
+
   return {
     // Configurazione base
     assetsInclude: ['**/*.njk', '**/*.html'],
@@ -507,23 +758,56 @@ RewriteRule ^moscanellammerda$ moscanellammerda.html [L]
           });
         },
       },
-      
+
       // Plugin per minificare HTML in build mode
       isBuild ? {
         name: 'html-minify',
         apply: 'build',
         enforce: 'post',
-        transformIndexHtml(html) {
-          const minify = (html) => {
-            return html
-              .replace(/<!--(?!<!)[^\[>][\s\S]*?-->/g, '') // rimuove commenti
-              .replace(/\s{2,}/g, ' ') // rimuove spazi multipli
-              .replace(/>\s+</g, '><') // rimuove spazi tra tag
-              .replace(/\s+\/>/g, '/>'); // rimuove spazi prima della chiusura di tag self-closing
+        closeBundle() {
+          console.log('Minificazione HTML in corso...');
+          const htmlFiles = fs.readdirSync(path.resolve(htmlOutputBase))
+            .filter(file => file.endsWith('.html'));
+            
+          // Funzione per minificare HTML
+          const minifyHtml = (content) => {
+            return content
+              // Rimuovi il carattere BOM o altri caratteri invisibili all'inizio del file
+              .replace(/^\ufeff|\u200b/g, '')
+              // Rimuovi commenti HTML (ma mantieni i conditional comments per IE)
+              .replace(/<!--(?!<!)[^\[>][\s\S]*?-->/g, '')
+              // Rimuovi spazi multipli
+              .replace(/\s{2,}/g, ' ')
+              // Rimuovi spazi tra tag
+              .replace(/>\s+</g, '><')
+              // Rimuovi spazi prima della chiusura di tag self-closing
+              .replace(/\s+\/>/g, '/>')
+              // Rimuovi spazi all'inizio e alla fine delle linee
+              .replace(/^\s+|\s+$/gm, '');
           };
-          return minify(html);
+          
+          // Processa ogni file HTML
+          htmlFiles.forEach(file => {
+            const filePath = path.resolve(htmlOutputBase, file);
+            let content = fs.readFileSync(filePath, 'utf-8');
+            
+            // Minifica il contenuto
+            content = minifyHtml(content);
+            
+            // Scrivi il file minificato
+            fs.writeFileSync(filePath, content);
+            console.log(`HTML minificato: ${file}`);
+          });
+          
+          console.log('Minificazione HTML completata!');
         }
-      } : null
+      } : null,
+
+      // Plugin per convertire le immagini in WebP (solo in build)
+      isBuild ? webpConverterPlugin() : null,
+      
+      // Plugin per copiare le immagini ottimizzate (solo in build)
+      isBuild ? optimizedImagesCopyPlugin() : null,
     ].filter(Boolean),
 
     // Configurazione build

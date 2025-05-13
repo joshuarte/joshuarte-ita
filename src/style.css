@@ -94,3 +94,52 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+/* 404 Error Page */
+.error-page {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: var(--dark);
+  color: var(--light);
+}
+
+.error-page .container {
+  padding: 2rem;
+  max-width: 600px;
+}
+
+.error-page h1 {
+  font-size: 8rem;
+  margin: 0;
+  line-height: 1;
+  color: var(--accent);
+}
+
+.error-page h2 {
+  font-size: 2rem;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+}
+
+.error-page p {
+  margin-bottom: 2rem;
+  font-size: 1.2rem;
+}
+
+.error-page .btn {
+  display: inline-block;
+  background-color: var(--accent);
+  color: var(--light);
+  padding: 0.8rem 2rem;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.error-page .btn:hover {
+  background-color: #ff8800;
+}

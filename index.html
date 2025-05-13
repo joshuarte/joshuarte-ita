@@ -25,16 +25,45 @@
     
     <title>JOSHUARTE | Frontend Developer &amp; UI/UX Designer</title>
     
-    <!-- Preload fonts -->
+    <!-- Preload strategico delle immagini per LCP -->
+    <link rel="preload" as="image" imagesrcset="/images/bg.avif" type="image/avif" fetchpriority="high">
+    <link rel="preload" as="image" imagesrcset="/images/bg.webp" type="image/webp" fetchpriority="high">
+    <link rel="preload" as="image" href="/images/bg.jpg" fetchpriority="high">
+    
+    <!-- Font loading ottimizzato -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600&display=swap" rel="stylesheet" />
-    
-    <!-- Preload critical scripts -->
-    <link rel="preload" href="https://www.joshuarte.it/cookie.js" as="script" />
-    
-    <!-- Preload strategy for LCP images -->
-    <link rel="preload" as="image" href="/images/bg.jpg" fetchpriority="high">
+    <!-- Utilizziamo font-display: swap per evitare render-blocking -->
+    <style>
+      /* Stile inline per font fallback */
+      @font-face {
+        font-family: 'Source Sans Pro';
+        font-style: normal;
+        font-weight: 300;
+        font-display: swap;
+        src: local('Source Sans Pro Light'), local('SourceSansPro-Light');
+      }
+      @font-face {
+        font-family: 'Source Sans Pro';
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: local('Source Sans Pro Regular'), local('SourceSansPro-Regular');
+      }
+      @font-face {
+        font-family: 'Source Sans Pro';
+        font-style: normal;
+        font-weight: 600;
+        font-display: swap;
+        src: local('Source Sans Pro SemiBold'), local('SourceSansPro-SemiBold');
+      }
+    </style>
+    <!-- Font caricato in modo non bloccante -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600&display=swap" media="print" onload="this.media='all'">
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600&display=swap">
+    </noscript>
     
     <!-- Stili critici per il loader -->
     <style>
@@ -43,8 +72,12 @@
 /* Fine stili critici */
 </style>
     
-    <!-- Stili non critici -->
-    <link rel="stylesheet" href="stylesheets/app.css" />
+    <!-- Stili non critici caricati in modo non bloccante -->
+    <link rel="preload" href="stylesheets/app.css" as="style">
+    <link rel="stylesheet" href="stylesheets/app.css" media="print" onload="this.media='all'">
+    <noscript>
+      <link rel="stylesheet" href="stylesheets/app.css">
+    </noscript>
     
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -63,7 +96,7 @@
     </script>
     
     <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-W7H28M8MDY"></script>
+    <script defer src="https://www.googletagmanager.com/gtag/js?id=G-W7H28M8MDY"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag() { dataLayer.push(arguments); }
@@ -72,10 +105,10 @@
     </script>
     
     <!-- AdSense -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7716592172266156" crossorigin="anonymous"></script>
+    <script defer src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7716592172266156" crossorigin="anonymous"></script>
     
     <!-- Cookie script con HTTPS -->
-    <script async src="https://www.joshuarte.it/cookie.js"></script>
+    <script defer src="https://www.joshuarte.it/cookie.js"></script>
 
     <!-- Favicon e App Icons -->
 <link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon.png">
@@ -85,7 +118,7 @@
 <link rel="manifest" href="/manifest.json" crossorigin="use-credentials">
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 <meta name="theme-color" content="#ffffff">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 
     
@@ -1359,11 +1392,11 @@
 <!-- Modal -->
 <div class="popup">
     <div class="popup__header">
-        <h6>&lt;informativa sulla privacy e cookie/&gt;</h6>
+        <p>&lt;informativa sulla privacy e cookie/&gt;</p>
     </div>
     <div class="popup__body"> 
 
-        <h5>&lt;cookie/&gt;</h5>
+        <p><strong>&lt;cookie/&gt;</strong></p>
 
         <p>joshuarte.it utilizza cookie sul Sito per assicurare l'integrit&aacute; della procedura di registrazione e per
             personalizzare il Sito. Un cookie &egrave; un file di testo di dimensioni ridotte salvato nel disco rigido dal
@@ -1387,7 +1420,7 @@
             si decide di rifiutare i cookie, &egrave; possibile che non possano pi&uacute; essere utilizzate le funzioni
             interattive offerte dal sito Web.</p> 
 
-        <h5>&lt;per contattarci/&gt;</h5>
+        <p><strong>&lt;per contattarci/&gt;</strong></p>
 
         <p>joshuarte.it gradisce l'invio di commenti relativi a questa informativa sulla privacy. Se ritieni che  non si attenga a questa informativa sulla privacy, contattaci tramite posta elettronica o tramite il servizio
             postale all'indirizzo indicato di seguito e faremo il possibile per determinare prontamente e rimediare al problema.</p>
