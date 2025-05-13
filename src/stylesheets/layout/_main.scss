@@ -1,4 +1,3 @@
-
 .main-container {
 	display: flex;
 	align-items: stretch;
@@ -7,16 +6,19 @@
 	width: 100%;
 	height: 100%;
 	height: auto;
+
 	.inner {
 		width: 100%;
 		height: auto;
+
 		.list-inline {
 			padding-bottom: 40px;
 			display: flex;
-    		align-items: center;
-    		gap: 10px;
+			align-items: center;
+			gap: 10px;
 		}
 	}
+
 	.left {
 		background: url(../images/bg.jpg) no-repeat top center;
 		background-size: cover;
@@ -27,7 +29,7 @@
 		justify-content: flex-end;
 		height: 70vh;
 		min-height: 450px;
-        z-index: 5;
+		z-index: 5;
 
 		h2 {
 			padding-right: 20px;
@@ -47,36 +49,43 @@
 			background-size: cover !important;
 		}
 	}
+
 	.right {
 		/* ::-webkit-scrollbar {
 			display: none;
 		} */
-		display:block;
+		display: block;
+
 		.content {
 			display: block;
 			padding: 30px;
 			//  overflow: scroll;
 		}
+
 		.logo {
 			width: 100%;
 			height: auto;
 			margin-bottom: 25px;
-		} 
-		@include respond-to('large'){
+		}
+
+		@include respond-to('large') {
 			.logo {
 				width: 40%;
 				height: auto;
 				margin-bottom: 0;
-			} 
+			}
 		}
 	}
+
 	@include respond-to('large') {
 		flex-direction: row;
+
 		.inner {
 			width: 50%;
 			height: 100%;
 			transition: all .5s ease;
 		}
+
 		.left {
 			position: fixed;
 			left: 0;
@@ -86,10 +95,12 @@
 			flex-direction: column;
 			align-items: center;
 			justify-content: flex-end;
+
 			ul {
 				margin-top: 0;
 			}
 		}
+
 		.right {
 			position: fixed;
 			right: 0;
@@ -97,6 +108,7 @@
 			z-index: 2;
 			background: #fff;
 			overflow: hidden;
+
 			.content {
 				display: flex;
 				flex-direction: column;
@@ -104,6 +116,10 @@
 				justify-content: space-between;
 				padding: 40px;
 				height: 100%;
+			}
+
+			.content2 {
+				padding-bottom: 120px;
 			}
 
 			.section-heading {
@@ -116,6 +132,7 @@
 			}
 		}
 	}
+
 	.fa {
 		color: #fff;
 		font-size: 24px;
