@@ -1,12 +1,5 @@
 <template>
-  <div v-if="post" class="blog-post container">
-    <div class="post-header">
-      <h1>{{ post.data.title }}</h1>
-      <div class="meta">
-        <span class="date">{{ formatDate(post.first_publication_date) }}</span>
-        <span v-if="post.data.author" class="author">di {{ post.data.author }}</span>
-      </div>
-    </div>
+    <div v-if="post" class="blog-post container">    <div class="post-header">      <h1>{{ post.data.article_title }}</h1>      <div class="meta">        <span class="date">{{ formatDate(post.first_publication_date) }}</span>        <span v-if="post.data.author" class="author">di {{ post.data.author }}</span>      </div>    </div>
     
     <img 
       v-if="post.data.featured_image?.url" 
@@ -15,9 +8,12 @@
       class="featured-image"
     >
     
-    <div class="post-content">
-      <div v-html="post.data.content"></div>
-    </div>
+    <!-- Rendering delle slice con SliceZone -->
+    <SliceZone v-if="post.data.slices" :slices="post.data.slices" :components="components" />
+    
+    <!-- Contenuto alternativo se non ci sono slice -->
+    <div v-else-if="post.data.content" class="post-content" v-html="post.data.content"></div>
+    <div v-else class="no-content">Nessun contenuto disponibile.</div>
     
     <div v-if="post.data.tags && post.data.tags.length > 0" class="tags">
       <span v-for="tag in post.data.tags" :key="tag" class="tag">{{ tag }}</span>
@@ -40,41 +36,44 @@
 </template>
 
 <script setup>
-const route = useRoute()
-const { uid } = route.params
+import { components } from '~/slices';
+
+const route = useRoute();
+const { uid } = route.params;
 
 // Funzione per formattare le date
 const formatDate = (dateString) => {
-  const date = new Date(dateString)
+  const date = new Date(dateString);
   return new Intl.DateTimeFormat('it-IT', {
     day: 'numeric',
     month: 'long',
     year: 'numeric'
-  }).format(date)
-}
+  }).format(date);
+};
 
 // Carica il post da Prismic
-const { $prismicCustom } = useNuxtApp()
-const { client } = $prismicCustom
+const prismic = usePrismic();
 
-const { data: post, pending, error } = useAsyncData(`blog-post-${uid}`, () => 
-  client.getByUID('blog_post', uid)
-    .catch(e => {
-      console.error('Errore durante il caricamento del post:', e)
-      return null
-    })
-)
+const { data: post, pending, error } = useAsyncData(`articles-${uid}`, async () => {
+  try {
+    // Ottieni solo dal tipo articles (blog_post non esiste)
+    return await prismic.client.getByUID('articles', uid);
+  } catch (e) {
+    console.error('Errore durante il caricamento dell\'articolo:', e);
+    return null;
+  }
+});
 
 // Setup SEO dinamico per la pagina
 useHead(() => {
   if (!post.value) return {}
   
   return {
-    title: `${post.value.data.title} | Blog MOSCANELLAMMERDA`,
+    title: `${post.value.data.title || post.value.data.article_title || 'Articolo'} | Blog Joshua Rte`,
     meta: [
-      { name: 'description', content: post.value.data.description || 'Articolo del blog MOSCANELLAMMERDA' },
-      { property: 'og:title', content: post.value.data.title },
-      { property: 'og:description', content: post.value.data.description || 'Articolo del blog MOSCANELLAMMERDA' },
+      { name: 'description', content: post.value.data.description || 'Articolo del blog Joshua Rte' },
+      { property: 'og:title', content: post.value.data.title || post.value.data.article_title },
+      { property: 'og:description', content: post.value.data.description || 'Articolo del blog Joshua Rte' },
       { property: 'og:url', content: `https://www.joshuarte.it/blog/${uid}` },
       { property: 'og:image', content: post.value.data.featured_image?.url || 'https://www.joshuarte.it/images/bg.jpg' },
       { property: 'og:type', content: 'article' },
@@ -117,6 +116,15 @@ useHead(() => {
 .post-content {
   line-height: 1.8;
   font-size: 1.1rem;
+}
+
+.no-content {
+  text-align: center;
+  padding: 40px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  font-style: italic;
+  color: #666;
 }
 
 .tags {

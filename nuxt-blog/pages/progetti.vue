@@ -29,8 +29,6 @@
 </template>
 
 <script setup>
-import { usePrismicStore } from '~/stores/prismic';
-
 // SEO metadata
 useHead({
   title: 'Progetti | Joshua Rte.',
@@ -42,14 +40,44 @@ useHead({
   ]
 });
 
-// Utilizziamo lo store Pinia per gestire i dati di Prismic
-const prismicStore = usePrismicStore();
+// Utilizziamo il client Prismic per ottenere i dati
+const prismic = usePrismic();
 
-// Recuperiamo i progetti
-await prismicStore.fetchProjects();
-const projects = computed(() => prismicStore.getProjects);
-const isProjectsLoading = computed(() => prismicStore.areProjectsLoading);
-const projectsError = computed(() => prismicStore.error.projects);
+// Fetch progetti data
+const { data: projectDocs, pending: isProjectsLoading, error: projectsError } = useAsyncData('projects-page', async () => {
+  try {
+    return await prismic.client.getAllByType('projects');
+  } catch(e) {
+    console.error('Error fetching projects:', e);
+    return [];
+  }
+});
+
+// Process projects data to extract from slices
+const projects = computed(() => {
+  if (!projectDocs.value || !Array.isArray(projectDocs.value)) return [];
+  
+  return projectDocs.value.flatMap(doc => {
+    if (!doc.data?.slices || !Array.isArray(doc.data.slices)) {
+      return [];
+    }
+    
+    return doc.data.slices
+      .filter(slice => slice.slice_type === 'project')
+      .map((slice, index) => {
+        const primary = slice.primary || {};
+        
+        return {
+          uid: doc.uid || `project-${index}`,
+          name: primary.name || 'Progetto senza nome',
+          image: primary.imageurl || null,
+          imageUrl: primary.imageurl?.url || '/placeholder-project.jpg',
+          jobDescription: primary.jobdescription || 'Descrizione non disponibile',
+          url: primary.url || '#'
+        };
+      });
+  });
+});
 </script>
 
 <style lang="scss" scoped>

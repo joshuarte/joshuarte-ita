@@ -1,0 +1,14 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"article": {
+				"__TYPE__": "FieldContent",
+				"value": "scientific",
+				"type": "Text"
+			}
+		},
+		"items": []
+	}
+]

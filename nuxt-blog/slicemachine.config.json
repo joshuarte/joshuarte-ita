@@ -1,6 +1,13 @@
 {
   "repositoryName": "joshuarte",
-  "adapter": "@slicemachine/adapter-nuxt",
   "libraries": ["./slices"],
-  "localSliceSimulatorURL": "http://localhost:3000/slice-simulator"
+  "localSliceSimulatorURL": "http://localhost:3000/slice-simulator",
+  "adapter": {
+    "resolve": "@slicemachine/adapter-nuxt",
+    "options": {
+      "typescript": true,
+      "format": true,
+      "lazyLoadSlices": true
+    }
+  }
 }

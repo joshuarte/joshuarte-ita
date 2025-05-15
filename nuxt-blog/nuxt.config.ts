@@ -19,7 +19,6 @@ export default defineNuxtConfig({
 
   modules: [
     '@nuxtjs/prismic',
-    '@pinia/nuxt',
   ],
 
   // Configurazione per SASS - importiamo le variabili in tutti i componenti
@@ -33,17 +32,24 @@ export default defineNuxtConfig({
     }
   },
 
+  // Prismic configuration
   prismic: {
     endpoint: 'joshuarte',
     clientConfig: {
+      // Add access token if you have a private repository
+      // accessToken: process.env.PRISMIC_ACCESS_TOKEN,
       routes: [
         {
           type: 'home',
           path: '/',
         },
         {
-          type: 'project',
-          path: '/projects/:uid',
+          type: 'projects',
+          path: '/progetti/:uid',
+        },
+        {
+          type: 'articles',
+          path: '/blog/:uid',
         },
       ],
     },

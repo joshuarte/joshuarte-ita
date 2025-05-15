@@ -30,8 +30,6 @@
 </template>
 
 <script setup>
-import { useAsyncData } from 'nuxt/app';
-
 const props = defineProps({
   limit: {
     type: Number,
@@ -47,46 +45,56 @@ const formatDate = (date) => {
   return new Date(date).toLocaleDateString('it-IT', options);
 };
 
-// Recupera gli articoli del blog da Prismic
-const { data: posts, pending, error } = useAsyncData('recent-posts', async () => {
+// Recupera gli articoli dal client Prismic
+const prismic = usePrismic();
+
+const { data: articlesData, pending, error } = useAsyncData('articles', async () => {
   try {
-    // Utilizzo il client personalizzato o quello ufficiale in base a quale è disponibile
-    const nuxtApp = useNuxtApp();
-    
-    // Determina quale client usare
-    let client = null;
-    
-    if (nuxtApp.$prismicCustom) {
-      client = nuxtApp.$prismicCustom;
-    } else if (nuxtApp.$prismic && nuxtApp.$prismic.client) {
-      client = nuxtApp.$prismic.client;
-    } else if (nuxtApp.$prismic) {
-      client = nuxtApp.$prismic;
-    }
-    
-    if (!client) {
-      throw new Error('Nessun client Prismic disponibile');
-    }
-    
-    const response = await client.getAllByType('blog_post', {
+    // Ottieni articoli dal tipo articles
+    return await prismic.client.getAllByType('articles', {
       orderings: [
         { field: 'document.first_publication_date', direction: 'desc' }
       ],
       pageSize: props.limit
     });
-    
-    return response.map(post => ({
-      id: post.id,
-      uid: post.uid,
-      title: post.data.title || 'Articolo senza titolo',
-      excerpt: post.data.excerpt || post.data.description || 'Nessuna descrizione disponibile',
-      featured_image: post.data.featured_image?.url || '',
-      date: post.first_publication_date || post.data.date
-    }));
-  } catch (e) {
-    console.error('Errore nel recupero degli articoli:', e);
+  } catch(err) {
+    console.error('Errore durante il caricamento degli articoli:', err);
     return [];
   }
+});
+
+// Trasforma i dati in un formato più semplice da usare nel template
+const posts = computed(() => {
+  if (!articlesData.value) return [];
+  
+  return articlesData.value.map(article => {
+    // Estrai il titolo e il contenuto dalle slices
+    let title = article.data.article_title || '';
+    let excerpt = article.data.description || '';
+    
+    // Se non c'è un titolo diretto, cerca nelle slices
+    if (!title && article.data.slices && article.data.slices.length > 0) {
+      const articleSlice = article.data.slices.find(slice => slice.slice_type === 'article');
+      if (articleSlice && articleSlice.primary) {
+        // Usa il campo article come titolo se article_title non è disponibile
+        title = articleSlice.primary.article_title || articleSlice.primary.article || 'Articolo senza titolo';
+      }
+    }
+    
+    // Se ancora non abbiamo un titolo, usa un valore predefinito
+    if (!title) {
+      title = 'Articolo senza titolo';
+    }
+    
+    return {
+      id: article.id,
+      uid: article.uid,
+      title: title,
+      excerpt: excerpt || 'Nessuna descrizione disponibile',
+      featured_image: article.data.featured_image?.url || '',
+      date: article.first_publication_date || article.data.date
+    };
+  });
 });
 </script>
 

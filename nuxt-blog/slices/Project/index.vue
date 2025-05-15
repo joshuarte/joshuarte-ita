@@ -17,35 +17,85 @@ defineProps(
   <section
     :data-slice-type="slice.slice_type"
     :data-slice-variation="slice.variation"
+    class="project-content"
   >
-    Placeholder component for project (variation: {{ slice.variation }}) slices.
-
-    <br />
-    <strong>You can edit this slice directly in your code editor.</strong>
-    <!--
-	💡 Use Prismic MCP with your code editor
-
-	Get AI-powered help to build your slice components — based on your actual model.
-
-	▶️ Setup:
-	1. Add a new MCP Server in your code editor:
-
-	{
-		"mcpServers": {
-			"Prismic MCP": {
-				"command": "npx",
-				"args": ["-y", "@prismicio/mcp-server"]
-			}
-		}
-	}
-
-	2. Select Claude 3.7 Sonnet (recommended for optimal output)
-
-	✅ Then open your slice file and ask your code editor:
-		"Code this slice"
-
-	Your code editor reads your slice model and helps you code faster ⚡
-	📚 Give your feedback: https://community.prismic.io/t/help-us-shape-the-future-of-slice-creation/19505
--->
+    <div v-if="slice.primary" class="project-details">
+      <h3 v-if="slice.primary.name">{{ slice.primary.name }}</h3>
+      
+      <div v-if="slice.primary.imageurl?.url" class="project-image">
+        <img :src="slice.primary.imageurl.url" :alt="slice.primary.name || 'Progetto'" />
+      </div>
+      
+      <div v-if="slice.primary.jobdescription" class="project-description">
+        <PrismicRichText v-if="Array.isArray(slice.primary.jobdescription)" :field="slice.primary.jobdescription" />
+        <div v-else v-html="slice.primary.jobdescription"></div>
+      </div>
+      
+      <div v-if="slice.primary.url" class="project-link">
+        <PrismicLink :field="slice.primary.url" class="btn">Vedi Progetto</PrismicLink>
+      </div>
+    </div>
+    
+    <div v-else class="no-content">
+      Nessun dettaglio disponibile per questo progetto.
+    </div>
   </section>
 </template>
+
+<style scoped>
+.project-content {
+  margin: 20px 0;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+}
+
+.project-details {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.project-image {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.project-image img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.project-description {
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+.project-link {
+  margin-top: 20px;
+}
+
+.no-content {
+  font-style: italic;
+  color: #666;
+  text-align: center;
+  padding: 20px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: 500;
+  transition: background-color 0.3s;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
+</style>

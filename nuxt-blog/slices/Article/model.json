@@ -1,0 +1,26 @@
+{
+  "id": "article",
+  "type": "SharedSlice",
+  "name": "Article",
+  "description": "Article",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "article": {
+          "type": "Text",
+          "config": {
+            "label": "Article Title",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}
