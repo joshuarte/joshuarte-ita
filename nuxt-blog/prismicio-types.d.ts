@@ -4,7 +4,7 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
-type HomeDocumentDataSlicesSlice = HomeTitleSlice;
+type HomeDocumentDataSlicesSlice = HomeSlice;
 
 /**
  * Content for Home documents
@@ -64,6 +64,71 @@ interface HomeDocumentData {
  */
 export type HomeDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithoutUID<Simplify<HomeDocumentData>, "home", Lang>;
+
+/**
+ * Content for Project documents
+ */
+interface ProjectDocumentData {
+  /**
+   * Name field in *Project*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Nome del progetto
+   * - **API ID Path**: project.name
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  name: prismic.KeyTextField;
+
+  /**
+   * Job Description field in *Project*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Descrizione del progetto
+   * - **API ID Path**: project.job_description
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  job_description: prismic.KeyTextField;
+
+  /**
+   * URL field in *Project*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: Link al progetto
+   * - **API ID Path**: project.url
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  url: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+
+  /**
+   * Image field in *Project*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project.image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+}
+
+/**
+ * Project document from Prismic
+ *
+ * - **API ID**: `project`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type ProjectDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<ProjectDocumentData>,
+    "project",
+    Lang
+  >;
 
 type ProjectsDocumentDataSlicesSlice = ProjectSlice;
 
@@ -130,37 +195,88 @@ export type ProjectsDocument<Lang extends string = string> =
     Lang
   >;
 
-export type AllDocumentTypes = HomeDocument | ProjectsDocument;
+export type AllDocumentTypes =
+  | HomeDocument
+  | ProjectDocument
+  | ProjectsDocument;
 
 /**
- * Default variation for HomeTitle Slice
+ * Primary content in *Home → Default → Primary*
+ */
+export interface HomeSliceDefaultPrimary {
+  /**
+   * Intro Text field in *Home → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: home.default.primary.intro_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  intro_text: prismic.KeyTextField;
+
+  /**
+   * Intro Description field in *Home → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: home.default.primary.intro_description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  intro_description: prismic.RichTextField;
+
+  /**
+   * Intro Button field in *Home → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: home.default.primary.intro_button
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  intro_button: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+
+  /**
+   * asd field in *Home → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: home.default.primary.asd
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  asd: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for Home Slice
  *
  * - **API ID**: `default`
  * - **Description**: Default
  * - **Documentation**: https://prismic.io/docs/slice
  */
-export type HomeTitleSliceDefault = prismic.SharedSliceVariation<
+export type HomeSliceDefault = prismic.SharedSliceVariation<
   "default",
-  Record<string, never>,
+  Simplify<HomeSliceDefaultPrimary>,
   never
 >;
 
 /**
- * Slice variation for *HomeTitle*
+ * Slice variation for *Home*
  */
-type HomeTitleSliceVariation = HomeTitleSliceDefault;
+type HomeSliceVariation = HomeSliceDefault;
 
 /**
- * HomeTitle Shared Slice
+ * Home Shared Slice
  *
- * - **API ID**: `home_title`
- * - **Description**: HomeTitle
+ * - **API ID**: `home`
+ * - **Description**: Home
  * - **Documentation**: https://prismic.io/docs/slice
  */
-export type HomeTitleSlice = prismic.SharedSlice<
-  "home_title",
-  HomeTitleSliceVariation
->;
+export type HomeSlice = prismic.SharedSlice<"home", HomeSliceVariation>;
 
 /**
  * Primary content in *Project → Default → Primary*
@@ -261,13 +377,16 @@ declare module "@prismicio/client" {
       HomeDocument,
       HomeDocumentData,
       HomeDocumentDataSlicesSlice,
+      ProjectDocument,
+      ProjectDocumentData,
       ProjectsDocument,
       ProjectsDocumentData,
       ProjectsDocumentDataSlicesSlice,
       AllDocumentTypes,
-      HomeTitleSlice,
-      HomeTitleSliceVariation,
-      HomeTitleSliceDefault,
+      HomeSlice,
+      HomeSliceDefaultPrimary,
+      HomeSliceVariation,
+      HomeSliceDefault,
       ProjectSlice,
       ProjectSliceDefaultPrimary,
       ProjectSliceVariation,

@@ -4,8 +4,17 @@
     <section class="hero">
       <div class="container">
         <h1>Joshua Rte.</h1>
-        <p>Sviluppatore web e designer con una passione per l'innovazione e la creatività.</p>
-        <NuxtLink to="/contatti" class="btn">Contattami</NuxtLink>
+        <p v-if="homeData && homeData.intro_text">{{ homeData.intro_text }}</p>
+        <p v-else>Sviluppatore web e designer con una passione per l'innovazione e la creatività.</p>
+        
+        <div v-if="homeData && homeData.intro_description" class="description">
+          {{ homeData.intro_description }}
+        </div>
+        
+        <a v-if="homeData && homeData.intro_button" :href="homeData.intro_button.url || '#'" class="btn">
+          {{ homeData.intro_button.text || 'Contattami' }}
+        </a>
+        <NuxtLink v-else to="/contatti" class="btn">Contattami</NuxtLink>
       </div>
     </section>
 
@@ -13,9 +22,9 @@
     <section id="progetti">
       <div class="container">
         <h2>I Miei Progetti</h2>
-        <div v-if="isLoading" class="loading">Caricamento progetti...</div>
-        <div v-else-if="error" class="error">
-          Si è verificato un errore nel caricamento dei progetti: {{ error }}
+        <div v-if="isProjectsLoading" class="loading">Caricamento progetti...</div>
+        <div v-else-if="projectsError" class="error">
+          Si è verificato un errore nel caricamento dei progetti: {{ projectsError }}
         </div>
         <div v-else-if="projects && projects.length" class="grid">
           <ProjectCard 
@@ -47,7 +56,7 @@
 </template>
 
 <script setup>
-import { usePrismicProjects } from '~/composables/usePrismicProjects';
+import { usePrismicStore } from '~/stores/prismic';
 
 // SEO metadata
 useHead({
@@ -60,25 +69,112 @@ useHead({
   ]
 });
 
-// Utilizziamo il composable per recuperare i progetti
-const { projects, isLoading, error, fetchProjects } = usePrismicProjects();
+// Utilizziamo lo store Pinia per gestire i dati di Prismic
+const prismicStore = usePrismicStore();
+
+// Recuperiamo i dati della home page
+await prismicStore.fetchHomeData();
+const homeData = computed(() => prismicStore.getHomeContent);
+const isHomeLoading = computed(() => prismicStore.isHomeLoading);
+const homeError = computed(() => prismicStore.error.home);
+
+// Recuperiamo i progetti
+await prismicStore.fetchProjects();
+const projects = computed(() => prismicStore.getProjects);
+const isProjectsLoading = computed(() => prismicStore.areProjectsLoading);
+const projectsError = computed(() => prismicStore.error.projects);
 </script>
 
 <style scoped>
+.hero {
+  background-color: #f8f9fa;
+  padding: 3rem 0;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  color: #666;
+  max-width: 800px;
+  margin: 0 auto 1.5rem;
+}
+
+.description {
+  font-size: 1.1rem;
+  max-width: 800px;
+  margin: 0 auto 1.5rem;
+  color: #666;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
+
+.btn-outline {
+  background-color: transparent;
+  border: 1px solid #007bff;
+  color: #007bff;
+}
+
+.btn-outline:hover {
+  background-color: #007bff;
+  color: white;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+section {
+  padding: 3rem 0;
+}
+
+section h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: #333;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
 .view-all {
   text-align: center;
-  margin-top: 40px;
+  margin-top: 2rem;
 }
 
 .loading, .error, .no-content {
   text-align: center;
-  padding: 40px;
+  padding: 2rem;
   background-color: #f9f9f9;
   border-radius: 8px;
-  margin: 20px 0;
+  margin: 1rem 0;
 }
 
 .error {
-  color: #e74c3c;
+  color: #dc3545;
 }
 </style> 

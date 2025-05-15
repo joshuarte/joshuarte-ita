@@ -6,12 +6,37 @@
   "status": true,
   "json": {
     "Main": {
+      "intro_title": {
+        "type": "Text",
+        "config": {
+          "label": "Titolo Introduttivo",
+          "placeholder": "Es. Joshua Rte."
+        }
+      },
+      "intro_text": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Testo Introduttivo",
+          "placeholder": "Descrizione breve",
+          "allowTargetBlank": true,
+          "single": "paragraph"
+        }
+      },
+      "intro_button": {
+        "type": "Link",
+        "config": {
+          "label": "Pulsante Introduttivo",
+          "placeholder": "Link al pulsante",
+          "allowTargetBlank": true,
+          "allowText": true
+        }
+      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
-            "home_title": {
+            "home": {
               "type": "SharedSlice"
             }
           }

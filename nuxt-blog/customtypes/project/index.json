@@ -32,7 +32,8 @@
         "config": {
           "label": "URL",
           "placeholder": "Link al progetto",
-          "allowTargetBlank": true
+          "allowTargetBlank": true,
+          "select": null
         }
       },
       "image": {
@@ -48,4 +49,4 @@
       }
     }
   }
-} 
+}

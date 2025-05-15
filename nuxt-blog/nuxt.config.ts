@@ -19,10 +19,23 @@ export default defineNuxtConfig({
 
   modules: [
     '@nuxtjs/prismic',
+    '@pinia/nuxt',
   ],
 
   prismic: {
     endpoint: 'joshuarte',
+    clientConfig: {
+      routes: [
+        {
+          type: 'home',
+          path: '/',
+        },
+        {
+          type: 'project',
+          path: '/projects/:uid',
+        },
+      ],
+    },
   },
 
   // Transpila i pacchetti necessari

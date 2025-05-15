@@ -1,0 +1,38 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"intro_title": {
+				"__TYPE__": "FieldContent",
+				"value": "Benvenuto nel mio Portfolio",
+				"type": "Text"
+			},
+			"intro_text": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Sono un web developer e designer appassionato di creare esperienze digitali innovative. Esplora i miei progetti e scopri cosa posso fare per il tuo business."
+						}
+					}
+				]
+			},
+			"button_text": {
+				"__TYPE__": "FieldContent",
+				"value": "Scopri i miei progetti",
+				"type": "Text"
+			},
+			"button_link": {
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "/progetti",
+					"text": ""
+				}
+			}
+		},
+		"items": []
+	}
+]
