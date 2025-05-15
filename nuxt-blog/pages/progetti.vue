@@ -9,8 +9,10 @@
 
     <section class="progetti-section">
       <div class="container">
-        <div v-if="pending" class="loading">Caricamento progetti...</div>
-        <div v-else-if="error" class="error">Si è verificato un errore nel caricamento dei progetti.</div>
+        <div v-if="isProjectsLoading" class="loading">Caricamento progetti...</div>
+        <div v-else-if="projectsError" class="error">
+          Si è verificato un errore nel caricamento dei progetti: {{ projectsError }}
+        </div>
         <div v-else-if="projects && projects.length" class="grid">
           <ProjectCard 
             v-for="project in projects" 
@@ -27,7 +29,7 @@
 </template>
 
 <script setup>
-import { useAsyncData } from 'nuxt/app';
+import { usePrismicStore } from '~/stores/prismic';
 
 // SEO metadata
 useHead({
@@ -40,63 +42,23 @@ useHead({
   ]
 });
 
-// Fetch all projects from Prismic
-const { data: projects, pending, error } = useAsyncData('progetti-page', async () => {
-  try {
-    const { prismicCustom } = useNuxtApp();
-    const response = await prismicCustom.getAllByType('project', {
-      orderings: [
-        { field: 'document.first_publication_date', direction: 'desc' }
-      ]
-    });
-    
-    return response.map(project => ({
-      uid: project.uid,
-      name: project.data.name || 'Progetto',
-      imageUrl: project.data.image?.url || '/placeholder-project.jpg',
-      jobDescription: project.data.job_description || 'Descrizione non disponibile',
-      url: project.data.url || '#'
-    }));
-  } catch (e) {
-    console.error('Errore nel recupero dei progetti:', e);
-    return [];
-  }
-});
+// Utilizziamo lo store Pinia per gestire i dati di Prismic
+const prismicStore = usePrismicStore();
+
+// Recuperiamo i progetti
+await prismicStore.fetchProjects();
+const projects = computed(() => prismicStore.getProjects);
+const isProjectsLoading = computed(() => prismicStore.areProjectsLoading);
+const projectsError = computed(() => prismicStore.error.projects);
 </script>
 
-<style scoped>
-.page-header {
-  background-color: #333;
-  color: #fff;
-  padding: 60px 0;
-  text-align: center;
-}
-
-.page-header h1 {
-  font-size: 2.5rem;
-  margin-bottom: 15px;
-}
-
-.page-header p {
-  font-size: 1.2rem;
-  max-width: 600px;
-  margin: 0 auto;
-  opacity: 0.8;
-}
-
+<style lang="scss" scoped>
+// Gli stili comuni sono ora gestiti dal file app.scss globale
 .progetti-section {
   padding: 80px 0;
-}
-
-.loading, .error, .no-content {
-  text-align: center;
-  padding: 40px;
-  background-color: #f9f9f9;
-  border-radius: 8px;
-  margin: 20px 0;
-}
-
-.error {
-  color: #e74c3c;
+  
+  .grid {
+    margin-top: $spacing-unit * 2;
+  }
 }
 </style> 

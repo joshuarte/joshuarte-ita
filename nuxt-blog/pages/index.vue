@@ -19,7 +19,7 @@
     </section>
 
     <!-- Projects Section -->
-    <section id="progetti">
+    <section id="progetti" class="progetti-section">
       <div class="container">
         <h2>I Miei Progetti</h2>
         <div v-if="isProjectsLoading" class="loading">Caricamento progetti...</div>
@@ -43,7 +43,7 @@
     </section>
 
     <!-- Recent Blog Posts -->
-    <section id="blog">
+    <section id="blog" class="blog-section">
       <div class="container">
         <h2>Articoli Recenti</h2>
         <RecentPosts :limit="3" />
@@ -85,96 +85,52 @@ const isProjectsLoading = computed(() => prismicStore.areProjectsLoading);
 const projectsError = computed(() => prismicStore.error.projects);
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .hero {
-  background-color: #f8f9fa;
-  padding: 3rem 0;
+  background-color: $light-bg;
+  padding: $spacing-unit * 3 0;
   text-align: center;
+  
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: $spacing-unit;
+    color: $text-color;
+  }
+  
+  p {
+    font-size: 1.2rem;
+    color: lighten($text-color, 20%);
+    max-width: 800px;
+    margin: 0 auto $spacing-unit * 1.5;
+  }
+  
+  .description {
+    font-size: 1.1rem;
+    max-width: 800px;
+    margin: 0 auto $spacing-unit * 1.5;
+    color: lighten($text-color, 20%);
+  }
 }
 
-.hero h1 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-  color: #333;
+.progetti-section, .blog-section {
+  padding: $spacing-unit * 4 0;
+  
+  h2 {
+    text-align: center;
+    margin-bottom: $spacing-unit * 2;
+  }
+  
+  .view-all {
+    text-align: center;
+    margin-top: $spacing-unit * 2;
+  }
 }
 
-.hero p {
-  font-size: 1.2rem;
-  color: #666;
-  max-width: 800px;
-  margin: 0 auto 1.5rem;
+.progetti-section {
+  background-color: white;
 }
 
-.description {
-  font-size: 1.1rem;
-  max-width: 800px;
-  margin: 0 auto 1.5rem;
-  color: #666;
-}
-
-.btn {
-  display: inline-block;
-  padding: 0.75rem 1.5rem;
-  background-color: #007bff;
-  color: white;
-  text-decoration: none;
-  border-radius: 4px;
-  font-weight: 600;
-  transition: background-color 0.3s ease;
-}
-
-.btn:hover {
-  background-color: #0056b3;
-}
-
-.btn-outline {
-  background-color: transparent;
-  border: 1px solid #007bff;
-  color: #007bff;
-}
-
-.btn-outline:hover {
-  background-color: #007bff;
-  color: white;
-}
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1rem;
-}
-
-section {
-  padding: 3rem 0;
-}
-
-section h2 {
-  font-size: 2rem;
-  margin-bottom: 2rem;
-  text-align: center;
-  color: #333;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 2rem;
-}
-
-.view-all {
-  text-align: center;
-  margin-top: 2rem;
-}
-
-.loading, .error, .no-content {
-  text-align: center;
-  padding: 2rem;
-  background-color: #f9f9f9;
-  border-radius: 8px;
-  margin: 1rem 0;
-}
-
-.error {
-  color: #dc3545;
+.blog-section {
+  background-color: $light-bg;
 }
 </style> 
