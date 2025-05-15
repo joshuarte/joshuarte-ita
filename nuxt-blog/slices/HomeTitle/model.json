@@ -1,0 +1,16 @@
+{
+  "id": "home_title",
+  "type": "SharedSlice",
+  "name": "HomeTitle",
+  "description": "HomeTitle",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": ""
+    }
+  ]
+}

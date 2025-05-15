@@ -1,0 +1,37 @@
+{
+  "name": "nuxt-blog",
+  "version": "1.0.0",
+  "description": "Blog con Nuxt 3 e Prismic CMS",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "nuxt dev",
+    "build": "nuxt build",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "clean": "rm -rf .nuxt dist .output",
+    "slicemachine": "npx slice-machine-ui",
+    "sm:dev": "npx concurrently \"npm run dev\" \"npm run slicemachine\""
+  },
+  "keywords": [
+    "nuxt",
+    "blog",
+    "prismic",
+    "portfolio"
+  ],
+  "author": "Luca Joshua Mosca",
+  "license": "ISC",
+  "dependencies": {
+    "@nuxtjs/prismic": "^4.1.0",
+    "@prismicio/client": "^7.17.2",
+    "@prismicio/vue": "^5.2.1",
+    "@vueuse/head": "^1.3.1",
+    "nuxt": "^3.9.0"
+  },
+  "devDependencies": {
+    "@nuxt/types": "^2.18.1",
+    "@slicemachine/adapter-nuxt": "^0.3.77",
+    "@slicemachine/init": "^2.10.33",
+    "slice-machine-ui": "^2.16.0"
+  }
+}

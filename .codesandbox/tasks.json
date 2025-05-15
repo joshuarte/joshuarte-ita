@@ -9,9 +9,21 @@
 
   // These tasks can be run from CodeSandbox. Running one will open a log in the app.
   "tasks": {
-    "": {
-      "name": "",
-      "command": ""
+    "slice-machine": {
+      "name": "Slice Machine",
+      "command": "cd /project/workspace/nuxt-blog && npx slice-machine-ui --port 5173",
+      "runAtStart": false,
+      "preview": {
+        "port": 5173
+      }
+    },
+    "start": {
+      "name": "Nuxt Development",
+      "command": "cd /project/workspace/nuxt-blog && npm run dev",
+      "runAtStart": true,
+      "preview": {
+        "port": 3000
+      }
     }
   }
 }
