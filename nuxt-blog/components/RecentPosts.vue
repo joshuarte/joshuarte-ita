@@ -1,144 +1,118 @@
 <template>
-  <div class="recent-posts">
-    <h2>{{ title || 'Articoli recenti' }}</h2>
-    
-    <div v-if="pending" class="loading">
-      <p>Caricamento articoli...</p>
-    </div>
-    
-    <div v-else-if="error" class="error">
-      <p>Si è verificato un errore nel caricamento dei contenuti.</p>
-    </div>
-    
-    <div v-else-if="posts && posts.length > 0" class="posts-grid">
-      <div v-for="post in posts" :key="post.id" class="post-card">
-        <NuxtLink :to="`/blog/${post.uid}`">
-          <img 
-            v-if="post.data.featured_image?.url" 
-            :src="post.data.featured_image.url" 
-            :alt="post.data.featured_image.alt || post.data.title"
-          >
-          <div class="post-card-content">
-            <h3>{{ post.data.title }}</h3>
-            <p>{{ post.data.description }}</p>
+  <div>
+    <div v-if="pending" class="loading">Caricamento articoli...</div>
+    <div v-else-if="error" class="error">Si è verificato un errore nel caricamento degli articoli.</div>
+    <div v-else-if="posts && posts.length" class="grid">
+      <NuxtLink 
+        v-for="post in posts" 
+        :key="post.id" 
+        :to="`/blog/${post.uid}`" 
+        class="card"
+      >
+        <img 
+          :src="post.featured_image || '/placeholder-blog.jpg'" 
+          :alt="post.title" 
+          class="post-image" 
+        />
+        <div class="card-content">
+          <h3>{{ post.title }}</h3>
+          <p>{{ post.excerpt }}</p>
+          <div class="post-meta">
+            <span class="post-date">{{ formatDate(post.date) }}</span>
           </div>
-        </NuxtLink>
-      </div>
+        </div>
+      </NuxtLink>
     </div>
-    
-    <div v-else class="no-posts">
-      <p>Nessun articolo pubblicato. Torna presto!</p>
-    </div>
-    
-    <div v-if="showViewAll && posts && posts.length > 0" class="view-all">
-      <NuxtLink to="/blog" class="btn">Vedi tutti gli articoli</NuxtLink>
+    <div v-else class="no-content">
+      Nessun articolo disponibile al momento.
     </div>
   </div>
 </template>
 
 <script setup>
+import { useAsyncData } from 'nuxt/app';
+
 const props = defineProps({
-  title: {
-    type: String,
-    default: ''
-  },
   limit: {
     type: Number,
     default: 3
-  },
-  showViewAll: {
-    type: Boolean,
-    default: true
   }
-})
+});
 
-// Carica i post da Prismic
-const { $prismicCustom } = useNuxtApp()
-const { client } = $prismicCustom
+// Formatta la data in formato locale italiano
+const formatDate = (date) => {
+  if (!date) return '';
+  
+  const options = { year: 'numeric', month: 'long', day: 'numeric' };
+  return new Date(date).toLocaleDateString('it-IT', options);
+};
 
-const { data: posts, pending, error } = useAsyncData('recent-posts', () => 
-  client.getByType('blog_post', {
-    orderings: {
-      field: 'document.first_publication_date',
-      direction: 'desc'
-    },
-    pageSize: props.limit
-  })
-  .then(response => response.results || [])
-  .catch(err => {
-    console.error('Errore durante il caricamento dei post:', err)
-    return []
-  })
-)
+// Recupera gli articoli del blog da Prismic
+const { data: posts, pending, error } = useAsyncData('recent-posts', async () => {
+  try {
+    // Utilizzo il client personalizzato o quello ufficiale in base a quale è disponibile
+    const nuxtApp = useNuxtApp();
+    
+    // Determina quale client usare
+    let client = null;
+    
+    if (nuxtApp.$prismicCustom) {
+      client = nuxtApp.$prismicCustom;
+    } else if (nuxtApp.$prismic && nuxtApp.$prismic.client) {
+      client = nuxtApp.$prismic.client;
+    } else if (nuxtApp.$prismic) {
+      client = nuxtApp.$prismic;
+    }
+    
+    if (!client) {
+      throw new Error('Nessun client Prismic disponibile');
+    }
+    
+    const response = await client.getAllByType('blog_post', {
+      orderings: [
+        { field: 'document.first_publication_date', direction: 'desc' }
+      ],
+      pageSize: props.limit
+    });
+    
+    return response.map(post => ({
+      id: post.id,
+      uid: post.uid,
+      title: post.data.title || 'Articolo senza titolo',
+      excerpt: post.data.excerpt || post.data.description || 'Nessuna descrizione disponibile',
+      featured_image: post.data.featured_image?.url || '',
+      date: post.first_publication_date || post.data.date
+    }));
+  } catch (e) {
+    console.error('Errore nel recupero degli articoli:', e);
+    return [];
+  }
+});
 </script>
 
 <style scoped>
-.recent-posts {
-  margin: 40px 0;
-}
-
-.recent-posts h2 {
-  margin-bottom: 20px;
-  text-align: center;
-}
-
-.posts-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 20px;
-}
-
-.post-card {
-  background: #fff;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.post-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
-}
-
-.post-card a {
-  text-decoration: none;
-  color: inherit;
-  display: block;
-}
-
-.post-card img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-}
-
-.post-card-content {
-  padding: 15px;
-}
-
-.post-card-content h3 {
-  margin-bottom: 8px;
-  font-size: 1.1rem;
-}
-
-.post-card-content p {
-  font-size: 0.9rem;
+.post-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
+  font-size: 0.85rem;
   color: #666;
-  margin-bottom: 0;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
 }
 
-.loading, .error, .no-posts {
-  text-align: center;
-  padding: 20px 0;
+.post-date {
+  font-style: italic;
 }
 
-.view-all {
+.loading, .error, .no-content {
   text-align: center;
-  margin-top: 30px;
+  padding: 40px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  margin: 20px 0;
+}
+
+.error {
+  color: #e74c3c;
 }
 </style> 

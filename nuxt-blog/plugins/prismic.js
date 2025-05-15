@@ -1,26 +1,29 @@
-import * as prismic from '@prismicio/client'
+import * as prismic from '@prismicio/client';
 
 export default defineNuxtPlugin((nuxtApp) => {
-  // Il modulo @nuxtjs/prismic già fornisce $prismic,
-  // quindi creiamo un servizio con un nome diverso
-  const client = prismic.createClient('joshuarte', {
-    routes: [
-      {
-        type: 'page',
-        path: '/:uid'
-      },
-      {
-        type: 'blog_post',
-        path: '/blog/:uid'
+  try {
+    // Crea l'endpoint del repository Prismic
+    const endpoint = prismic.getRepositoryEndpoint('joshuarte');
+    
+    // Configura il client Prismic
+    const config = {
+      accessToken: process.env.PRISMIC_ACCESS_TOKEN || ''
+    };
+    
+    // Crea il client Prismic
+    const prismicClient = prismic.createClient(endpoint, config);
+    
+    // Espone il client come prismicCustom
+    return {
+      provide: {
+        prismicCustom: prismicClient
       }
-    ]
-  })
-  
-  // Usa un nome diverso per evitare conflitti
-  return {
-    provide: {
-      prismicCustom: {
-        client
+    }
+  } catch (e) {
+    console.error('Errore durante inizializzazione del client Prismic:', e);
+    return {
+      provide: {
+        prismicCustom: null
       }
     }
   }

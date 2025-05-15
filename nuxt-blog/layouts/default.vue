@@ -3,52 +3,55 @@
     <header>
       <div class="container header-inner">
         <div class="logo">
-          <NuxtLink to="/">JOSHUARTE</NuxtLink>
+          <NuxtLink to="/">Joshua Rte.</NuxtLink>
         </div>
         <nav>
           <ul>
-            <li><NuxtLink to="/">Home</NuxtLink></li>
-            <li><NuxtLink to="/moscanellammerda">MoscaNellaMmerda</NuxtLink></li>
-            <li><NuxtLink to="/blog">Blog</NuxtLink></li>
+            <li><NuxtLink to="/" exact-active-class="active">Home</NuxtLink></li>
+            <li><NuxtLink to="/blog" active-class="active">Blog</NuxtLink></li>
+            <li><NuxtLink to="/progetti" active-class="active">Progetti</NuxtLink></li>
+            <li><NuxtLink to="/contatti" active-class="active">Contatti</NuxtLink></li>
           </ul>
         </nav>
       </div>
     </header>
+
     <main>
       <slot />
     </main>
+
     <footer>
       <div class="container footer-inner">
         <div class="footer-col">
-          <h3>Links</h3>
-          <ul>
-            <li><NuxtLink to="/">Home</NuxtLink></li>
-            <li><NuxtLink to="/moscanellammerda">MoscaNellaMmerda</NuxtLink></li>
-            <li><NuxtLink to="/blog">Blog</NuxtLink></li>
-          </ul>
+          <h3>Joshua Rte.</h3>
+          <p>Sviluppatore web e designer con una passione per l'innovazione e la creatività.</p>
         </div>
         <div class="footer-col">
-          <h3>Social</h3>
+          <h3>Link Rapidi</h3>
           <ul>
-            <li><a href="https://discordapp.com/channels/@joshuarte" target="_blank">Discord</a></li>
-            <li><a href="https://it.linkedin.com/in/joshuarte" target="_blank">LinkedIn</a></li>
-            <li><a href="https://www.instagram.com/moscanellammerda/" target="_blank">Instagram</a></li>
+            <li><NuxtLink to="/">Home</NuxtLink></li>
+            <li><NuxtLink to="/blog">Blog</NuxtLink></li>
+            <li><NuxtLink to="/progetti">Progetti</NuxtLink></li>
+            <li><NuxtLink to="/contatti">Contatti</NuxtLink></li>
           </ul>
         </div>
         <div class="footer-col">
           <h3>Contatti</h3>
           <ul>
-            <li><a href="mailto:joshuarte@gmail.com">joshuarte@gmail.com</a></li>
+            <li>Email: info@joshuarte.it</li>
+            <li>Telefono: +39 123 456 7890</li>
           </ul>
         </div>
       </div>
       <div class="copyright">
-        &copy; {{ new Date().getFullYear() }} - Luca Joshua Mosca
+        <div class="container">
+          <p>&copy; {{ new Date().getFullYear() }} Joshua Rte. Tutti i diritti riservati.</p>
+        </div>
       </div>
     </footer>
   </div>
 </template>
 
 <script setup>
-// Layout predefinito dell'applicazione
+// Layout principale predefinito
 </script> 

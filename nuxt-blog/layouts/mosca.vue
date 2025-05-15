@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="mosca-layout">
     <a class="back-to-home" href="https://www.joshuarte.it">TORNA ALLA HOME</a>
     <main>
       <slot />
@@ -8,7 +8,15 @@
 </template>
 
 <script setup>
-// Layout per moscanellammerda
+// Layout speciale per la pagina moscanellammerda
+
+// SEO metadata
+useHead({
+  title: 'MOSCA NELLA MMERDA',
+  meta: [
+    { name: 'description', content: 'MOSCA NELLA MMERDA - Arte irriverente' }
+  ]
+});
 </script>
 
 <style scoped>
@@ -46,5 +54,10 @@ main {
   width: 100%;
   text-align: center;
   padding-top: 60px;
+}
+
+.mosca-layout {
+  background-color: pink;
+  min-height: 100vh;
 }
 </style> 

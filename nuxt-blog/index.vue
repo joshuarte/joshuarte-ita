@@ -13,10 +13,8 @@
     <section id="progetti">
       <div class="container">
         <h2>I Miei Progetti</h2>
-        <div v-if="isLoading" class="loading">Caricamento progetti...</div>
-        <div v-else-if="error" class="error">
-          Si è verificato un errore nel caricamento dei progetti: {{ error }}
-        </div>
+        <div v-if="pending" class="loading">Caricamento progetti...</div>
+        <div v-else-if="error" class="error">Si è verificato un errore nel caricamento dei progetti.</div>
         <div v-else-if="projects && projects.length" class="grid">
           <ProjectCard 
             v-for="project in projects" 
@@ -47,7 +45,7 @@
 </template>
 
 <script setup>
-import { usePrismicProjects } from '~/composables/usePrismicProjects';
+import { useAsyncData } from 'nuxt/app';
 
 // SEO metadata
 useHead({
@@ -60,8 +58,24 @@ useHead({
   ]
 });
 
-// Utilizziamo il composable per recuperare i progetti
-const { projects, isLoading, error, fetchProjects } = usePrismicProjects();
+// Fetch projects from Prismic
+const { data: projects, pending, error } = useAsyncData('projects', async () => {
+  try {
+    const { prismicCustom } = useNuxtApp();
+    const response = await prismicCustom.getAllByType('project');
+    
+    return response.map(project => ({
+      uid: project.uid,
+      name: project.data.name || 'Progetto',
+      imageUrl: project.data.image?.url || '/placeholder-project.jpg',
+      jobDescription: project.data.job_description || 'Descrizione non disponibile',
+      url: project.data.url || '#'
+    }));
+  } catch (e) {
+    console.error('Errore nel recupero dei progetti:', e);
+    return [];
+  }
+});
 </script>
 
 <style scoped>

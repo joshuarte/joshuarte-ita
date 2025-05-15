@@ -65,7 +65,72 @@ interface HomeDocumentData {
 export type HomeDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithoutUID<Simplify<HomeDocumentData>, "home", Lang>;
 
-export type AllDocumentTypes = HomeDocument;
+type ProjectsDocumentDataSlicesSlice = ProjectSlice;
+
+/**
+ * Content for Projects documents
+ */
+interface ProjectsDocumentData {
+  /**
+   * Slice Zone field in *Projects*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: projects.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<ProjectsDocumentDataSlicesSlice> /**
+   * Meta Title field in *Projects*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: projects.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *Projects*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: projects.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Projects*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: projects.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * Projects document from Prismic
+ *
+ * - **API ID**: `projects`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type ProjectsDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<ProjectsDocumentData>,
+    "projects",
+    Lang
+  >;
+
+export type AllDocumentTypes = HomeDocument | ProjectsDocument;
 
 /**
  * Default variation for HomeTitle Slice
@@ -97,6 +162,81 @@ export type HomeTitleSlice = prismic.SharedSlice<
   HomeTitleSliceVariation
 >;
 
+/**
+ * Primary content in *Project → Default → Primary*
+ */
+export interface ProjectSliceDefaultPrimary {
+  /**
+   * ImageUrl field in *Project → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project.default.primary.imageurl
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  imageurl: prismic.ImageField<never>;
+
+  /**
+   * Name field in *Project → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project.default.primary.name
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  name: prismic.KeyTextField;
+
+  /**
+   * JobDescription field in *Project → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project.default.primary.jobdescription
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  jobdescription: prismic.RichTextField;
+
+  /**
+   * URL field in *Project → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project.default.primary.url
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  url: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+}
+
+/**
+ * Default variation for Project Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ProjectSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ProjectSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Project*
+ */
+type ProjectSliceVariation = ProjectSliceDefault;
+
+/**
+ * Project Shared Slice
+ *
+ * - **API ID**: `project`
+ * - **Description**: Project
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ProjectSlice = prismic.SharedSlice<
+  "project",
+  ProjectSliceVariation
+>;
+
 declare module "@prismicio/client" {
   interface CreateClient {
     (
@@ -121,10 +261,17 @@ declare module "@prismicio/client" {
       HomeDocument,
       HomeDocumentData,
       HomeDocumentDataSlicesSlice,
+      ProjectsDocument,
+      ProjectsDocumentData,
+      ProjectsDocumentDataSlicesSlice,
       AllDocumentTypes,
       HomeTitleSlice,
       HomeTitleSliceVariation,
       HomeTitleSliceDefault,
+      ProjectSlice,
+      ProjectSliceDefaultPrimary,
+      ProjectSliceVariation,
+      ProjectSliceDefault,
     };
   }
 }
