@@ -1,6 +1,5 @@
 <template>
   <div>
-    <PageLoader />
     <AppIcons />
     <main>
       <slot />

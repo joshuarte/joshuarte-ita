@@ -35,5 +35,6 @@ export { useMainStore } from '../stores/index';
 export { usePrismic, getSliceComponentProps, defineSliceZoneComponents, getRichTextComponentProps, getTableComponentProps } from '@prismicio/vue';
 export { usePrismicPreview } from '../node_modules/@nuxtjs/prismic/dist/runtime/usePrismicPreview';
 export { defineStore, acceptHMRUpdate, usePinia, storeToRefs } from '../node_modules/@pinia/nuxt/dist/runtime/composables';
+export { useImage } from '../node_modules/@nuxt/image/dist/runtime/composables';
 export { useNuxtDevTools } from '../node_modules/@nuxt/devtools/dist/runtime/use-nuxt-devtools';
 export { definePageMeta } from '../node_modules/nuxt/dist/pages/runtime/composables';

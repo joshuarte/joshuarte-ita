@@ -157,11 +157,13 @@ export default defineNuxtConfig({
   css: [
     "@/assets/stylesheets/critical.scss", // Stili critici caricati per primi
     "@/assets/stylesheets/app.scss",
+    "@/assets/scss/main.scss",  // Aggiungo il nuovo file SCSS
   ],
 
   modules: [
     "@nuxtjs/prismic",
-    "@pinia/nuxt"
+    "@pinia/nuxt",
+    '@nuxt/image',
   ],
 
   // Configurazione per SASS - importiamo le variabili in tutti i componenti
@@ -197,6 +199,23 @@ export default defineNuxtConfig({
         },
       ],
     },
+  },
+
+  // Configurazione per @nuxt/image
+  image: {
+    // Opzioni per il provider di default
+    provider: 'ipx',
+    quality: 80,
+    format: ['webp', 'avif', 'jpg'],
+    // Configurazione per l'ottimizzazione delle immagini
+    screens: {
+      xs: 320,
+      sm: 640,
+      md: 768,
+      lg: 1024,
+      xl: 1280,
+      xxl: 1536
+    }
   },
 
   // Transpila i pacchetti necessari

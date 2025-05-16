@@ -456,7 +456,7 @@ const projects = computed(() => {
   });
 });
 
-// Aggiungiamo il panel gestito dallo store
+// Utilizzo dello store per il pannello portfolio
 const portfolioPanel = usePortfolioPanel();
 const { isVisible } = storeToRefs(portfolioPanel);
 
@@ -465,60 +465,12 @@ const portfolioPanelClass = computed(() => {
   return isVisible.value ? 'slideOutRight' : '';
 });
 
-// Aggiungiamo la funzione per toggle del panel
+// Funzione per attivare/disattivare il pannello portfolio
 const togglePortfolioPanel = () => {
-  console.log('Toggle portfolio panel'); // Aggiungere log per debug
   portfolioPanel.toggle();
 };
 </script>
 
 <style lang="scss" scoped>
-.hero {
-  background-color: $color_primary;
-  padding: 5px * 3 0;
-  text-align: center;
-
-  h1 {
-    font-size: 2.5rem;
-    margin-bottom: 5px;
-    color: $color_primary;
-  }
-
-  p {
-    font-size: 1.2rem;
-    color: lighten($color_primary, 20%);
-    max-width: 800px;
-    margin: 0 auto 5px * 1.5;
-  }
-
-  .description {
-    font-size: 1.1rem;
-    max-width: 800px;
-    margin: 0 auto 5px * 1.5;
-    color: lighten($color_primary, 20%);
-  }
-}
-
-.progetti-section,
-.blog-section {
-  padding: 5px * 4 0;
-
-  h2 {
-    text-align: center;
-    margin-bottom: 5px * 2;
-  }
-
-  .view-all {
-    text-align: center;
-    margin-top: 5px * 2;
-  }
-}
-
-.progetti-section {
-  background-color: white;
-}
-
-.blog-section {
-  background-color: $color_primary;
-}
+// Rimosso stile non utilizzato
 </style>

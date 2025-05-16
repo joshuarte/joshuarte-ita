@@ -106,6 +106,12 @@
       "#internal/nuxt/paths": [
         "../node_modules/nuxt/dist/core/runtime/nitro/utils/paths"
       ],
+      "#image": [
+        "../node_modules/@nuxt/image/dist/runtime"
+      ],
+      "#image/*": [
+        "../node_modules/@nuxt/image/dist/runtime/*"
+      ],
       "#unhead/composables": [
         "../node_modules/nuxt/dist/head/runtime/composables/v3"
       ]
@@ -120,6 +126,7 @@
     "./types/nitro-nuxt.d.ts",
     "../node_modules/@nuxtjs/prismic/runtime/server",
     "../node_modules/@pinia/nuxt/runtime/server",
+    "../node_modules/@nuxt/image/runtime/server",
     "../node_modules/@nuxt/devtools/runtime/server",
     "../node_modules/@nuxt/telemetry/runtime/server",
     "./types/nitro.d.ts",
@@ -132,6 +139,7 @@
     "../node_modules/nuxt/node_modules",
     "../node_modules/@nuxtjs/prismic/node_modules",
     "../node_modules/@pinia/nuxt/node_modules",
+    "../node_modules/@nuxt/image/node_modules",
     "../node_modules/@nuxt/devtools/node_modules",
     "../node_modules/@nuxt/telemetry/node_modules",
     "../dist"

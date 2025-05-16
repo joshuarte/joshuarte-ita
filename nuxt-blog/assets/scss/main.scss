@@ -1,0 +1,79 @@
+/* Main SCSS file */
+
+// Variabili
+$color_primary: #0073ff;
+$color_secondary: #fff;
+$color_text: #333;
+$color_background: #f5f5f5;
+
+// Reset e stili base
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Source Sans Pro', sans-serif;
+  color: $color_text;
+  background-color: $color_background;
+  line-height: 1.6;
+  font-size: 16px;
+  
+  // Utilizzo dell'immagine di sfondo precaricata
+  &::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-image: url('/images/bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.15;
+  }
+}
+
+// Animazioni per il pannello portfolio
+.slideInRight {
+  animation: slideInRight 0.5s forwards;
+}
+
+.slideOutRight {
+  animation: slideOutRight 0.5s forwards;
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOutRight {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+// Utility classes
+.lazy-image {
+  opacity: 0;
+  transition: opacity 0.3s;
+  
+  &.loaded {
+    opacity: 1;
+  }
+} 

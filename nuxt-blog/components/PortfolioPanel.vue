@@ -43,14 +43,8 @@ import { onMounted, watchEffect } from 'vue';
 import ProjectCard from '~/components/ProjectCard.vue';
 
 const mainStore = useMainStore();
-const { portfolioPanelClass, isPortfolioPanelVisible } = storeToRefs(mainStore);
+const { isPortfolioPanelVisible } = storeToRefs(mainStore);
 const { hidePortfolioPanel } = mainStore;
-
-// Debug
-watchEffect(() => {
-  console.log('Panel visible:', isPortfolioPanelVisible.value);
-  console.log('Panel class:', portfolioPanelClass.value);
-});
 
 // Props per i progetti da mostrare
 const props = defineProps({

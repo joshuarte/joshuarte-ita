@@ -13,9 +13,7 @@ type HydrationStrategies = {
 type LazyComponent<T> = (T & DefineComponent<HydrationStrategies, {}, {}, {}, {}, {}, {}, { hydrated: () => void }>)
 interface _GlobalComponents {
       'AppIcons': typeof import("../components/AppIcons.vue")['default']
-    'PageLoader': typeof import("../components/PageLoader.vue")['default']
     'PortfolioPanel': typeof import("../components/PortfolioPanel.vue")['default']
-    'PrismicTest': typeof import("../components/PrismicTest.vue")['default']
     'ProjectCard': typeof import("../components/ProjectCard.vue")['default']
     'ProjectImage': typeof import("../components/ProjectImage.vue")['default']
     'RecentPosts': typeof import("../components/RecentPosts.vue")['default']
@@ -34,8 +32,8 @@ interface _GlobalComponents {
     'NuxtLoadingIndicator': typeof import("../node_modules/nuxt/dist/app/components/nuxt-loading-indicator")['default']
     'NuxtTime': typeof import("../node_modules/nuxt/dist/app/components/nuxt-time.vue")['default']
     'NuxtRouteAnnouncer': typeof import("../node_modules/nuxt/dist/app/components/nuxt-route-announcer")['default']
-    'NuxtImg': typeof import("../node_modules/nuxt/dist/app/components/nuxt-stubs")['NuxtImg']
-    'NuxtPicture': typeof import("../node_modules/nuxt/dist/app/components/nuxt-stubs")['NuxtPicture']
+    'NuxtImg': typeof import("../node_modules/@nuxt/image/dist/runtime/components/NuxtImg.vue")['default']
+    'NuxtPicture': typeof import("../node_modules/@nuxt/image/dist/runtime/components/NuxtPicture.vue")['default']
     'PrismicEmbed': typeof import("@prismicio/vue")['PrismicEmbed']
     'PrismicImage': typeof import("@prismicio/vue")['PrismicImage']
     'PrismicLink': typeof import("@prismicio/vue")['PrismicLink']
@@ -56,9 +54,7 @@ interface _GlobalComponents {
     'NuxtIsland': typeof import("../node_modules/nuxt/dist/app/components/nuxt-island")['default']
     'NuxtRouteAnnouncer': IslandComponent<typeof import("../node_modules/nuxt/dist/app/components/server-placeholder")['default']>
       'LazyAppIcons': LazyComponent<typeof import("../components/AppIcons.vue")['default']>
-    'LazyPageLoader': LazyComponent<typeof import("../components/PageLoader.vue")['default']>
     'LazyPortfolioPanel': LazyComponent<typeof import("../components/PortfolioPanel.vue")['default']>
-    'LazyPrismicTest': LazyComponent<typeof import("../components/PrismicTest.vue")['default']>
     'LazyProjectCard': LazyComponent<typeof import("../components/ProjectCard.vue")['default']>
     'LazyProjectImage': LazyComponent<typeof import("../components/ProjectImage.vue")['default']>
     'LazyRecentPosts': LazyComponent<typeof import("../components/RecentPosts.vue")['default']>
@@ -77,8 +73,8 @@ interface _GlobalComponents {
     'LazyNuxtLoadingIndicator': LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/nuxt-loading-indicator")['default']>
     'LazyNuxtTime': LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/nuxt-time.vue")['default']>
     'LazyNuxtRouteAnnouncer': LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/nuxt-route-announcer")['default']>
-    'LazyNuxtImg': LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/nuxt-stubs")['NuxtImg']>
-    'LazyNuxtPicture': LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/nuxt-stubs")['NuxtPicture']>
+    'LazyNuxtImg': LazyComponent<typeof import("../node_modules/@nuxt/image/dist/runtime/components/NuxtImg.vue")['default']>
+    'LazyNuxtPicture': LazyComponent<typeof import("../node_modules/@nuxt/image/dist/runtime/components/NuxtPicture.vue")['default']>
     'LazyPrismicEmbed': LazyComponent<typeof import("@prismicio/vue")['PrismicEmbed']>
     'LazyPrismicImage': LazyComponent<typeof import("@prismicio/vue")['PrismicImage']>
     'LazyPrismicLink': LazyComponent<typeof import("@prismicio/vue")['PrismicLink']>
@@ -105,9 +101,7 @@ declare module 'vue' {
 }
 
 export const AppIcons: typeof import("../components/AppIcons.vue")['default']
-export const PageLoader: typeof import("../components/PageLoader.vue")['default']
 export const PortfolioPanel: typeof import("../components/PortfolioPanel.vue")['default']
-export const PrismicTest: typeof import("../components/PrismicTest.vue")['default']
 export const ProjectCard: typeof import("../components/ProjectCard.vue")['default']
 export const ProjectImage: typeof import("../components/ProjectImage.vue")['default']
 export const RecentPosts: typeof import("../components/RecentPosts.vue")['default']
@@ -126,8 +120,8 @@ export const NuxtLink: typeof import("../node_modules/nuxt/dist/app/components/n
 export const NuxtLoadingIndicator: typeof import("../node_modules/nuxt/dist/app/components/nuxt-loading-indicator")['default']
 export const NuxtTime: typeof import("../node_modules/nuxt/dist/app/components/nuxt-time.vue")['default']
 export const NuxtRouteAnnouncer: typeof import("../node_modules/nuxt/dist/app/components/nuxt-route-announcer")['default']
-export const NuxtImg: typeof import("../node_modules/nuxt/dist/app/components/nuxt-stubs")['NuxtImg']
-export const NuxtPicture: typeof import("../node_modules/nuxt/dist/app/components/nuxt-stubs")['NuxtPicture']
+export const NuxtImg: typeof import("../node_modules/@nuxt/image/dist/runtime/components/NuxtImg.vue")['default']
+export const NuxtPicture: typeof import("../node_modules/@nuxt/image/dist/runtime/components/NuxtPicture.vue")['default']
 export const PrismicEmbed: typeof import("@prismicio/vue")['PrismicEmbed']
 export const PrismicImage: typeof import("@prismicio/vue")['PrismicImage']
 export const PrismicLink: typeof import("@prismicio/vue")['PrismicLink']
@@ -148,9 +142,7 @@ export const Body: typeof import("../node_modules/nuxt/dist/head/runtime/compone
 export const NuxtIsland: typeof import("../node_modules/nuxt/dist/app/components/nuxt-island")['default']
 export const NuxtRouteAnnouncer: IslandComponent<typeof import("../node_modules/nuxt/dist/app/components/server-placeholder")['default']>
 export const LazyAppIcons: LazyComponent<typeof import("../components/AppIcons.vue")['default']>
-export const LazyPageLoader: LazyComponent<typeof import("../components/PageLoader.vue")['default']>
 export const LazyPortfolioPanel: LazyComponent<typeof import("../components/PortfolioPanel.vue")['default']>
-export const LazyPrismicTest: LazyComponent<typeof import("../components/PrismicTest.vue")['default']>
 export const LazyProjectCard: LazyComponent<typeof import("../components/ProjectCard.vue")['default']>
 export const LazyProjectImage: LazyComponent<typeof import("../components/ProjectImage.vue")['default']>
 export const LazyRecentPosts: LazyComponent<typeof import("../components/RecentPosts.vue")['default']>
@@ -169,8 +161,8 @@ export const LazyNuxtLink: LazyComponent<typeof import("../node_modules/nuxt/dis
 export const LazyNuxtLoadingIndicator: LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/nuxt-loading-indicator")['default']>
 export const LazyNuxtTime: LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/nuxt-time.vue")['default']>
 export const LazyNuxtRouteAnnouncer: LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/nuxt-route-announcer")['default']>
-export const LazyNuxtImg: LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/nuxt-stubs")['NuxtImg']>
-export const LazyNuxtPicture: LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/nuxt-stubs")['NuxtPicture']>
+export const LazyNuxtImg: LazyComponent<typeof import("../node_modules/@nuxt/image/dist/runtime/components/NuxtImg.vue")['default']>
+export const LazyNuxtPicture: LazyComponent<typeof import("../node_modules/@nuxt/image/dist/runtime/components/NuxtPicture.vue")['default']>
 export const LazyPrismicEmbed: LazyComponent<typeof import("@prismicio/vue")['PrismicEmbed']>
 export const LazyPrismicImage: LazyComponent<typeof import("@prismicio/vue")['PrismicImage']>
 export const LazyPrismicLink: LazyComponent<typeof import("@prismicio/vue")['PrismicLink']>

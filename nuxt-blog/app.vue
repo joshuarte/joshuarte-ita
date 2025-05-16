@@ -1,7 +1,12 @@
 <template>
-  <NuxtLayout>
-    <NuxtPage />
-  </NuxtLayout>
+  <div>
+    <!-- Preload dell'immagine di sfondo -->
+    <NuxtImg src="/images/bg.jpg" preload width="1920" height="1080" alt="Immagine di sfondo" format="webp" quality="80" style="display: none;" />
+    
+    <NuxtLayout>
+      <NuxtPage />
+    </NuxtLayout>
+  </div>
 </template>
 
 <script setup>
