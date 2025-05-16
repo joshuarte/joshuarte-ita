@@ -159,7 +159,10 @@ export default defineNuxtConfig({
     "@/assets/stylesheets/app.scss",
   ],
 
-  modules: ["@nuxtjs/prismic"],
+  modules: [
+    "@nuxtjs/prismic",
+    "@pinia/nuxt"
+  ],
 
   // Configurazione per SASS - importiamo le variabili in tutti i componenti
   vite: {

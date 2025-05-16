@@ -108,4 +108,17 @@ $transition-timing: .5s ease;
 @import 'layout/cta'; 
 @import 'layout/main';
 
+// Classi per l'animazione del pannello portfolio
+.slideOutRight {
+  transform: translateX(100%) !important;
+}
+
+.slideInRight {
+  transform: translateX(0) !important;
+}
+
+.right {
+  transition: transform 0.5s ease;
+}
+
 

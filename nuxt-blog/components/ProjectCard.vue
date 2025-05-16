@@ -1,127 +1,198 @@
 <template>
-  <div class="project-card">
-    <NuxtLink :to="`/progetti/${project.uid}`" class="project-link-wrapper">
-      <div class="project-image">
-        <!-- Usa PrismicImage se il campo image è disponibile, altrimenti usa img standard -->
-        <PrismicImage v-if="project.image" :field="project.image" class="image" />
-        <img 
-          v-else
-          :src="project.imageUrl || '/placeholder-project.jpg'" 
-          :alt="project.name"
-          @error="handleImageError"
-          class="image"
-        />
-      </div>
-      <div class="project-content">
-        <h3>{{ project.name }}</h3>
-        
-        <!-- Usa PrismicRichText per il jobDescription se è un campo strutturato -->
-        <PrismicRichText v-if="isRichText(project.jobDescription)" :field="project.jobDescription" />
-        <p v-else>{{ project.jobDescription }}</p>
-        
-        <div class="project-link">
-          <span class="btn btn-sm">Vedi Progetto</span>
-        </div>
+  <article class="col-md-12 no-padding">
+    <!-- Link interno se non c'è URL esterno, altrimenti link esterno -->
+    <NuxtLink 
+      v-if="!project.url || project.url === '#'" 
+      class="item" 
+      :to="`/progetti/${project.uid}`"
+    >
+      <ProjectImage 
+        :project="project" 
+        :index="index" 
+        :alt="`frontend developer web designer napoli ${project.name} - ${getDescription}`" 
+      />
+      <div class="caption">
+        <h2>{{ project.name }}</h2>
+        <p>
+          {{ getDescription }} <span class="ion ion-link"></span>
+        </p>
       </div>
     </NuxtLink>
-  </div>
+    
+    <!-- Link esterno se presente -->
+    <a 
+      v-else 
+      class="item" 
+      :href="project.url" 
+      target="_blank" 
+      rel="noopener"
+    >
+      <ProjectImage 
+        :project="project" 
+        :index="index" 
+        :alt="`frontend developer web designer napoli ${project.name} - ${getDescription}`" 
+      />
+      <div class="caption">
+        <h2>{{ project.name }}</h2>
+        <p>
+          {{ getDescription }} <span class="ion ion-android-exit"></span>
+        </p>
+      </div>
+    </a>
+  </article>
 </template>
 
 <script setup>
-import { ref, computed } from 'vue';
+import { ref, computed, onMounted } from 'vue';
+import { useMainStore } from '~/stores';
+import ProjectImage from '~/components/ProjectImage.vue';
+
+const mainStore = useMainStore();
 
 const props = defineProps({
   project: {
     type: Object,
     required: true
+  },
+  index: {
+    type: Number,
+    default: 0
   }
 });
+
+// Placeholder per immagini lazy
+const placeholderImage = "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3C%2Fsvg%3E";
 
 // Controlla se un campo è un Rich Text di Prismic
 const isRichText = (field) => {
   return field && Array.isArray(field) && field.length > 0 && typeof field[0] === 'object';
 };
 
-// Controlla se un campo è un Link di Prismic
-const isPrismicLink = (field) => {
-  if (!field) return false;
-  if (typeof field === 'string') return false;
-  return typeof field === 'object' && (field.link_type || field.url);
-};
+// Verifica se il progetto è tra i primi 3 (caricamento immediato)
+const isImportantProject = computed(() => {
+  return props.index < 3;
+});
+
+// Ottiene il percorso dell'immagine
+const projectImagePath = computed(() => {
+  if (props.project.image && props.project.image.url) {
+    return props.project.image.url;
+  }
+  return `/images/projects/${props.project.imageUrl || 'placeholder-project.jpg'}`;
+});
+
+// Ottiene la descrizione del progetto
+const getDescription = computed(() => {
+  if (isRichText(props.project.jobDescription)) {
+    // Se è un rich text, proviamo a estrarre il testo semplice
+    const firstTextBlock = props.project.jobDescription.find(block => 
+      block.type === 'paragraph' && block.text
+    );
+    return firstTextBlock ? firstTextBlock.text : '';
+  }
+  return props.project.jobDescription || '';
+});
 
 // Gestione errori immagine non caricata
 const handleImageError = (e) => {
   console.error('Errore caricamento immagine:', e);
-  e.target.src = '/placeholder-project.jpg';
-}
+  e.target.src = '/images/projects/placeholder-project.jpg';
+};
+
+// Implementazione del lazy loading per le immagini
+onMounted(() => {
+  if (process.client) {
+    // Utilizziamo Intersection Observer per caricare le immagini lazy
+    const lazyImages = document.querySelectorAll('.lazy-image');
+    
+    if ('IntersectionObserver' in window) {
+      const imageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const img = entry.target;
+            if (img.dataset.src) {
+              img.src = img.dataset.src;
+              img.classList.add('loaded');
+              imageObserver.unobserve(img);
+            }
+          }
+        });
+      });
+      
+      lazyImages.forEach(img => {
+        imageObserver.observe(img);
+      });
+    } else {
+      // Fallback per browser che non supportano Intersection Observer
+      lazyImages.forEach(img => {
+        if (img.dataset.src) {
+          img.src = img.dataset.src;
+        }
+      });
+    }
+  }
+});
 </script>
 
-<style scoped>
-.project-card {
-  background-color: #fff;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.project-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
-}
-
-.project-link-wrapper {
-  display: block;
-  text-decoration: none;
-  color: inherit;
-}
-
-.project-image {
+<style scoped lang="scss">
+.col-md-12 {
   width: 100%;
-  height: 220px;
-  overflow: hidden;
   position: relative;
 }
 
-.image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.5s ease;
+.no-padding {
+  padding: 0;
 }
 
-.project-card:hover .image {
-  transform: scale(1.05);
+.item {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  
+  .img-responsive {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease;
+  }
+  
+  &:hover .img-responsive {
+    transform: scale(1.05);
+  }
+  
+  .caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 20px;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0));
+    color: white;
+    
+    h2 {
+      margin-top: 0;
+      margin-bottom: 10px;
+      font-size: 1.4rem;
+    }
+    
+    p {
+      margin: 0;
+      font-size: 0.95rem;
+      
+      .ion {
+        margin-left: 5px;
+      }
+    }
+  }
 }
 
-.project-content {
-  padding: 20px;
-}
-
-.project-content h3 {
-  margin-top: 0;
-  margin-bottom: 10px;
-  font-size: 1.4rem;
-}
-
-.project-content p {
-  color: #666;
-  margin-bottom: 20px;
-  font-size: 0.95rem;
-  line-height: 1.5;
-}
-
-.project-link {
-  display: flex;
-  justify-content: flex-end;
-}
-
-.btn-sm {
-  padding: 8px 16px;
-  font-size: 0.9rem;
-  background-color: #007bff;
-  color: white;
-  border-radius: 4px;
-  display: inline-block;
+.lazy-image {
+  opacity: 0;
+  transition: opacity 0.3s;
+  
+  &.loaded {
+    opacity: 1;
+  }
 }
 </style> 

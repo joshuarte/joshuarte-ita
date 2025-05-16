@@ -30,4 +30,16 @@ onMounted(() => {
     document.body.classList.add('loaded');
   });
 });
-</script> 
+</script>
+
+<style>
+.app {
+  min-height: 100vh;
+  transition: background-color 0.3s ease;
+}
+
+.dark-theme {
+  background-color: #121212;
+  color: #f5f5f5;
+}
+</style> 

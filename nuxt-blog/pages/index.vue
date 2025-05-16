@@ -16,171 +16,54 @@
       </div>
     </header>-->
     <header class="inner left text-center">
-      <h1 class="h2" v-if="homeData && homeData.intro_text">{{ homeData.intro_text }}</h1>
-      <h1
-        class="h2"
-        v-else
-      >Sviluppatore web e designer con una passione per l'innovazione e la creatività.</h1>
+      <h1 class="h2"
+          v-if="homeData && homeData.intro_text">{{ homeData.intro_text }}</h1>
+      <h1 class="h2"
+          v-else>Sviluppatore web e designer con una passione per l'innovazione e la creatività.</h1>
       <p>
         Dimentica le agenzie che ti trattano come un numero: sviluppo web artigianale con dedizione totale al tuo
         progetto.
       </p>
-      <nav class="btn-transition-alt" aria-label="Contatti principali">
-        <a
-          href="mailto:{{social.mail}}"
-          data-hover="RACCONTAMI DEL TUO PROGETTO"
-          aria-label="Invia un'email"
-        >
+      <nav class="btn-transition-alt"
+           aria-label="Contatti principali">
+        <a :href="`mailto:${social.mail}`"
+           data-hover="RACCONTAMI DEL TUO PROGETTO"
+           aria-label="Invia un'email">
           <span>RACCONTAMI DEL TUO PROGETTO</span>
         </a>
       </nav>
       <p>Oppure scrivimi su:</p>
-      <ul class="list-inline" aria-label="Social media">
-        <li>
-          <a href="{{social.discord}}" target="_blank" rel="noopener" aria-label="Discord profile">
-            <svg
-              x="0px"
-              y="0px"
-              width="30"
-              height="30"
-              viewBox="0 0 30 30"
-              aria-hidden="true"
-              style=" fill:#FFFFFF;"
-            >
-              <path
-                d="M25.12,6.946c-2.424-1.948-6.257-2.278-6.419-2.292c-0.256-0.022-0.499,0.123-0.604,0.357 c-0.004,0.008-0.218,0.629-0.425,1.228c2.817,0.493,4.731,1.587,4.833,1.647c0.478,0.278,0.638,0.891,0.359,1.368 C22.679,9.572,22.344,9.75,22,9.75c-0.171,0-0.343-0.043-0.501-0.135C21.471,9.598,18.663,8,15.002,8 C11.34,8,8.531,9.599,8.503,9.615C8.026,9.892,7.414,9.729,7.137,9.251C6.86,8.775,7.021,8.164,7.497,7.886 c0.102-0.06,2.023-1.158,4.848-1.65c-0.218-0.606-0.438-1.217-0.442-1.225c-0.105-0.235-0.348-0.383-0.604-0.357 c-0.162,0.013-3.995,0.343-6.451,2.318C3.564,8.158,1,15.092,1,21.087c0,0.106,0.027,0.209,0.08,0.301 c1.771,3.11,6.599,3.924,7.699,3.959c0.007,0.001,0.013,0.001,0.019,0.001c0.194,0,0.377-0.093,0.492-0.25l1.19-1.612 c-2.61-0.629-3.99-1.618-4.073-1.679c-0.444-0.327-0.54-0.953-0.213-1.398c0.326-0.443,0.95-0.541,1.394-0.216 C7.625,20.217,10.172,22,15,22c4.847,0,7.387-1.79,7.412-1.808c0.444-0.322,1.07-0.225,1.395,0.221 c0.324,0.444,0.23,1.066-0.212,1.392c-0.083,0.061-1.456,1.048-4.06,1.677l1.175,1.615c0.115,0.158,0.298,0.25,0.492,0.25 c0.007,0,0.013,0,0.019-0.001c1.101-0.035,5.929-0.849,7.699-3.959c0.053-0.092,0.08-0.195,0.08-0.301 C29,15.092,26.436,8.158,25.12,6.946z M11,19c-1.105,0-2-1.119-2-2.5S9.895,14,11,14s2,1.119,2,2.5S12.105,19,11,19z M19,19 c-1.105,0-2-1.119-2-2.5s0.895-2.5,2-2.5s2,1.119,2,2.5S20.105,19,19,19z"
-              />
-            </svg>
-            <span class="sr-only">Discord</span>
-          </a>
-        </li>
-        <li>
-          <a
-            href="{{social.linkedin}}"
-            target="_blank"
-            rel="noopener"
-            aria-label="LinkedIn profile"
-          >
-            <svg
-              x="0px"
-              y="0px"
-              width="30"
-              height="30"
-              viewBox="0 0 30 30"
-              aria-hidden="true"
-              style=" fill:#ffffff;"
-            >
-              <path
-                d="M24,4H6C4.895,4,4,4.895,4,6v18c0,1.105,0.895,2,2,2h18c1.105,0,2-0.895,2-2V6C26,4.895,25.105,4,24,4z M10.954,22h-2.95 v-9.492h2.95V22z M9.449,11.151c-0.951,0-1.72-0.771-1.72-1.72c0-0.949,0.77-1.719,1.72-1.719c0.948,0,1.719,0.771,1.719,1.719 C11.168,10.38,10.397,11.151,9.449,11.151z M22.004,22h-2.948v-4.616c0-1.101-0.02-2.517-1.533-2.517 c-1.535,0-1.771,1.199-1.771,2.437V22h-2.948v-9.492h2.83v1.297h0.04c0.394-0.746,1.356-1.533,2.791-1.533 c2.987,0,3.539,1.966,3.539,4.522V22z"
-              />
-            </svg>
-            <span class="sr-only">LinkedIn</span>
-          </a>
-        </li>
-      </ul>
+      <SocialIcons ariaLabel="Social media" />
     </header>
-    <div class="inner right" id="right">
+    <div class="inner right"
+         :class="portfolioPanelClass"
+         id="right">
       <div class="content">
         <div class="row">
           <div class="col-sm-10 offset-sm-2 module-notop">
-            <svg
-              class="logo"
-              version="1.1"
-              xmlns:xlink="http://www.w3.org/1999/xlink"
-              x="0px"
-              y="0px"
-              width="281.12"
-              height="100.938"
-              viewBox="0 0 281.12 100.938"
-              enable-background="new 0 0 281.12 100.938"
-              xml:space="preserve"
-              aria-labelledby="logo-title"
-              role="img"
-            >
-              <title id="logo-title">Joshuarte Logo</title>
-              <polygon
-                points="41.04,53.358 41.04,47.578 54.815,42.608 54.815,48.309 46.28,50.469 54.815,52.631 54.815,58.328 "
-              />
-              <polygon
-                fill="#C2321F"
-                points="199.861,38.396 206.181,38.396 194.214,63.407 187.896,63.407 "
-              />
-              <polygon
-                points="75.337,41.043 81.657,41.043 81.657,54.549 90.543,54.549 90.543,59.949 75.337,59.949 "
-              />
-              <path
-                d="M111.064,56.815l4.132-3.483c0.73,1.026,1.432,1.647,2.458,1.647c1.054,0,1.755-0.864,1.755-2.188V41.043h6.159v11.641
-	c0,2.485-0.567,4.188-1.971,5.592c-1.297,1.297-3.188,2.053-5.457,2.053C114.521,60.328,112.441,58.87,111.064,56.815"
-              />
-              <polygon
-                points="146.089,41.043 152.68,41.043 156.732,47.687 160.783,41.043 167.375,41.043 167.375,59.949 161.081,59.949 
-	161.081,50.576 156.732,57.302 156.625,57.302 152.275,50.576 152.275,59.949 146.089,59.949 "
-              />
-              <polygon
-                points="226.702,52.631 235.236,50.469 226.702,48.309 226.702,42.608 240.476,47.578 240.476,53.358 226.702,58.328 "
-              />
-              <line
-                class="preload2b"
-                fill="none"
-                stroke="#63C5E0"
-                stroke-width="20"
-                stroke-miterlimit="10"
-                x1="19.557"
-                y1="10"
-                x2="281.12"
-                y2="10"
-              />
-              <line
-                class="preload2c"
-                fill="none"
-                stroke="#63C5E0"
-                stroke-width="20"
-                stroke-miterlimit="10"
-                x1="0"
-                y1="90.957"
-                x2="261.682"
-                y2="90.957"
-              />
-              <line
-                class="preload2"
-                fill="none"
-                stroke="#63C5E0"
-                stroke-width="20"
-                stroke-miterlimit="10"
-                x1="9.974"
-                y1="0"
-                x2="9.974"
-                y2="81.539"
-              />
-              <line
-                class="preload"
-                fill="none"
-                stroke="#63C5E0"
-                stroke-width="20"
-                stroke-miterlimit="10"
-                x1="271.108"
-                y1="19.4"
-                x2="271.108"
-                y2="100.939"
-              />
-            </svg>
+            <LogoJoshuarte width="281.12"
+                           height="100.938" />
           </div>
         </div>
         <div class="scrolling-content-wrapper">
           <div class="scrolling-content">
             <!-- BIO -->
-            <section class="row module__bottom" aria-labelledby="bio-heading">
+            <section class="row module__bottom"
+                     aria-labelledby="bio-heading">
               <div class="col-sm-2">
-                <h2 id="bio-heading" class="section-heading">{{ homeData.bio_heading }}</h2>
+                <h2 id="bio-heading"
+                    class="section-heading">{{ homeData.bio_heading }}</h2>
               </div>
               <div class="col-sm-10">
                 <PrismicRichText :field="homeData.bio_content" />
               </div>
             </section>
             <!-- SKILLS -->
-            <section class="row module__bottom" aria-labelledby="skills-heading">
+            <section class="row module__bottom"
+                     aria-labelledby="skills-heading">
               <div class="col-sm-2">
-                <h2 id="skills-heading" class="section-heading">&lt;skills/&gt;</h2>
+                <h2 id="skills-heading"
+                    class="section-heading">&lt;skills/&gt;</h2>
               </div>
               <div class="col-sm-10">
                 <ul class="skills-list">
@@ -218,20 +101,20 @@
               </div>
             </section>
             <!-- WORK -->
-            <section class="row module__bottom" aria-labelledby="work-heading">
+            <section class="row module__bottom"
+                     aria-labelledby="work-heading">
               <div class="col-sm-2">
-                <h2 id="work-heading" class="section-heading">&lt;work/&gt;</h2>
+                <h2 id="work-heading"
+                    class="section-heading">&lt;work/&gt;</h2>
               </div>
               <div class="col-sm-10">
                 <ul class="job-list">
                   <li>
                     <p>
-                      <a
-                        href="https://www.ciaopeople.it/"
-                        title="ciaopeople"
-                        target="_blank"
-                        rel="noopener"
-                      >
+                      <a href="https://www.ciaopeople.it/"
+                         title="ciaopeople"
+                         target="_blank"
+                         rel="noopener">
                         <strong>CIAOPEOPLE</strong>
                       </a>
                     </p>
@@ -259,7 +142,10 @@
                   </li>
                   <li>
                     <p>
-                      <a href="https://we-rad.com/" title="werad" target="_blank" rel="noopener">
+                      <a href="https://we-rad.com/"
+                         title="werad"
+                         target="_blank"
+                         rel="noopener">
                         <strong>WE RAD</strong>
                       </a>
                     </p>
@@ -281,12 +167,10 @@
                   </li>
                   <li>
                     <p>
-                      <a
-                        href="https://www.bluelabs.it/"
-                        title="bluelabs"
-                        target="_blank"
-                        rel="noopener"
-                      >
+                      <a href="https://www.bluelabs.it/"
+                         title="bluelabs"
+                         target="_blank"
+                         rel="noopener">
                         <strong>BLUELABS</strong>
                       </a>
                     </p>
@@ -315,12 +199,10 @@
                   </li>
                   <li>
                     <p>
-                      <a
-                        href="https://www.emmemedia.com"
-                        title="emmemedia"
-                        target="_blank"
-                        rel="noopener"
-                      >
+                      <a href="https://www.emmemedia.com"
+                         title="emmemedia"
+                         target="_blank"
+                         rel="noopener">
                         <strong>EMMEMEDIA</strong>
                       </a>
                     </p>
@@ -342,9 +224,11 @@
                 </ul>
               </div>
             </section>
-            <section class="row" aria-labelledby="hobby-heading">
+            <section class="row"
+                     aria-labelledby="hobby-heading">
               <div class="col-sm-2">
-                <h2 id="hobby-heading" class="section-heading">
+                <h2 id="hobby-heading"
+                    class="section-heading">
                   &lt;personal &lt;br/&gt;
                   <br />projects/&gt;
                 </h2>
@@ -353,12 +237,10 @@
                 <ul class="job-list">
                   <li>
                     <p>
-                      <a
-                        href="https://www.instagram.com/moscanellammerda/"
-                        title="moscanellammerda digital artist"
-                        target="_blank"
-                        rel="noopener"
-                      >
+                      <a href="https://www.instagram.com/moscanellammerda/"
+                         title="moscanellammerda digital artist"
+                         target="_blank"
+                         rel="noopener">
                         <strong>MOSCANELLAMM***A</strong>
                       </a>
                     </p>
@@ -378,12 +260,10 @@
                   </li>
                   <li>
                     <p>
-                      <a
-                        href="https://www.joshuarte.it/overlordz"
-                        title="imagineed starcade videogame development"
-                        target="_blank"
-                        rel="noopener"
-                      >
+                      <a href="https://www.joshuarte.it/overlordz"
+                         title="imagineed starcade videogame development"
+                         target="_blank"
+                         rel="noopener">
                         <strong>STARCADE & IMAGINEED</strong>
                       </a>
                     </p>
@@ -402,11 +282,9 @@
                       design del gioco, dallo sviluppo fino al marketing. Abbiamo
                       pubblicato OverlordZ, un gioco di carte indie per dispositivi
                       mobili e PC.
-                      <a
-                        href="https://imagineed.itch.io/overlordz"
-                        title="gioca ad overlordz"
-                        target="_blank"
-                      >Puoi giocarlo qui!</a>
+                      <a href="https://imagineed.itch.io/overlordz"
+                         title="gioca ad overlordz"
+                         target="_blank">Puoi giocarlo qui!</a>
                     </p>
                   </li>
                 </ul>
@@ -418,13 +296,11 @@
         <div class="row">
           <div class="col-sm-8 offset-sm-2">
             <nav class="btn-transition d-none d-sm-block">
-              <a
-                href="#"
-                id="show-portfolio"
-                data-hover="PROGETTI RECENTI"
-                data-module="showPortfolio"
-                aria-label="Visualizza i lavori recenti"
-              >
+              <a href="#"
+                 id="show-portfolio"
+                 data-hover="PROGETTI RECENTI"
+                 @click.prevent="togglePortfolioPanel"
+                 aria-label="Visualizza i lavori recenti">
                 <span>PROGETTI RECENTI</span>
               </a>
             </nav>
@@ -434,49 +310,27 @@
         <footer class="row">
           <div class="col-sm-10 offset-sm-2">
             <p class="h-align-left">
-              <a href="#" data-module="modalToggle">
+              <a href="#"
+                 data-module="modalToggle">
                 <strong>privacy</strong>
               </a>
               &nbsp; | &copy; 2010-{{ new Date().getFullYear() }} - &nbsp;
-              <svg
-                class="ljm"
-                version="1.1"
-                xmlns:xlink="http://www.w3.org/1999/xlink"
-                x="0px"
-                y="0px"
-                width="100"
-                viewBox="0 0 199.436 25.011"
-                enable-background="new 0 0 199.436 25.011"
-                xml:space="preserve"
-                aria-hidden="true"
-              >
-                <polygon
-                  points="0,14.962 0,9.182 13.775,4.212 13.775,9.912 5.24,12.072 13.775,14.234 13.775,19.932 "
-                />
-                <polygon
-                  fill="#C2321F"
-                  points="158.821,0 165.141,0 153.174,25.011 146.856,25.011 "
-                />
-                <polygon
-                  points="34.297,2.646 40.617,2.646 40.617,16.152 49.503,16.152 49.503,21.553 34.297,21.553 "
-                />
-                <path
-                  d="M70.024,18.419l4.132-3.483c0.73,1.026,1.432,1.647,2.458,1.647c1.054,0,1.755-0.864,1.755-2.188V2.646h6.159v11.641
-	c0,2.485-0.567,4.188-1.971,5.592c-1.297,1.297-3.188,2.053-5.457,2.053C73.481,21.932,71.401,20.474,70.024,18.419"
-                />
-                <polygon
-                  points="105.049,2.646 111.64,2.646 115.692,9.29 119.743,2.646 126.334,2.646 126.334,21.553 120.041,21.553 
-	120.041,12.18 115.692,18.905 115.584,18.905 111.235,12.18 111.235,21.553 105.049,21.553 "
-                />
-                <polygon
-                  points="185.662,14.234 194.196,12.072 185.662,9.912 185.662,4.212 199.436,9.182 199.436,14.962 185.662,19.932 "
-                />
-              </svg>
+              <LogoLJM width="100" />
             </p>
           </div>
         </footer>
       </div>
     </div>
+
+
+    <div class="main-container right 	d-block d-sm-none">
+      <div class="content">
+        <h3 class="	d-block d-sm-none">&lt;recent projects/&gt;</h3>
+      </div>
+    </div>
+    <!-- Aggiungiamo il panel gestito dallo store -->
+    <PortfolioPanel :projects="projects" />
+    <!-- La sezione right-portfolio è stata spostata nel componente PortfolioPanel -->
 
     <!-- {% include "shared/privacy.html" %} -->
 
@@ -485,24 +339,7 @@
           v-if="homeData && homeData.intro_button"
     :href="homeData.intro_button.url || '#'"-->
 
-    <!-- Projects Section -->
-    <!-- <section id="progetti" class="progetti-section">
-      <div class="container">
-        <h2>I Miei Progetti</h2>
-        <div v-if="isProjectsLoading" class="loading">Caricamento progetti...</div>
-        <div
-          v-else-if="projectsError"
-          class="error"
-        >Si è verificato un errore nel caricamento dei progetti: {{ projectsError }}</div>
-        <div v-else-if="projects && projects.length" class="grid">
-          <ProjectCard v-for="project in projects" :key="project.uid" :project="project" />
-        </div>
-        <div v-else class="no-content">Nessun progetto disponibile al momento.</div>
-        <div class="view-all">
-          <NuxtLink to="/progetti" class="btn btn-outline">Vedi tutti i progetti</NuxtLink>
-        </div>
-      </div>
-    </section>-->
+
 
     <!-- Recent Blog Posts -->
     <!-- <section id="blog" class="blog-section">
@@ -518,6 +355,14 @@
 </template>
 
 <script setup>
+// Import dei componenti SVG
+import LogoJoshuarte from '~/components/icons/LogoJoshuarte.vue';
+import LogoLJM from '~/components/icons/LogoLJM.vue';
+import SocialIcons from '~/components/SocialIcons.vue';
+import { usePortfolioPanel } from '~/composables/usePortfolioPanel';
+import { storeToRefs } from 'pinia';
+import { computed } from 'vue';
+
 // SEO metadata
 useHead({
   title: 'JOSHUARTE | Frontend Developer & UI/UX Designer',
@@ -527,6 +372,13 @@ useHead({
       content: 'Senior Frontend Developer & UI/UX Designer specializzato in JavaScript, React, Vue.js, Web Performance e Accessibilità. Portfolio di progetti web e game development.'
     }
   ]
+});
+
+// Dati social globali
+const social = inject('social', {
+  mail: 'joshuarte@gmail.com',
+  discord: 'https://discordapp.com/channels/@joshuarte',
+  linkedin: 'https://it.linkedin.com/in/joshuarte'
 });
 
 // Utilizziamo il client Prismic per ottenere i dati
@@ -603,6 +455,21 @@ const projects = computed(() => {
       });
   });
 });
+
+// Aggiungiamo il panel gestito dallo store
+const portfolioPanel = usePortfolioPanel();
+const { isVisible } = storeToRefs(portfolioPanel);
+
+// Calcola dinamicamente la classe del pannello
+const portfolioPanelClass = computed(() => {
+  return isVisible.value ? 'slideOutRight' : '';
+});
+
+// Aggiungiamo la funzione per toggle del panel
+const togglePortfolioPanel = () => {
+  console.log('Toggle portfolio panel'); // Aggiungere log per debug
+  portfolioPanel.toggle();
+};
 </script>
 
 <style lang="scss" scoped>
