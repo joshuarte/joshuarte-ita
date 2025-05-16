@@ -12,6 +12,14 @@
       "description": "Default",
       "imageUrl": "",
       "primary": {
+        "hero_image": {
+          "type": "Image",
+          "config": {
+            "label": "Hero Image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
         "intro_text": {
           "type": "Text",
           "config": {
@@ -39,11 +47,54 @@
             "repeat": false
           }
         },
-        "asd": {
+        "bio_heading": {
           "type": "Text",
           "config": {
-            "label": "asd",
+            "label": "Bio Heading",
             "placeholder": ""
+          }
+        },
+        "bio_content": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Bio Content",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+          }
+        },
+        "skills_head": {
+          "type": "Text",
+          "config": {
+            "label": "Skills Head",
+            "placeholder": ""
+          }
+        },
+        "skills_content": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Skills Content",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+          }
+        },
+        "work_head": {
+          "type": "Text",
+          "config": {
+            "label": "Work Head",
+            "placeholder": ""
+          }
+        },
+        "work_list": {
+          "type": "Link",
+          "config": {
+            "label": "Work List",
+            "select": "document",
+            "repeat": false,
+            "customtypes": [
+              "work_list"
+            ]
           }
         }
       },

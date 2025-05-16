@@ -234,10 +234,82 @@ export type ProjectsDocument<Lang extends string = string> =
     Lang
   >;
 
+/**
+ * Content for Work List documents
+ */
+interface WorkListDocumentData {
+  /**
+   * Work Company field in *Work List*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: work_list.work_company
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  work_company: prismic.KeyTextField;
+
+  /**
+   * Work Company URL field in *Work List*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: work_list.work_company_url
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  work_company_url: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+
+  /**
+   * Work Role field in *Work List*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: work_list.work_role
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  work_role: prismic.RichTextField;
+
+  /**
+   * Work Description field in *Work List*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: work_list.work_description
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  work_description: prismic.RichTextField;
+}
+
+/**
+ * Work List document from Prismic
+ *
+ * - **API ID**: `work_list`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type WorkListDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<WorkListDocumentData>,
+    "work_list",
+    Lang
+  >;
+
 export type AllDocumentTypes =
   | ArticlesDocument
   | HomeDocument
-  | ProjectsDocument;
+  | ProjectsDocument
+  | WorkListDocument;
 
 /**
  * Primary content in *Article → Default → Primary*
@@ -289,6 +361,16 @@ export type ArticleSlice = prismic.SharedSlice<
  */
 export interface HomeSliceDefaultPrimary {
   /**
+   * Hero Image field in *Home → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: home.default.primary.hero_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  hero_image: prismic.ImageField<never>;
+
+  /**
    * Intro Text field in *Home → Default → Primary*
    *
    * - **Field Type**: Text
@@ -325,14 +407,64 @@ export interface HomeSliceDefaultPrimary {
   >;
 
   /**
-   * asd field in *Home → Default → Primary*
+   * Bio Heading field in *Home → Default → Primary*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: home.default.primary.asd
+   * - **API ID Path**: home.default.primary.bio_heading
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
-  asd: prismic.KeyTextField;
+  bio_heading: prismic.KeyTextField;
+
+  /**
+   * Bio Content field in *Home → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: home.default.primary.bio_content
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  bio_content: prismic.RichTextField;
+
+  /**
+   * Skills Head field in *Home → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: home.default.primary.skills_head
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  skills_head: prismic.KeyTextField;
+
+  /**
+   * Skills Content field in *Home → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: home.default.primary.skills_content
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  skills_content: prismic.RichTextField;
+
+  /**
+   * Work Head field in *Home → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: home.default.primary.work_head
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  work_head: prismic.KeyTextField;
+
+  /**
+   * Work List field in *Home → Default → Primary*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: home.default.primary.work_list
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  work_list: prismic.ContentRelationshipField<"work_list">;
 }
 
 /**
@@ -467,6 +599,8 @@ declare module "@prismicio/client" {
       ProjectsDocument,
       ProjectsDocumentData,
       ProjectsDocumentDataSlicesSlice,
+      WorkListDocument,
+      WorkListDocumentData,
       AllDocumentTypes,
       ArticleSlice,
       ArticleSliceDefaultPrimary,

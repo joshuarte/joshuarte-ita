@@ -21,7 +21,10 @@
         class="h2"
         v-else
       >Sviluppatore web e designer con una passione per l'innovazione e la creatività.</h1>
-      <p>Dimentica le agenzie che ti trattano come un numero: sviluppo web artigianale con dedizione totale al tuo progetto.</p>
+      <p>
+        Dimentica le agenzie che ti trattano come un numero: sviluppo web artigianale con dedizione totale al tuo
+        progetto.
+      </p>
       <nav class="btn-transition-alt" aria-label="Contatti principali">
         <a
           href="mailto:{{social.mail}}"
@@ -165,63 +168,16 @@
         </div>
         <div class="scrolling-content-wrapper">
           <div class="scrolling-content">
+            <!-- BIO -->
             <section class="row module__bottom" aria-labelledby="bio-heading">
               <div class="col-sm-2">
-                <h2 id="bio-heading" class="section-heading">&lt;bio/&gt;</h2>
+                <h2 id="bio-heading" class="section-heading">{{ homeData.bio_heading }}</h2>
               </div>
               <div class="col-sm-10">
-                <p>
-                  Ciao! Sono Luca Joshua, uno sviluppatore web, game developer, digital artist e UX/UI designer con
-                  <strong>oltre 14 anni di esperienza</strong>. Attualmente lavoro presso
-                  <a
-                    href="https://www.ciaopeople.it/"
-                    title="ciaopeople"
-                    target="_blank"
-                    rel="noopener"
-                  >Ciaopeople</a>, come Software e Frontend Developer, dove contribuisco allo
-                  sviluppo di progetti digitali innovativi, ma sono sempre alla ricerca di nuovi stimoli e opportunità per
-                  crescere.
-                  <br />
-                  <br />Ho recentemente progettato, sviluppato e pubblicato
-                  <a
-                    href="https://imagineed.itch.io/overlordz"
-                    title="gioca ad overlordz"
-                    target="_blank"
-                  >OverlordZ</a>, un gioco di carte indipendente per
-                  dispositivi mobili e PC, realizzato in collaborazione con un team di talentuosi colleghi. Un progetto che
-                  unisce meccaniche di gioco coinvolgenti a un design curato nei minimi dettagli.
-                  <br />
-                  <br />In parallelo, ho dato vita a
-                  <a href="#">
-                    Starcade Productions
-                    <i>(attualmente in pausa)</i>
-                  </a>,
-                  un'iniziativa nata dalla voglia di creare advergames (giochi pubblicitari) innovativi ma anche
-                  remunerativi!
-                  <br />
-                  <br />Non solo sviluppo software e giochi, ma esploro anche l'arte digitale con
-                  <a
-                    href="https://www.instagram.com/moscanellammerda/"
-                    title="moscanellammerda digital artist"
-                    target="_blank"
-                    rel="noopener"
-                  >Moscanellamm***a</a>, un progetto
-                  artistico unico che affronta tematiche di vita reale attraverso uno stile crudo, poetico e profondamente
-                  evocativo.
-                  <br />
-                  <br />Il mio obiettivo è continuare a creare esperienze visive e interattive che lascino il segno, esplorando
-                  nuove frontiere nel
-                  game design, nell'arte digitale e del web.
-                  <br />
-                  <br />Sono sempre aperto a nuove opportunità: se qualcosa nel mio percorso ti ha ispirato o hai un progetto
-                  ambizioso in mente, non esitare a
-                  <a
-                    href="mailto:joshuarte@gmail.com"
-                  >contattarmi</a>. Sono sempre
-                  curioso di scoprire nuove idee e collaborazioni stimolanti!
-                </p>
+                <PrismicRichText :field="homeData.bio_content" />
               </div>
             </section>
+            <!-- SKILLS -->
             <section class="row module__bottom" aria-labelledby="skills-heading">
               <div class="col-sm-2">
                 <h2 id="skills-heading" class="section-heading">&lt;skills/&gt;</h2>
@@ -261,6 +217,7 @@
                 </ul>
               </div>
             </section>
+            <!-- WORK -->
             <section class="row module__bottom" aria-labelledby="work-heading">
               <div class="col-sm-2">
                 <h2 id="work-heading" class="section-heading">&lt;work/&gt;</h2>
@@ -283,13 +240,16 @@
                     </p>
                     <p>
                       Attualmente, contribuisco allo sviluppo e
-                      all'ottimizzazione delle piattaforme digitali Design System Maintainer, garantendo l'efficienza e la
+                      all'ottimizzazione delle piattaforme digitali Design System Maintainer, garantendo l'efficienza e
+                      la
                       coerenza dei componenti
-                      UI attraverso un design system strutturato e scalabile. Mi occupo inoltre di sviluppo software e di
+                      UI attraverso un design system strutturato e scalabile. Mi occupo inoltre di sviluppo software e
+                      di
                       ottimizzazione delle performance e dell'accessibilità generale, assicurando un'esperienza utente
                       fluida e performante.
                       <br />
-                      <br />Ciaopeople è un gruppo editoriale digitale tra i più influenti in Italia, proprietario di testate
+                      <br />Ciaopeople è un gruppo editoriale digitale tra i più influenti in Italia, proprietario di
+                      testate
                       come
                       <strong>Fanpage.it, Ohga e Cookist</strong>. L'azienda è leader nella produzione di contenuti
                       digitali di alta
@@ -344,9 +304,12 @@
                       <br />Bluelabs ha un forte impegno verso
                       le
                       organizzazioni non profit (ONLUS), si è specializzata nel design e nello sviluppo di piattaforme
-                      digitali che facilitano le donazioni online, ottimizzando l'esperienza dell'utente per massimizzare la
-                      partecipazione e il sostegno alle cause sociali. Le sue soluzioni si sono rivelate fondamentali per
-                      ONG come Greenpeace, WWF, Telethon e Medici Senza Frontiere, creando pagine che non solo facilitano la
+                      digitali che facilitano le donazioni online, ottimizzando l'esperienza dell'utente per
+                      massimizzare la
+                      partecipazione e il sostegno alle cause sociali. Le sue soluzioni si sono rivelate fondamentali
+                      per
+                      ONG come Greenpeace, WWF, Telethon e Medici Senza Frontiere, creando pagine che non solo
+                      facilitano la
                       raccolta fondi, ma sensibilizzano anche il pubblico sull'importanza di sostenere tali iniziative.
                     </p>
                   </li>
@@ -371,7 +334,8 @@
                       SEO. Tutti i siti Web sono stati realizzati con HTML
                       personalizzato, jQuery / vanilla JS e Sass.
                       <br />
-                      <br />Emmemedia è una performance agency con sedi a Milano, Roma, e Napoli, specializzata nel miglioramento
+                      <br />Emmemedia è una performance agency con sedi a Milano, Roma, e Napoli, specializzata nel
+                      miglioramento
                       delle performance digitali dei brand attraverso strategie mirate e misurabili.
                     </p>
                   </li>
@@ -427,7 +391,8 @@
                       <strong>Founder</strong> - 2021 > now
                     </p>
                     <p>
-                      Siamo sviluppatori ed editori indipendenti di videogiochi e software, con sede a Napoli, in Italia,
+                      Siamo sviluppatori ed editori indipendenti di videogiochi e software, con sede a Napoli, in
+                      Italia,
                       con
                       una passione per i giochi 2D e il desiderio di supportare e creare giochi straordinari e altamente
                       caratterizzati, nonchè advergame(videogiochi pubblicitari). Ho colto l'occasione per acquisire
@@ -555,11 +520,11 @@
 <script setup>
 // SEO metadata
 useHead({
-  title: 'Joshua Rte. - Sviluppatore Web & Designer',
+  title: 'JOSHUARTE | Frontend Developer & UI/UX Designer',
   meta: [
     {
       name: 'description',
-      content: 'Portfolio e blog personale di Joshua Rte., sviluppatore web e designer con progetti creativi e articoli sul mondo del web development.'
+      content: 'Senior Frontend Developer & UI/UX Designer specializzato in JavaScript, React, Vue.js, Web Performance e Accessibilità. Portfolio di progetti web e game development.'
     }
   ]
 });
@@ -587,6 +552,8 @@ const homeData = computed(() => {
     if (homeSlice && homeSlice.primary) {
       return {
         intro_text: homeSlice.primary.intro_text || '',
+        bio_heading: homeSlice.primary.bio_heading,
+        bio_content: homeSlice.primary.bio_content,
         intro_description: homeSlice.primary.intro_description?.[0]?.text || '',
         intro_button: homeSlice.primary.intro_button || null
       };
@@ -687,4 +654,4 @@ const projects = computed(() => {
 .blog-section {
   background-color: $color_primary;
 }
-</style> 
+</style>

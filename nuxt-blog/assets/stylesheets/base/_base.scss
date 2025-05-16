@@ -11,9 +11,6 @@ body {
 
 main {
     background-color: #F6F6F6;
-    @include respond-to('medium') {
-        padding-bottom: 5.7143rem;
-    }
 }
 
 a {

@@ -1,0 +1,53 @@
+{
+  "format": "custom",
+  "id": "work_list",
+  "label": "Work List",
+  "repeatable": true,
+  "status": true,
+  "json": {
+    "Main": {
+      "uid": {
+        "type": "UID",
+        "config": {
+          "label": "UID"
+        }
+      },
+      "work_company": {
+        "type": "Text",
+        "config": {
+          "label": "Work Company",
+          "placeholder": ""
+        }
+      },
+      "work_company_url": {
+        "type": "Link",
+        "config": {
+          "label": "Work Company URL",
+          "placeholder": "",
+          "select": null,
+          "allowTargetBlank": true,
+          "allowText": true,
+          "repeat": false
+        }
+      },
+      "work_role": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Work Role",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+        }
+      },
+      "work_description": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Work Description",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+        }
+      }
+    }
+  }
+}

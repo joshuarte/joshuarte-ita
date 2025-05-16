@@ -25,11 +25,80 @@
 				"type": "Text"
 			},
 			"button_link": {
+				"key": "189cf3db-7798-4927-8c77-4b1559ad97f9",
 				"__TYPE__": "LinkContent",
 				"value": {
 					"__TYPE__": "ExternalLink",
 					"url": "/progetti",
 					"text": ""
+				}
+			},
+			"hero_image": {
+				"origin": {
+					"id": "main",
+					"url": "https://images.unsplash.com/photo-1515378960530-7c0da6231fb1",
+					"width": 5616,
+					"height": 3744
+				},
+				"url": "https://images.unsplash.com/photo-1515378960530-7c0da6231fb1",
+				"width": 5616,
+				"height": 3744,
+				"edit": {
+					"zoom": 1,
+					"crop": {
+						"x": 0,
+						"y": 0
+					},
+					"background": "transparent"
+				},
+				"alt": "written",
+				"credits": null,
+				"__TYPE__": "ImageContent",
+				"thumbnails": {}
+			},
+			"bio_heading": {
+				"__TYPE__": "FieldContent",
+				"value": "train",
+				"type": "Text"
+			},
+			"bio_content": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Voluptate ullamco eiusmod do labore esse reprehenderit exercitation pariatur cupidatat. Laborum proident proident proident. Velit non commodo reprehenderit in quis exercitation elit mollit aliqua aliquip."
+						}
+					}
+				]
+			},
+			"skills_head": {
+				"__TYPE__": "FieldContent",
+				"value": "favorite",
+				"type": "Text"
+			},
+			"skills_content": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Do elit tempor reprehenderit qui laboris anim Lorem voluptate consequat. Ex occaecat enim sunt aliquip. Fugiat velit cupidatat deserunt consequat irure dolore esse dolore pariatur ea veniam consequat pariatur."
+						}
+					}
+				]
+			},
+			"work_head": {
+				"__TYPE__": "FieldContent",
+				"value": "colony",
+				"type": "Text"
+			},
+			"work_list": {
+				"__TYPE__": "LinkContent",
+				"key": "667de656-62c2-43c3-a313-47cf603d5d9c",
+				"value": {
+					"__TYPE__": "DocumentLink",
+					"id": "mock_document_id"
 				}
 			}
 		},
