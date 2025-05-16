@@ -1,49 +1,546 @@
 <template>
-  <div>
-    <!-- Hero Section -->
-    <section class="hero">
-      <div class="container">
-        <h1>Joshua Rte.</h1>
-        <p v-if="homeData && homeData.intro_text">{{ homeData.intro_text }}</p>
-        <p v-else>Sviluppatore web e designer con una passione per l'innovazione e la creatività.</p>
-        
-        <div v-if="homeData && homeData.intro_description" class="description">
-          {{ homeData.intro_description }}
+  <div class="main-container">
+    <!-- <header>
+      <div class="container header-inner">
+        <div class="logo">
+          <NuxtLink to="/">Joshua Rte.</NuxtLink>
         </div>
-        
-        <a v-if="homeData && homeData.intro_button" :href="homeData.intro_button.url || '#'" class="btn">
-          {{ homeData.intro_button.text || 'Contattami' }}
-        </a>
-        <NuxtLink v-else to="/contatti" class="btn">Contattami</NuxtLink>
+        <nav>
+          <ul>
+            <li><NuxtLink to="/" exact-active-class="active">Home</NuxtLink></li>
+            <li><NuxtLink to="/blog" active-class="active">Blog</NuxtLink></li>
+            <li><NuxtLink to="/progetti" active-class="active">Progetti</NuxtLink></li>
+            <li><NuxtLink to="/contatti" active-class="active">Contatti</NuxtLink></li>
+          </ul>
+        </nav>
       </div>
-    </section>
+    </header>-->
+    <header class="inner left text-center">
+      <h1 class="h2" v-if="homeData && homeData.intro_text">{{ homeData.intro_text }}</h1>
+      <h1
+        class="h2"
+        v-else
+      >Sviluppatore web e designer con una passione per l'innovazione e la creatività.</h1>
+      <p>Dimentica le agenzie che ti trattano come un numero: sviluppo web artigianale con dedizione totale al tuo progetto.</p>
+      <nav class="btn-transition-alt" aria-label="Contatti principali">
+        <a
+          href="mailto:{{social.mail}}"
+          data-hover="RACCONTAMI DEL TUO PROGETTO"
+          aria-label="Invia un'email"
+        >
+          <span>RACCONTAMI DEL TUO PROGETTO</span>
+        </a>
+      </nav>
+      <p>Oppure scrivimi su:</p>
+      <ul class="list-inline" aria-label="Social media">
+        <li>
+          <a href="{{social.discord}}" target="_blank" rel="noopener" aria-label="Discord profile">
+            <svg
+              x="0px"
+              y="0px"
+              width="30"
+              height="30"
+              viewBox="0 0 30 30"
+              aria-hidden="true"
+              style=" fill:#FFFFFF;"
+            >
+              <path
+                d="M25.12,6.946c-2.424-1.948-6.257-2.278-6.419-2.292c-0.256-0.022-0.499,0.123-0.604,0.357 c-0.004,0.008-0.218,0.629-0.425,1.228c2.817,0.493,4.731,1.587,4.833,1.647c0.478,0.278,0.638,0.891,0.359,1.368 C22.679,9.572,22.344,9.75,22,9.75c-0.171,0-0.343-0.043-0.501-0.135C21.471,9.598,18.663,8,15.002,8 C11.34,8,8.531,9.599,8.503,9.615C8.026,9.892,7.414,9.729,7.137,9.251C6.86,8.775,7.021,8.164,7.497,7.886 c0.102-0.06,2.023-1.158,4.848-1.65c-0.218-0.606-0.438-1.217-0.442-1.225c-0.105-0.235-0.348-0.383-0.604-0.357 c-0.162,0.013-3.995,0.343-6.451,2.318C3.564,8.158,1,15.092,1,21.087c0,0.106,0.027,0.209,0.08,0.301 c1.771,3.11,6.599,3.924,7.699,3.959c0.007,0.001,0.013,0.001,0.019,0.001c0.194,0,0.377-0.093,0.492-0.25l1.19-1.612 c-2.61-0.629-3.99-1.618-4.073-1.679c-0.444-0.327-0.54-0.953-0.213-1.398c0.326-0.443,0.95-0.541,1.394-0.216 C7.625,20.217,10.172,22,15,22c4.847,0,7.387-1.79,7.412-1.808c0.444-0.322,1.07-0.225,1.395,0.221 c0.324,0.444,0.23,1.066-0.212,1.392c-0.083,0.061-1.456,1.048-4.06,1.677l1.175,1.615c0.115,0.158,0.298,0.25,0.492,0.25 c0.007,0,0.013,0,0.019-0.001c1.101-0.035,5.929-0.849,7.699-3.959c0.053-0.092,0.08-0.195,0.08-0.301 C29,15.092,26.436,8.158,25.12,6.946z M11,19c-1.105,0-2-1.119-2-2.5S9.895,14,11,14s2,1.119,2,2.5S12.105,19,11,19z M19,19 c-1.105,0-2-1.119-2-2.5s0.895-2.5,2-2.5s2,1.119,2,2.5S20.105,19,19,19z"
+              />
+            </svg>
+            <span class="sr-only">Discord</span>
+          </a>
+        </li>
+        <li>
+          <a
+            href="{{social.linkedin}}"
+            target="_blank"
+            rel="noopener"
+            aria-label="LinkedIn profile"
+          >
+            <svg
+              x="0px"
+              y="0px"
+              width="30"
+              height="30"
+              viewBox="0 0 30 30"
+              aria-hidden="true"
+              style=" fill:#ffffff;"
+            >
+              <path
+                d="M24,4H6C4.895,4,4,4.895,4,6v18c0,1.105,0.895,2,2,2h18c1.105,0,2-0.895,2-2V6C26,4.895,25.105,4,24,4z M10.954,22h-2.95 v-9.492h2.95V22z M9.449,11.151c-0.951,0-1.72-0.771-1.72-1.72c0-0.949,0.77-1.719,1.72-1.719c0.948,0,1.719,0.771,1.719,1.719 C11.168,10.38,10.397,11.151,9.449,11.151z M22.004,22h-2.948v-4.616c0-1.101-0.02-2.517-1.533-2.517 c-1.535,0-1.771,1.199-1.771,2.437V22h-2.948v-9.492h2.83v1.297h0.04c0.394-0.746,1.356-1.533,2.791-1.533 c2.987,0,3.539,1.966,3.539,4.522V22z"
+              />
+            </svg>
+            <span class="sr-only">LinkedIn</span>
+          </a>
+        </li>
+      </ul>
+    </header>
+    <div class="inner right" id="right">
+      <div class="content">
+        <div class="row">
+          <div class="col-sm-10 offset-sm-2 module-notop">
+            <svg
+              class="logo"
+              version="1.1"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              x="0px"
+              y="0px"
+              width="281.12"
+              height="100.938"
+              viewBox="0 0 281.12 100.938"
+              enable-background="new 0 0 281.12 100.938"
+              xml:space="preserve"
+              aria-labelledby="logo-title"
+              role="img"
+            >
+              <title id="logo-title">Joshuarte Logo</title>
+              <polygon
+                points="41.04,53.358 41.04,47.578 54.815,42.608 54.815,48.309 46.28,50.469 54.815,52.631 54.815,58.328 "
+              />
+              <polygon
+                fill="#C2321F"
+                points="199.861,38.396 206.181,38.396 194.214,63.407 187.896,63.407 "
+              />
+              <polygon
+                points="75.337,41.043 81.657,41.043 81.657,54.549 90.543,54.549 90.543,59.949 75.337,59.949 "
+              />
+              <path
+                d="M111.064,56.815l4.132-3.483c0.73,1.026,1.432,1.647,2.458,1.647c1.054,0,1.755-0.864,1.755-2.188V41.043h6.159v11.641
+	c0,2.485-0.567,4.188-1.971,5.592c-1.297,1.297-3.188,2.053-5.457,2.053C114.521,60.328,112.441,58.87,111.064,56.815"
+              />
+              <polygon
+                points="146.089,41.043 152.68,41.043 156.732,47.687 160.783,41.043 167.375,41.043 167.375,59.949 161.081,59.949 
+	161.081,50.576 156.732,57.302 156.625,57.302 152.275,50.576 152.275,59.949 146.089,59.949 "
+              />
+              <polygon
+                points="226.702,52.631 235.236,50.469 226.702,48.309 226.702,42.608 240.476,47.578 240.476,53.358 226.702,58.328 "
+              />
+              <line
+                class="preload2b"
+                fill="none"
+                stroke="#63C5E0"
+                stroke-width="20"
+                stroke-miterlimit="10"
+                x1="19.557"
+                y1="10"
+                x2="281.12"
+                y2="10"
+              />
+              <line
+                class="preload2c"
+                fill="none"
+                stroke="#63C5E0"
+                stroke-width="20"
+                stroke-miterlimit="10"
+                x1="0"
+                y1="90.957"
+                x2="261.682"
+                y2="90.957"
+              />
+              <line
+                class="preload2"
+                fill="none"
+                stroke="#63C5E0"
+                stroke-width="20"
+                stroke-miterlimit="10"
+                x1="9.974"
+                y1="0"
+                x2="9.974"
+                y2="81.539"
+              />
+              <line
+                class="preload"
+                fill="none"
+                stroke="#63C5E0"
+                stroke-width="20"
+                stroke-miterlimit="10"
+                x1="271.108"
+                y1="19.4"
+                x2="271.108"
+                y2="100.939"
+              />
+            </svg>
+          </div>
+        </div>
+        <div class="scrolling-content-wrapper">
+          <div class="scrolling-content">
+            <section class="row module__bottom" aria-labelledby="bio-heading">
+              <div class="col-sm-2">
+                <h2 id="bio-heading" class="section-heading">&lt;bio/&gt;</h2>
+              </div>
+              <div class="col-sm-10">
+                <p>
+                  Ciao! Sono Luca Joshua, uno sviluppatore web, game developer, digital artist e UX/UI designer con
+                  <strong>oltre 14 anni di esperienza</strong>. Attualmente lavoro presso
+                  <a
+                    href="https://www.ciaopeople.it/"
+                    title="ciaopeople"
+                    target="_blank"
+                    rel="noopener"
+                  >Ciaopeople</a>, come Software e Frontend Developer, dove contribuisco allo
+                  sviluppo di progetti digitali innovativi, ma sono sempre alla ricerca di nuovi stimoli e opportunità per
+                  crescere.
+                  <br />
+                  <br />Ho recentemente progettato, sviluppato e pubblicato
+                  <a
+                    href="https://imagineed.itch.io/overlordz"
+                    title="gioca ad overlordz"
+                    target="_blank"
+                  >OverlordZ</a>, un gioco di carte indipendente per
+                  dispositivi mobili e PC, realizzato in collaborazione con un team di talentuosi colleghi. Un progetto che
+                  unisce meccaniche di gioco coinvolgenti a un design curato nei minimi dettagli.
+                  <br />
+                  <br />In parallelo, ho dato vita a
+                  <a href="#">
+                    Starcade Productions
+                    <i>(attualmente in pausa)</i>
+                  </a>,
+                  un'iniziativa nata dalla voglia di creare advergames (giochi pubblicitari) innovativi ma anche
+                  remunerativi!
+                  <br />
+                  <br />Non solo sviluppo software e giochi, ma esploro anche l'arte digitale con
+                  <a
+                    href="https://www.instagram.com/moscanellammerda/"
+                    title="moscanellammerda digital artist"
+                    target="_blank"
+                    rel="noopener"
+                  >Moscanellamm***a</a>, un progetto
+                  artistico unico che affronta tematiche di vita reale attraverso uno stile crudo, poetico e profondamente
+                  evocativo.
+                  <br />
+                  <br />Il mio obiettivo è continuare a creare esperienze visive e interattive che lascino il segno, esplorando
+                  nuove frontiere nel
+                  game design, nell'arte digitale e del web.
+                  <br />
+                  <br />Sono sempre aperto a nuove opportunità: se qualcosa nel mio percorso ti ha ispirato o hai un progetto
+                  ambizioso in mente, non esitare a
+                  <a
+                    href="mailto:joshuarte@gmail.com"
+                  >contattarmi</a>. Sono sempre
+                  curioso di scoprire nuove idee e collaborazioni stimolanti!
+                </p>
+              </div>
+            </section>
+            <section class="row module__bottom" aria-labelledby="skills-heading">
+              <div class="col-sm-2">
+                <h2 id="skills-heading" class="section-heading">&lt;skills/&gt;</h2>
+              </div>
+              <div class="col-sm-10">
+                <ul class="skills-list">
+                  <li>
+                    <p>
+                      <b>Sviluppo Web</b> (MEVNstack, Wordpress)
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      <b>GUI / UI / UX</b> (Figma)
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      <b>Design & Sviluppo Giochi</b> (Game maker studio 2)
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      <b>Design & Sviluppo Giochi Pubblicitari</b> (GDevelop)
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      <b>Design Assets di Gioco</b> (Procreate Dreams)
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      <b>Gestione progetti / Consulenza IT</b> (Jira / Trello)
+                    </p>
+                  </li>
+                </ul>
+              </div>
+            </section>
+            <section class="row module__bottom" aria-labelledby="work-heading">
+              <div class="col-sm-2">
+                <h2 id="work-heading" class="section-heading">&lt;work/&gt;</h2>
+              </div>
+              <div class="col-sm-10">
+                <ul class="job-list">
+                  <li>
+                    <p>
+                      <a
+                        href="https://www.ciaopeople.it/"
+                        title="ciaopeople"
+                        target="_blank"
+                        rel="noopener"
+                      >
+                        <strong>CIAOPEOPLE</strong>
+                      </a>
+                    </p>
+                    <p>
+                      <strong>Frontend & Software Developer</strong> - 2022 > now
+                    </p>
+                    <p>
+                      Attualmente, contribuisco allo sviluppo e
+                      all'ottimizzazione delle piattaforme digitali Design System Maintainer, garantendo l'efficienza e la
+                      coerenza dei componenti
+                      UI attraverso un design system strutturato e scalabile. Mi occupo inoltre di sviluppo software e di
+                      ottimizzazione delle performance e dell'accessibilità generale, assicurando un'esperienza utente
+                      fluida e performante.
+                      <br />
+                      <br />Ciaopeople è un gruppo editoriale digitale tra i più influenti in Italia, proprietario di testate
+                      come
+                      <strong>Fanpage.it, Ohga e Cookist</strong>. L'azienda è leader nella produzione di contenuti
+                      digitali di alta
+                      qualità, con un focus su informazione, intrattenimento e lifestyle, raggiungendo milioni di utenti
+                      ogni giorno attraverso piattaforme web e social.
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      <a href="https://we-rad.com/" title="werad" target="_blank" rel="noopener">
+                        <strong>WE RAD</strong>
+                      </a>
+                    </p>
+                    <p>
+                      <strong>Lead Frontend Developer</strong> - 2019 > 2020
+                    </p>
+                    <p>
+                      Il ruolo che ho ricoperto in questa azienda mi ha permesso di
+                      gestire e definire soluzioni ottimali in alcuni progetti in base
+                      alle esigenze di business, oltre a comprendere meglio le
+                      responsabilità e le criticità durante le fasi di sviluppo e
+                      progettazione. Ho guidato anche il team di frontend nella realizzazione di vari progetti.
+                      <br />
+                      <br />WE
+                      RAD è un'agenzia di comunicazione con sede a Firenze, specializzata
+                      nell'integrazione di strategie digitali e analogiche per la creazione di esperienze di marca
+                      autentiche e coinvolgenti.
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      <a
+                        href="https://www.bluelabs.it/"
+                        title="bluelabs"
+                        target="_blank"
+                        rel="noopener"
+                      >
+                        <strong>BLUELABS</strong>
+                      </a>
+                    </p>
+                    <p>
+                      <strong>Frontend Developer</strong> - 2017 > 2019
+                    </p>
+                    <p>
+                      Il mio ruolo presso l'azienda ricopriva attività di
+                      sviluppo frontend per web app e landing pages basate su Vue2 e Webpack,
+                      manutenzione e l'implementazione di nuove features su progetti
+                      esistenti con particolare attenzione alla creazione di pagine di donazione efficaci. Bluelabs è
+                      un'agenzia creativa indipendente con sede a Napoli, specializzata nella realizzazione di
+                      progetti di comunicazione digitale innovativi e sfidanti.
+                      <br />
+                      <br />Bluelabs ha un forte impegno verso
+                      le
+                      organizzazioni non profit (ONLUS), si è specializzata nel design e nello sviluppo di piattaforme
+                      digitali che facilitano le donazioni online, ottimizzando l'esperienza dell'utente per massimizzare la
+                      partecipazione e il sostegno alle cause sociali. Le sue soluzioni si sono rivelate fondamentali per
+                      ONG come Greenpeace, WWF, Telethon e Medici Senza Frontiere, creando pagine che non solo facilitano la
+                      raccolta fondi, ma sensibilizzano anche il pubblico sull'importanza di sostenere tali iniziative.
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      <a
+                        href="https://www.emmemedia.com"
+                        title="emmemedia"
+                        target="_blank"
+                        rel="noopener"
+                      >
+                        <strong>EMMEMEDIA</strong>
+                      </a>
+                    </p>
+                    <p>
+                      <strong>Frontend Developer</strong> - 2013 > 2017
+                    </p>
+                    <p>
+                      Nella mia esperienza di lavoro con questa azienda ho lavorato su
+                      innumerevoli progetti che mi hanno permesso di comprendere
+                      meglio la validazione del W3C e il modello HTML orientato alla
+                      SEO. Tutti i siti Web sono stati realizzati con HTML
+                      personalizzato, jQuery / vanilla JS e Sass.
+                      <br />
+                      <br />Emmemedia è una performance agency con sedi a Milano, Roma, e Napoli, specializzata nel miglioramento
+                      delle performance digitali dei brand attraverso strategie mirate e misurabili.
+                    </p>
+                  </li>
+                </ul>
+              </div>
+            </section>
+            <section class="row" aria-labelledby="hobby-heading">
+              <div class="col-sm-2">
+                <h2 id="hobby-heading" class="section-heading">
+                  &lt;personal &lt;br/&gt;
+                  <br />projects/&gt;
+                </h2>
+              </div>
+              <div class="col-sm-10">
+                <ul class="job-list">
+                  <li>
+                    <p>
+                      <a
+                        href="https://www.instagram.com/moscanellammerda/"
+                        title="moscanellammerda digital artist"
+                        target="_blank"
+                        rel="noopener"
+                      >
+                        <strong>MOSCANELLAMM***A</strong>
+                      </a>
+                    </p>
+                    <p>
+                      <strong>Digital Artist</strong> - 2013 > now
+                    </p>
+                    <p>
+                      Grazie ai miei studi alla
+                      <strong>Scuola Italiana di Comix</strong> sono diventato un creativo ed
+                      appassionato Digital Artist con esperienza nella progettazione e sviluppo di fumetti e
+                      personaggi originali. Ideatore di
+                      <strong>Moscanellamm***a</strong>, un progetto narrativo che esplora
+                      tematiche profonde e situazioni di vita reale con uno stile unico e crudo, arricchito da elementi
+                      poetici e simbolici. Abile nel trasformare emozioni complesse in arte visiva attraverso un uso
+                      evocativo del colore, del tratto e della composizione. .
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      <a
+                        href="https://www.joshuarte.it/overlordz"
+                        title="imagineed starcade videogame development"
+                        target="_blank"
+                        rel="noopener"
+                      >
+                        <strong>STARCADE & IMAGINEED</strong>
+                      </a>
+                    </p>
+                    <p>
+                      <strong>Founder</strong> - 2021 > now
+                    </p>
+                    <p>
+                      Siamo sviluppatori ed editori indipendenti di videogiochi e software, con sede a Napoli, in Italia,
+                      con
+                      una passione per i giochi 2D e il desiderio di supportare e creare giochi straordinari e altamente
+                      caratterizzati, nonchè advergame(videogiochi pubblicitari). Ho colto l'occasione per acquisire
+                      esperienza nello sviluppo e
+                      nella progettazione di videogiochi con alcuni colleghi. Il mio ruolo
+                      in questo progetto è rimbalzato dalla gestione del progetto al
+                      design del gioco, dallo sviluppo fino al marketing. Abbiamo
+                      pubblicato OverlordZ, un gioco di carte indie per dispositivi
+                      mobili e PC.
+                      <a
+                        href="https://imagineed.itch.io/overlordz"
+                        title="gioca ad overlordz"
+                        target="_blank"
+                      >Puoi giocarlo qui!</a>
+                    </p>
+                  </li>
+                </ul>
+              </div>
+            </section>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-8 offset-sm-2">
+            <nav class="btn-transition d-none d-sm-block">
+              <a
+                href="#"
+                id="show-portfolio"
+                data-hover="PROGETTI RECENTI"
+                data-module="showPortfolio"
+                aria-label="Visualizza i lavori recenti"
+              >
+                <span>PROGETTI RECENTI</span>
+              </a>
+            </nav>
+          </div>
+        </div>
+
+        <footer class="row">
+          <div class="col-sm-10 offset-sm-2">
+            <p class="h-align-left">
+              <a href="#" data-module="modalToggle">
+                <strong>privacy</strong>
+              </a>
+              &nbsp; | &copy; 2010-{{ new Date().getFullYear() }} - &nbsp;
+              <svg
+                class="ljm"
+                version="1.1"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                x="0px"
+                y="0px"
+                width="100"
+                viewBox="0 0 199.436 25.011"
+                enable-background="new 0 0 199.436 25.011"
+                xml:space="preserve"
+                aria-hidden="true"
+              >
+                <polygon
+                  points="0,14.962 0,9.182 13.775,4.212 13.775,9.912 5.24,12.072 13.775,14.234 13.775,19.932 "
+                />
+                <polygon
+                  fill="#C2321F"
+                  points="158.821,0 165.141,0 153.174,25.011 146.856,25.011 "
+                />
+                <polygon
+                  points="34.297,2.646 40.617,2.646 40.617,16.152 49.503,16.152 49.503,21.553 34.297,21.553 "
+                />
+                <path
+                  d="M70.024,18.419l4.132-3.483c0.73,1.026,1.432,1.647,2.458,1.647c1.054,0,1.755-0.864,1.755-2.188V2.646h6.159v11.641
+	c0,2.485-0.567,4.188-1.971,5.592c-1.297,1.297-3.188,2.053-5.457,2.053C73.481,21.932,71.401,20.474,70.024,18.419"
+                />
+                <polygon
+                  points="105.049,2.646 111.64,2.646 115.692,9.29 119.743,2.646 126.334,2.646 126.334,21.553 120.041,21.553 
+	120.041,12.18 115.692,18.905 115.584,18.905 111.235,12.18 111.235,21.553 105.049,21.553 "
+                />
+                <polygon
+                  points="185.662,14.234 194.196,12.072 185.662,9.912 185.662,4.212 199.436,9.182 199.436,14.962 185.662,19.932 "
+                />
+              </svg>
+            </p>
+          </div>
+        </footer>
+      </div>
+    </div>
+
+    <!-- {% include "shared/privacy.html" %} -->
+
+    <!-- v-if="homeData && homeData.intro_description" 
+
+          v-if="homeData && homeData.intro_button"
+    :href="homeData.intro_button.url || '#'"-->
 
     <!-- Projects Section -->
-    <section id="progetti" class="progetti-section">
+    <!-- <section id="progetti" class="progetti-section">
       <div class="container">
         <h2>I Miei Progetti</h2>
         <div v-if="isProjectsLoading" class="loading">Caricamento progetti...</div>
-        <div v-else-if="projectsError" class="error">
-          Si è verificato un errore nel caricamento dei progetti: {{ projectsError }}
-        </div>
+        <div
+          v-else-if="projectsError"
+          class="error"
+        >Si è verificato un errore nel caricamento dei progetti: {{ projectsError }}</div>
         <div v-else-if="projects && projects.length" class="grid">
-          <ProjectCard 
-            v-for="project in projects" 
-            :key="project.uid" 
-            :project="project" 
-          />
+          <ProjectCard v-for="project in projects" :key="project.uid" :project="project" />
         </div>
-        <div v-else class="no-content">
-          Nessun progetto disponibile al momento.
-        </div>
+        <div v-else class="no-content">Nessun progetto disponibile al momento.</div>
         <div class="view-all">
           <NuxtLink to="/progetti" class="btn btn-outline">Vedi tutti i progetti</NuxtLink>
         </div>
       </div>
-    </section>
+    </section>-->
 
     <!-- Recent Blog Posts -->
-    <section id="blog" class="blog-section">
+    <!-- <section id="blog" class="blog-section">
       <div class="container">
         <h2>Articoli Recenti</h2>
         <RecentPosts :limit="3" />
@@ -51,7 +548,7 @@
           <NuxtLink to="/blog" class="btn btn-outline">Vedi tutti gli articoli</NuxtLink>
         </div>
       </div>
-    </section>
+    </section>-->
   </div>
 </template>
 
@@ -60,8 +557,8 @@
 useHead({
   title: 'Joshua Rte. - Sviluppatore Web & Designer',
   meta: [
-    { 
-      name: 'description', 
+    {
+      name: 'description',
       content: 'Portfolio e blog personale di Joshua Rte., sviluppatore web e designer con progetti creativi e articoli sul mondo del web development.'
     }
   ]
@@ -74,7 +571,7 @@ const prismic = usePrismic();
 const { data: homeDoc, pending: isHomeLoading, error: homeError } = useAsyncData('home', async () => {
   try {
     return await prismic.client.getSingle('home');
-  } catch(e) {
+  } catch (e) {
     console.error('Error fetching home document:', e);
     return null;
   }
@@ -83,7 +580,7 @@ const { data: homeDoc, pending: isHomeLoading, error: homeError } = useAsyncData
 // Process home data to extract content from slices
 const homeData = computed(() => {
   if (!homeDoc.value || !homeDoc.value.data) return null;
-  
+
   // Extract data from slices if present
   if (homeDoc.value.data.slices && homeDoc.value.data.slices.length > 0) {
     const homeSlice = homeDoc.value.data.slices.find(slice => slice.slice_type === 'home');
@@ -95,7 +592,7 @@ const homeData = computed(() => {
       };
     }
   }
-  
+
   // Otherwise use direct document data
   return {
     intro_text: homeDoc.value.data.intro_text || '',
@@ -108,7 +605,7 @@ const homeData = computed(() => {
 const { data: projectDocs, pending: isProjectsLoading, error: projectsError } = useAsyncData('projects', async () => {
   try {
     return await prismic.client.getAllByType('projects');
-  } catch(e) {
+  } catch (e) {
     console.error('Error fetching projects:', e);
     return [];
   }
@@ -117,17 +614,17 @@ const { data: projectDocs, pending: isProjectsLoading, error: projectsError } = 
 // Process projects data to extract from slices
 const projects = computed(() => {
   if (!projectDocs.value || !Array.isArray(projectDocs.value)) return [];
-  
+
   return projectDocs.value.flatMap(doc => {
     if (!doc.data?.slices || !Array.isArray(doc.data.slices)) {
       return [];
     }
-    
+
     return doc.data.slices
       .filter(slice => slice.slice_type === 'project')
       .map((slice, index) => {
         const primary = slice.primary || {};
-        
+
         return {
           uid: doc.uid || `project-${index}`,
           name: primary.name || 'Progetto senza nome',
@@ -143,42 +640,43 @@ const projects = computed(() => {
 
 <style lang="scss" scoped>
 .hero {
-  background-color: $light-bg;
-  padding: $spacing-unit * 3 0;
+  background-color: $color_primary;
+  padding: 5px * 3 0;
   text-align: center;
-  
+
   h1 {
     font-size: 2.5rem;
-    margin-bottom: $spacing-unit;
-    color: $text-color;
+    margin-bottom: 5px;
+    color: $color_primary;
   }
-  
+
   p {
     font-size: 1.2rem;
-    color: lighten($text-color, 20%);
+    color: lighten($color_primary, 20%);
     max-width: 800px;
-    margin: 0 auto $spacing-unit * 1.5;
+    margin: 0 auto 5px * 1.5;
   }
-  
+
   .description {
     font-size: 1.1rem;
     max-width: 800px;
-    margin: 0 auto $spacing-unit * 1.5;
-    color: lighten($text-color, 20%);
+    margin: 0 auto 5px * 1.5;
+    color: lighten($color_primary, 20%);
   }
 }
 
-.progetti-section, .blog-section {
-  padding: $spacing-unit * 4 0;
-  
+.progetti-section,
+.blog-section {
+  padding: 5px * 4 0;
+
   h2 {
     text-align: center;
-    margin-bottom: $spacing-unit * 2;
+    margin-bottom: 5px * 2;
   }
-  
+
   .view-all {
     text-align: center;
-    margin-top: $spacing-unit * 2;
+    margin-top: 5px * 2;
   }
 }
 
@@ -187,6 +685,6 @@ const projects = computed(() => {
 }
 
 .blog-section {
-  background-color: $light-bg;
+  background-color: $color_primary;
 }
 </style> 

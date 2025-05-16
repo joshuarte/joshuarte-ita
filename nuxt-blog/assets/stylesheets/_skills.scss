@@ -1,0 +1,26 @@
+ul.skills-list {
+  list-style-type: none;
+  padding-left: 0;
+  margin-top: 0;
+
+  li {
+    margin-bottom: 8px;
+    position: relative;
+    padding-left: 15px;
+
+    &::before {
+      content: "-";
+      position: absolute;
+      left: 0;
+    }
+  }
+}
+
+.section-heading {
+  font-size: 1.17em;
+  margin-top: 0;
+  color: black;
+  width: auto;
+  font-weight: bold;
+  margin-bottom: 25px;
+} 

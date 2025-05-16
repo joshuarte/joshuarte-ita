@@ -1,0 +1,53 @@
+.preload {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    stroke: none;
+    animation:dash 2s linear infinite;
+    animation-delay:.4s;
+    animation-direction:alternate;
+}
+
+.preload2 {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    stroke: none;
+    animation:dash 2s linear infinite;
+    animation-delay:.8s;
+    animation-direction:alternate;
+}
+
+.preload2b {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    stroke: none;
+    animation:dash 2s linear infinite;
+    animation-delay:1.2s;
+    animation-direction:alternate;
+}
+
+.preload2c {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    stroke: none;
+    animation:dash 2s linear infinite;
+    animation-delay:1.6s;
+    animation-direction:alternate;
+}
+
+@keyframes dash {
+    0% {
+        fill: rgba(99, 196, 224, 0);
+        stroke-dashoffset: 1000;
+        stroke: #63C5E0;
+    }
+    15% {
+        fill: rgba(99, 196, 224, 0);
+    }
+    40% {
+        fill: rgba(99, 196, 224, 1);
+    }
+    100% {
+        stroke-dashoffset: 0;
+        stroke: #63C5E0;
+    }
+}

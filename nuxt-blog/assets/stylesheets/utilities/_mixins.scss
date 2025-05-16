@@ -1,0 +1,65 @@
+/// Responsive breakpoint manager
+/// @access public
+/// @param {String} $breakpoint - Breakpoint name
+/// @requires $breakpoints
+@mixin respond-to($breakpoint) {
+  $raw-query: map-get($breakpoints, $breakpoint);
+
+  @if $raw-query {
+    $query: if(
+      type-of($raw-query) == 'string',
+      unquote($raw-query),
+      inspect($raw-query)
+    );
+
+    @media #{$query} {
+      @content;
+    }
+  } @else {
+    @error 'No value found for `#{$breakpoint}`. '
+         + 'Please make sure it is defined in `$breakpoints` map.';
+  }
+}
+
+/// Font-face generator
+/// Based on http://codepen.io/javasteve99/pen/hDxpn
+@mixin font-face($font-family, $file-path, $font-weight: normal, $font-style: normal) {
+	@font-face {
+		font-family: $font-family;
+		src: url('#{$file-path}.eot');
+		src: url('#{$file-path}.eot?#iefix') format('embedded-opentype'),
+      url('#{$file-path}.woff2') format('woff2'),
+      url('#{$file-path}.woff') format('woff'),
+      url('#{$file-path}.ttf') format('truetype'),
+      url('#{$file-path}.svg##{$font-family}') format('svg');
+		font-weight: $font-weight;
+		font-style: $font-style;
+	}
+	// Chrome for Windows rendering fix: http://www.adtrak.co.uk/blog/font-face-chrome-rendering/
+	@media screen and (-webkit-min-device-pixel-ratio: 0) {
+		@font-face {
+			font-family: $font-family;
+			src: url('#{$file-path}.svg##{$font-family}') format('svg');
+		}
+	}
+}
+
+/// Calculate 'letter-spacing' from Photoshop value to ems
+/// @access public
+/// @param {Number} $value - Unitless letter spacing value 
+@mixin letter-spacing($value: 0) {
+  letter-spacing: ($value / 1000) * 1em;
+}
+
+/// Font smoothing
+/// @access public
+/// @param {Boolean} $bool - Boolean value
+@mixin font-smoothing($bool: true) {
+    @if $bool == true {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    } @else {
+        -webkit-font-smoothing: subpixel-antialiased;
+        -moz-osx-font-smoothing: auto;
+    }
+}

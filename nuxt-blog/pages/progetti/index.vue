@@ -86,7 +86,7 @@ const projects = computed(() => {
   padding: 80px 0;
   
   .grid {
-    margin-top: $spacing-unit * 2;
+    margin-top: 5px * 2;
   }
 }
 </style> 

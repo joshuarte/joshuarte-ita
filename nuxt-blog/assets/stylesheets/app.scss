@@ -1,0 +1,111 @@
+@charset 'utf-8';
+@import 'utilities/variables';
+@import 'utilities/mixins';
+
+@import 'components/projects'; 
+
+@import 'utilities/variables';
+@import 'utilities/mixins';
+
+@import 'utilities/variables';
+// Vendors
+@import "font-awesome/scss/font-awesome";
+@import "bootstrap/scss/bootstrap";
+// Variables
+$loader-width: 5px;
+$loader-gradient: linear-gradient(to bottom, #c2321f, #5ecbe6);
+$transition-timing: .5s ease;
+
+// Mixins
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == 'large' {
+    @media (min-width: 1024px) {
+      @content;
+    }
+  }
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+// Loader
+.loader {
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 50%;
+  right: 50%;
+  height: 0%;
+  width: $loader-width;
+  transform-origin: center;
+  background: $loader-gradient;
+}
+
+// Popup
+.popup {
+  transition: all $transition-timing;
+  width: 100%;
+  position: fixed;
+  z-index: 99;
+  left: 0;
+  height: 100vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  background: #fff;
+  transform: translateX(-100%);
+  padding: 40px;
+
+  @include respond-to('large') {
+    width: 50%;
+  }
+
+  &::-webkit-scrollbar {
+    width: $loader-width;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $loader-gradient;
+  }
+
+
+
+  &.fadeInDown {
+    transform: translateX(0%);
+  }
+}
+
+
+
+@import 'utilities/variables';
+@import 'utilities/functions';
+@import 'utilities/mixins';
+@import 'utilities/placeholders';
+@import 'utilities/helpers';
+
+// Base
+@import "normalize.css/normalize"; 
+@import 'base/base';
+@import 'base/typography';
+@import 'base/form';
+
+// Components
+@import 'components/articles'; 
+@import 'components/logo'; 
+@import 'components/external-link-icon'; 
+@import 'components/projects'; 
+
+//Layout
+@import 'layout/bio'; 
+@import 'layout/sidenav'; 
+@import 'skills';
+@import 'layout/cta'; 
+@import 'layout/main';
+
+

@@ -1,0 +1,146 @@
+.main-container {
+	display: flex;
+	align-items: stretch;
+	justify-content: flex-start;
+	flex-direction: column;
+	width: 100%;
+	height: 100%;
+	height: auto;
+
+	.inner {
+		width: 100%;
+		height: auto;
+
+		.list-inline {
+			padding-bottom: 40px;
+			display: flex;
+			align-items: center;
+			gap: 10px;
+		}
+	}
+
+	.left {
+		background: url(../images/bg.jpg) no-repeat top center;
+		background-size: cover;
+		min-height: 400px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: flex-end;
+		height: 70vh;
+		min-height: 450px;
+		z-index: 5;
+		max-height: 650px;
+
+		@include respond-to('large') {
+			max-height: none;
+		}
+
+		h2 {
+			padding-right: 20px;
+			padding-left: 20px;
+		}
+
+		p {
+			color: white;
+			padding-right: 20px;
+			padding-left: 20px;
+			text-wrap: balance;
+			margin-top: 5px;
+		}
+
+		&--giardiello {
+			background: url(../images/projects/giardiello.jpg) no-repeat top right !important;
+			background-size: cover !important;
+		}
+	}
+
+	.right {
+		/* ::-webkit-scrollbar {
+			display: none;
+		} */
+		display: block;
+
+		.content {
+			display: block;
+			padding: 30px;
+			//  overflow: scroll;
+		}
+
+		.logo {
+			width: 100%;
+			height: auto;
+			margin-bottom: 25px;
+		}
+
+		@include respond-to('large') {
+			.logo {
+				width: 40%;
+				height: auto;
+				margin-bottom: 0;
+			}
+		}
+	}
+
+	@include respond-to('large') {
+		flex-direction: row;
+
+		.inner {
+			width: 50%;
+			height: 100%;
+			transition: all .5s ease;
+		}
+
+		.left {
+			position: fixed;
+			left: 0;
+			overflow: hidden;
+			background-size: cover;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: flex-end;
+
+			ul {
+				margin-top: 0;
+			}
+		}
+
+		.right {
+			position: fixed;
+			right: 0;
+			height: 100%;
+			z-index: 2;
+			background: #fff;
+			overflow: hidden;
+
+			.content {
+				display: flex;
+				flex-direction: column;
+				align-items: stretch;
+				justify-content: space-between;
+				padding: 40px;
+				height: 100%;
+			}
+
+			.content2 {
+				padding-bottom: 120px;
+			}
+
+			.section-heading {
+				color: black;
+				width: auto;
+				font-weight: bold;
+				background-color: transparent;
+				position: sticky;
+				top: 0px;
+			}
+		}
+	}
+
+	.fa {
+		color: #fff;
+		font-size: 24px;
+		margin: 15px;
+	}
+}

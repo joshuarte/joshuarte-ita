@@ -1,0 +1,48 @@
+/// Colors
+$color_primary: #63C5E0;
+$color_primary-light: tint($color_primary, 60%);
+$color_secondary: #C2321F;
+
+$color_text-main: #767676;
+$color_text-midtone: #565656;
+$color_text-dark: #454545;
+$color_text-light: #C1C1C1;
+
+$color_background-main: #fff;
+$color_background-alt: #F6F6F6;
+$color_background-dark: #454545;
+
+$color_input-border: #DCDCDC;
+
+$color_error: #c00;
+
+$social-network: (facebook #3C579E, twitter #55ACEE);
+
+/// Grid settings
+$grid_container-maxwidth: 1080px;
+
+/// Breakpoints
+/// required by `respond-to` function
+/// @type Map
+$breakpoints: (
+  'xsmall-only': (max-width: 499px),
+  'small': (min-width: 500px),
+  'medium': (min-width: 800px),
+  'large': (min-width: 1000px),
+  'xlarge': (min-width: 1200px),
+  'xxlarge': (min-width: 1400px),
+  'short-only': (max-height: 800px),
+);
+
+/// Typography
+$rem-base: 14px !default;
+
+$ff-main: "Source Sans Pro", sans-serif;
+
+$fw-light: 100;
+$fw-normal: 300;
+$fw-semibold: 500;
+$fw-bold: 900;
+
+/// Borders
+$border-radius: 5px;

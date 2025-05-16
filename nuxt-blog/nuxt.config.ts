@@ -2,54 +2,51 @@
 export default defineNuxtConfig({
   ssr: true,
   devtools: { enabled: true },
-  
+
   app: {
     head: {
       htmlAttrs: {
-        lang: 'it',
+        lang: "it",
       },
-      charset: 'utf-8',
-      viewport: 'width=device-width, initial-scale=1',
-    }
+      charset: "utf-8",
+      viewport: "width=device-width, initial-scale=1",
+    },
   },
 
-  css: [
-    '@/assets/css/app.scss',
-  ],
+  css: ["@/assets/stylesheets/app.scss", "@/assets/stylesheets/app.scss"],
 
-  modules: [
-    '@nuxtjs/prismic',
-  ],
+  modules: ["@nuxtjs/prismic"],
 
   // Configurazione per SASS - importiamo le variabili in tutti i componenti
   vite: {
     css: {
       preprocessorOptions: {
         scss: {
-          additionalData: '@import "@/assets/css/variables.scss";'
-        }
-      }
-    }
+          additionalData:
+            '@import "@/assets/stylesheets/utilities/variables.scss";',
+        },
+      },
+    },
   },
 
   // Prismic configuration
   prismic: {
-    endpoint: 'joshuarte',
+    endpoint: "joshuarte",
     clientConfig: {
       // Add access token if you have a private repository
       // accessToken: process.env.PRISMIC_ACCESS_TOKEN,
       routes: [
         {
-          type: 'home',
-          path: '/',
+          type: "home",
+          path: "/",
         },
         {
-          type: 'projects',
-          path: '/progetti/:uid',
+          type: "projects",
+          path: "/progetti/:uid",
         },
         {
-          type: 'articles',
-          path: '/blog/:uid',
+          type: "articles",
+          path: "/blog/:uid",
         },
       ],
     },
@@ -57,11 +54,11 @@ export default defineNuxtConfig({
 
   // Transpila i pacchetti necessari
   build: {
-    transpile: ['@prismicio/client']
+    transpile: ["@prismicio/client"],
   },
-  
+
   // Aggiungo la data di compatibilità per Nitro
   nitro: {
-    compatibilityDate: '2025-05-15'
-  }
-}); 
+    compatibilityDate: "2025-05-15",
+  },
+});
