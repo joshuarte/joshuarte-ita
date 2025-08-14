@@ -4,6 +4,8 @@
     <HeroSection 
       :intro-text="homeData?.intro_text"
       :social-data="social"
+      :intro-button="homeData?.intro_button"
+      :intro-description="homeData?.intro_description"
     />
     <div class="inner right"
          :class="portfolioPanelClass"

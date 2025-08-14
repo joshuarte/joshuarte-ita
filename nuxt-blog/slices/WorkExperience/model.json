@@ -1,0 +1,65 @@
+{
+  "id": "work_experience",
+  "type": "SharedSlice",
+  "name": "WorkExperience",
+  "description": "Work Experience",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "work_heading": {
+          "type": "Text",
+          "config": {
+            "label": "Work Heading",
+            "placeholder": "<work/>"
+          }
+        }
+      },
+      "items": {
+        "company_name": {
+          "type": "Text",
+          "config": {
+            "label": "Company Name",
+            "placeholder": "Nome dell'azienda"
+          }
+        },
+        "company_url": {
+          "type": "Link",
+          "config": {
+            "label": "Company URL",
+            "placeholder": "URL dell'azienda",
+            "allowTargetBlank": true
+          }
+        },
+        "position": {
+          "type": "Text",
+          "config": {
+            "label": "Position",
+            "placeholder": "Posizione ricoperta"
+          }
+        },
+        "period": {
+          "type": "Text",
+          "config": {
+            "label": "Period",
+            "placeholder": "Periodo di lavoro"
+          }
+        },
+        "description": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Description",
+            "placeholder": "Descrizione del ruolo",
+            "allowTargetBlank": true,
+            "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+          }
+        }
+      }
+    }
+  ]
+}

@@ -3,46 +3,16 @@
 		"__TYPE__": "SharedSliceContent",
 		"variation": "default",
 		"primary": {
-			"intro_title": {
-				"__TYPE__": "FieldContent",
-				"value": "Benvenuto nel mio Portfolio",
-				"type": "Text"
-			},
-			"intro_text": {
-				"__TYPE__": "StructuredTextContent",
-				"value": [
-					{
-						"type": "paragraph",
-						"content": {
-							"text": "Sono un web developer e designer appassionato di creare esperienze digitali innovative. Esplora i miei progetti e scopri cosa posso fare per il tuo business."
-						}
-					}
-				]
-			},
-			"button_text": {
-				"__TYPE__": "FieldContent",
-				"value": "Scopri i miei progetti",
-				"type": "Text"
-			},
-			"button_link": {
-				"key": "189cf3db-7798-4927-8c77-4b1559ad97f9",
-				"__TYPE__": "LinkContent",
-				"value": {
-					"__TYPE__": "ExternalLink",
-					"url": "/progetti",
-					"text": ""
-				}
-			},
 			"hero_image": {
 				"origin": {
 					"id": "main",
-					"url": "https://images.unsplash.com/photo-1515378960530-7c0da6231fb1",
-					"width": 5616,
-					"height": 3744
+					"url": "https://images.unsplash.com/photo-1600804931749-2da4ce26c869",
+					"width": 3199,
+					"height": 3199
 				},
-				"url": "https://images.unsplash.com/photo-1515378960530-7c0da6231fb1",
-				"width": 5616,
-				"height": 3744,
+				"url": "https://images.unsplash.com/photo-1600804931749-2da4ce26c869",
+				"width": 3199,
+				"height": 3199,
 				"edit": {
 					"zoom": 1,
 					"crop": {
@@ -51,14 +21,39 @@
 					},
 					"background": "transparent"
 				},
-				"alt": "written",
+				"alt": "give",
 				"credits": null,
 				"__TYPE__": "ImageContent",
 				"thumbnails": {}
 			},
+			"intro_text": {
+				"__TYPE__": "FieldContent",
+				"value": "military",
+				"type": "Text"
+			},
+			"intro_description": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Pariatur nulla deserunt minim. Magna anim mollit nostrud id aliqua ipsum officia id in nulla exercitation non ut. Amet sit laboris elit ipsum sint cillum aliquip enim ex reprehenderit sint sunt ea sint occaecat."
+						}
+					}
+				]
+			},
+			"intro_button": {
+				"key": "7c216a56-1695-42d6-a291-10bdb82bbb77",
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "http://twitter.com",
+					"text": "perfect"
+				}
+			},
 			"bio_heading": {
 				"__TYPE__": "FieldContent",
-				"value": "train",
+				"value": "herd",
 				"type": "Text"
 			},
 			"bio_content": {
@@ -67,41 +62,30 @@
 					{
 						"type": "paragraph",
 						"content": {
-							"text": "Voluptate ullamco eiusmod do labore esse reprehenderit exercitation pariatur cupidatat. Laborum proident proident proident. Velit non commodo reprehenderit in quis exercitation elit mollit aliqua aliquip."
+							"text": "Consectetur anim ea duis magna. Anim et aliqua consectetur. Fugiat tempor voluptate do nisi est duis cupidatat dolore excepteur sint nostrud ullamco nisi."
 						}
 					}
 				]
 			},
-			"skills_head": {
+			"projects_heading": {
 				"__TYPE__": "FieldContent",
-				"value": "favorite",
+				"value": "mountain",
 				"type": "Text"
 			},
-			"skills_content": {
-				"__TYPE__": "StructuredTextContent",
-				"value": [
-					{
-						"type": "paragraph",
-						"content": {
-							"text": "Do elit tempor reprehenderit qui laboris anim Lorem voluptate consequat. Ex occaecat enim sunt aliquip. Fugiat velit cupidatat deserunt consequat irure dolore esse dolore pariatur ea veniam consequat pariatur."
-						}
-					}
-				]
-			},
-			"work_head": {
-				"__TYPE__": "FieldContent",
-				"value": "colony",
-				"type": "Text"
-			},
-			"work_list": {
+			"projects_list": {
+				"key": "25f2a1e0-2507-464e-8bf1-45001f390581",
 				"__TYPE__": "LinkContent",
-				"key": "667de656-62c2-43c3-a313-47cf603d5d9c",
 				"value": {
 					"__TYPE__": "DocumentLink",
 					"id": "mock_document_id"
 				}
 			}
 		},
-		"items": []
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
 	}
 ]

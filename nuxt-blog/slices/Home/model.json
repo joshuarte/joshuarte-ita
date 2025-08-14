@@ -63,37 +63,21 @@
             "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
           }
         },
-        "skills_head": {
+        "projects_heading": {
           "type": "Text",
           "config": {
-            "label": "Skills Head",
-            "placeholder": ""
+            "label": "Projects Heading",
+            "placeholder": "I miei progetti"
           }
         },
-        "skills_content": {
-          "type": "StructuredText",
-          "config": {
-            "label": "Skills Content",
-            "placeholder": "",
-            "allowTargetBlank": true,
-            "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
-          }
-        },
-        "work_head": {
-          "type": "Text",
-          "config": {
-            "label": "Work Head",
-            "placeholder": ""
-          }
-        },
-        "work_list": {
+        "projects_list": {
           "type": "Link",
           "config": {
-            "label": "Work List",
+            "label": "Projects List",
             "select": "document",
             "repeat": false,
             "customtypes": [
-              "work_list"
+              "projects"
             ]
           }
         }

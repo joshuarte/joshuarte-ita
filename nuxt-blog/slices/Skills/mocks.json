@@ -1,0 +1,35 @@
+[
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "default",
+    "primary": {
+      "skills_heading": "<skills/>"
+    },
+    "items": [
+      {
+        "skill_title": "Sviluppo Web",
+        "skill_technologies": "MEVNstack, Wordpress"
+      },
+      {
+        "skill_title": "GUI / UI / UX",
+        "skill_technologies": "Figma"
+      },
+      {
+        "skill_title": "Design & Sviluppo Giochi",
+        "skill_technologies": "Game maker studio 2"
+      },
+      {
+        "skill_title": "Design & Sviluppo Giochi Pubblicitari",
+        "skill_technologies": "GDevelop"
+      },
+      {
+        "skill_title": "Design Assets di Gioco",
+        "skill_technologies": "Procreate Dreams"
+      },
+      {
+        "skill_title": "Gestione progetti / Consulenza IT",
+        "skill_technologies": "Jira / Trello"
+      }
+    ]
+  }
+]

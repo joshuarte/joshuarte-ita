@@ -1,0 +1,59 @@
+[
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "default",
+    "primary": {
+      "work_heading": "<work/>"
+    },
+    "items": [
+      {
+        "company_name": "CIAOPEOPLE",
+        "company_url": {
+          "link_type": "Web",
+          "url": "https://www.ciaopeople.it/"
+        },
+        "position": "Frontend & Software Developer",
+        "period": "2022 > now",
+        "description": [
+          {
+            "type": "paragraph",
+            "text": "Attualmente, contribuisco allo sviluppo e all'ottimizzazione delle piattaforme digitali Design System Maintainer, garantendo l'efficienza e la coerenza dei componenti UI attraverso un design system strutturato e scalabile. Mi occupo inoltre di sviluppo software e di ottimizzazione delle performance e dell'accessibilità generale, assicurando un'esperienza utente fluida e performante.",
+            "spans": []
+          },
+          {
+            "type": "paragraph",
+            "text": "Ciaopeople è un gruppo editoriale digitale tra i più influenti in Italia, proprietario di testate come Fanpage.it, Ohga e Cookist. L'azienda è leader nella produzione di contenuti digitali di alta qualità, con un focus su informazione, intrattenimento e lifestyle, raggiungendo milioni di utenti ogni giorno attraverso piattaforme web e social.",
+            "spans": [
+              {
+                "start": 109,
+                "end": 142,
+                "type": "strong"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "company_name": "WE RAD",
+        "company_url": {
+          "link_type": "Web",
+          "url": "https://we-rad.com/"
+        },
+        "position": "Lead Frontend Developer",
+        "period": "2019 > 2020",
+        "description": [
+          {
+            "type": "paragraph",
+            "text": "Il ruolo che ho ricoperto in questa azienda mi ha permesso di gestire e definire soluzioni ottimali in alcuni progetti in base alle esigenze di business, oltre a comprendere meglio le responsabilità e le criticità durante le fasi di sviluppo e progettazione. Ho guidato anche il team di frontend nella realizzazione di vari progetti.",
+            "spans": []
+          },
+          {
+            "type": "paragraph",
+            "text": "WE RAD è un'agenzia di comunicazione con sede a Firenze, specializzata nell'integrazione di strategie digitali e analogiche per la creazione di esperienze di marca autentiche e coinvolgenti.",
+            "spans": []
+          }
+        ]
+      }
+    ]
+  }
+]

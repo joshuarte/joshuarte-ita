@@ -3,15 +3,16 @@
     <h1 class="h2" v-if="introText">{{ introText }}</h1>
     <h1 class="h2" v-else>{{ defaultIntroText }}</h1>
     
-    <p>{{ description }}</p>
+    <p>{{ introDescription }}</p>
     
     <nav class="btn-transition-alt" aria-label="Contatti principali">
       <a 
-        :href="`mailto:${socialData.mail}`"
-        data-hover="RACCONTAMI DEL TUO PROGETTO"
+        :href="introButton.url"
+        :data-hover=introButton.text
         aria-label="Invia un'email"
       >
-        <span>RACCONTAMI DEL TUO PROGETTO</span>
+        <span>{{ introButton.text }}</span>
+
       </a>
     </nav>
     
@@ -29,9 +30,18 @@ defineProps({
     type: String,
     default: ''
   },
-  description: {
+  introButton: {
+    type: Object,
+    default: () => ({
+      "link_type": "Web",
+      "key": "f2e93ca3-217b-47c6-8ead-8f1e2b6aa2c2",
+      "url": "",
+      "text": ""
+    })
+  },
+  introDescription: {
     type: String,
-    default: 'Dimentica le agenzie che ti trattano come un numero: sviluppo web artigianale con dedizione totale al tuo progetto.'
+    default: ''
   },
   socialData: {
     type: Object,

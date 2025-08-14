@@ -1,0 +1,41 @@
+{
+  "id": "skills",
+  "type": "SharedSlice",
+  "name": "Skills",
+  "description": "Skills",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "skills_heading": {
+          "type": "Text",
+          "config": {
+            "label": "Skills Heading",
+            "placeholder": "<skills/>"
+          }
+        }
+      },
+      "items": {
+        "skill_title": {
+          "type": "Text",
+          "config": {
+            "label": "Skill Title",
+            "placeholder": "Nome della competenza"
+          }
+        },
+        "skill_technologies": {
+          "type": "Text",
+          "config": {
+            "label": "Technologies",
+            "placeholder": "Tecnologie utilizzate"
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+[
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "default",
+    "primary": {
+      "projects_heading": "<personal_projects/>"
+    },
+    "items": [
+      {
+        "project_name": "MOSCANELLAMM***A",
+        "project_url": {
+          "link_type": "Web",
+          "url": "https://www.instagram.com/moscanellammerda/"
+        },
+        "project_role": "Digital Artist",
+        "project_period": "2013 > now",
+        "project_description": [
+          {
+            "type": "paragraph",
+            "text": "Grazie ai miei studi alla Scuola Italiana di Comix sono diventato un creativo ed appassionato Digital Artist con esperienza nella progettazione e sviluppo di fumetti e personaggi originali. Ideatore di Moscanellamm***a, un progetto narrativo che esplora tematiche profonde e situazioni di vita reale con uno stile unico e crudo, arricchito da elementi poetici e simbolici. Abile nel trasformare emozioni complesse in arte visiva attraverso un uso evocativo del colore, del tratto e della composizione.",
+            "spans": [
+              {
+                "start": 26,
+                "end": 51,
+                "type": "strong"
+              },
+              {
+                "start": 149,
+                "end": 167,
+                "type": "strong"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "project_name": "STARCADE & IMAGINEED",
+        "project_url": {
+          "link_type": "Web",
+          "url": "https://www.joshuarte.it/overlordz"
+        },
+        "project_role": "Founder",
+        "project_period": "2021 > now",
+        "project_description": [
+          {
+            "type": "paragraph",
+            "text": "Siamo sviluppatori ed editori indipendenti di videogiochi e software, con sede a Napoli, in Italia, con una passione per i giochi 2D e il desiderio di supportare e creare giochi straordinari e altamente caratterizzati, nonchè advergame(videogiochi pubblicitari). Ho colto l'occasione per acquisire esperienza nello sviluppo e nella progettazione di videogiochi con alcuni colleghi. Il mio ruolo in questo progetto è rimbalzato dalla gestione del progetto al design del gioco, dallo sviluppo fino al marketing. Abbiamo pubblicato OverlordZ, un gioco di carte indie per dispositivi mobili e PC.",
+            "spans": []
+          },
+          {
+            "type": "paragraph",
+            "text": "Puoi giocarlo qui!",
+            "spans": [
+              {
+                "start": 0,
+                "end": 18,
+                "type": "hyperlink",
+                "data": {
+                  "link_type": "Web",
+                  "url": "https://imagineed.itch.io/overlordz",
+                  "target": "_blank"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -427,44 +427,24 @@ export interface HomeSliceDefaultPrimary {
   bio_content: prismic.RichTextField;
 
   /**
-   * Skills Head field in *Home → Default → Primary*
+   * Projects Heading field in *Home → Default → Primary*
    *
    * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: home.default.primary.skills_head
+   * - **Placeholder**: I miei progetti
+   * - **API ID Path**: home.default.primary.projects_heading
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
-  skills_head: prismic.KeyTextField;
+  projects_heading: prismic.KeyTextField;
 
   /**
-   * Skills Content field in *Home → Default → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: home.default.primary.skills_content
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  skills_content: prismic.RichTextField;
-
-  /**
-   * Work Head field in *Home → Default → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: home.default.primary.work_head
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  work_head: prismic.KeyTextField;
-
-  /**
-   * Work List field in *Home → Default → Primary*
+   * Projects List field in *Home → Default → Primary*
    *
    * - **Field Type**: Content Relationship
    * - **Placeholder**: *None*
-   * - **API ID Path**: home.default.primary.work_list
+   * - **API ID Path**: home.default.primary.projects_list
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
-  work_list: prismic.ContentRelationshipField<"work_list">;
+  projects_list: prismic.ContentRelationshipField<"projects">;
 }
 
 /**
@@ -493,6 +473,112 @@ type HomeSliceVariation = HomeSliceDefault;
  * - **Documentation**: https://prismic.io/docs/slice
  */
 export type HomeSlice = prismic.SharedSlice<"home", HomeSliceVariation>;
+
+/**
+ * Primary content in *PersonalProjects → Default → Primary*
+ */
+export interface PersonalProjectsSliceDefaultPrimary {
+  /**
+   * Projects Heading field in *PersonalProjects → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: <personal_projects/>
+   * - **API ID Path**: personal_projects.default.primary.projects_heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  projects_heading: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *PersonalProjects → Items*
+ */
+export interface PersonalProjectsSliceDefaultItem {
+  /**
+   * Project Name field in *PersonalProjects → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Nome del progetto
+   * - **API ID Path**: personal_projects.items[].project_name
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  project_name: prismic.KeyTextField;
+
+  /**
+   * Project URL field in *PersonalProjects → Items*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: URL del progetto
+   * - **API ID Path**: personal_projects.items[].project_url
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  project_url: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+
+  /**
+   * Role field in *PersonalProjects → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Ruolo nel progetto
+   * - **API ID Path**: personal_projects.items[].project_role
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  project_role: prismic.KeyTextField;
+
+  /**
+   * Period field in *PersonalProjects → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Periodo del progetto
+   * - **API ID Path**: personal_projects.items[].project_period
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  project_period: prismic.KeyTextField;
+
+  /**
+   * Description field in *PersonalProjects → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Descrizione del progetto
+   * - **API ID Path**: personal_projects.items[].project_description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  project_description: prismic.RichTextField;
+}
+
+/**
+ * Default variation for PersonalProjects Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type PersonalProjectsSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<PersonalProjectsSliceDefaultPrimary>,
+  Simplify<PersonalProjectsSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *PersonalProjects*
+ */
+type PersonalProjectsSliceVariation = PersonalProjectsSliceDefault;
+
+/**
+ * PersonalProjects Shared Slice
+ *
+ * - **API ID**: `personal_projects`
+ * - **Description**: Personal Projects
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type PersonalProjectsSlice = prismic.SharedSlice<
+  "personal_projects",
+  PersonalProjectsSliceVariation
+>;
 
 /**
  * Primary content in *Project → Default → Primary*
@@ -569,6 +655,179 @@ export type ProjectSlice = prismic.SharedSlice<
   ProjectSliceVariation
 >;
 
+/**
+ * Primary content in *Skills → Default → Primary*
+ */
+export interface SkillsSliceDefaultPrimary {
+  /**
+   * Skills Heading field in *Skills → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: <skills/>
+   * - **API ID Path**: skills.default.primary.skills_heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  skills_heading: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *Skills → Items*
+ */
+export interface SkillsSliceDefaultItem {
+  /**
+   * Skill Title field in *Skills → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Nome della competenza
+   * - **API ID Path**: skills.items[].skill_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  skill_title: prismic.KeyTextField;
+
+  /**
+   * Technologies field in *Skills → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Tecnologie utilizzate
+   * - **API ID Path**: skills.items[].skill_technologies
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  skill_technologies: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for Skills Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type SkillsSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<SkillsSliceDefaultPrimary>,
+  Simplify<SkillsSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *Skills*
+ */
+type SkillsSliceVariation = SkillsSliceDefault;
+
+/**
+ * Skills Shared Slice
+ *
+ * - **API ID**: `skills`
+ * - **Description**: Skills
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type SkillsSlice = prismic.SharedSlice<"skills", SkillsSliceVariation>;
+
+/**
+ * Primary content in *WorkExperience → Default → Primary*
+ */
+export interface WorkExperienceSliceDefaultPrimary {
+  /**
+   * Work Heading field in *WorkExperience → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: <work/>
+   * - **API ID Path**: work_experience.default.primary.work_heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  work_heading: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *WorkExperience → Items*
+ */
+export interface WorkExperienceSliceDefaultItem {
+  /**
+   * Company Name field in *WorkExperience → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Nome dell'azienda
+   * - **API ID Path**: work_experience.items[].company_name
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  company_name: prismic.KeyTextField;
+
+  /**
+   * Company URL field in *WorkExperience → Items*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: URL dell'azienda
+   * - **API ID Path**: work_experience.items[].company_url
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  company_url: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+
+  /**
+   * Position field in *WorkExperience → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Posizione ricoperta
+   * - **API ID Path**: work_experience.items[].position
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  position: prismic.KeyTextField;
+
+  /**
+   * Period field in *WorkExperience → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Periodo di lavoro
+   * - **API ID Path**: work_experience.items[].period
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  period: prismic.KeyTextField;
+
+  /**
+   * Description field in *WorkExperience → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Descrizione del ruolo
+   * - **API ID Path**: work_experience.items[].description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField;
+}
+
+/**
+ * Default variation for WorkExperience Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type WorkExperienceSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<WorkExperienceSliceDefaultPrimary>,
+  Simplify<WorkExperienceSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *WorkExperience*
+ */
+type WorkExperienceSliceVariation = WorkExperienceSliceDefault;
+
+/**
+ * WorkExperience Shared Slice
+ *
+ * - **API ID**: `work_experience`
+ * - **Description**: Work Experience
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type WorkExperienceSlice = prismic.SharedSlice<
+  "work_experience",
+  WorkExperienceSliceVariation
+>;
+
 declare module "@prismicio/client" {
   interface CreateClient {
     (
@@ -610,10 +869,25 @@ declare module "@prismicio/client" {
       HomeSliceDefaultPrimary,
       HomeSliceVariation,
       HomeSliceDefault,
+      PersonalProjectsSlice,
+      PersonalProjectsSliceDefaultPrimary,
+      PersonalProjectsSliceDefaultItem,
+      PersonalProjectsSliceVariation,
+      PersonalProjectsSliceDefault,
       ProjectSlice,
       ProjectSliceDefaultPrimary,
       ProjectSliceVariation,
       ProjectSliceDefault,
+      SkillsSlice,
+      SkillsSliceDefaultPrimary,
+      SkillsSliceDefaultItem,
+      SkillsSliceVariation,
+      SkillsSliceDefault,
+      WorkExperienceSlice,
+      WorkExperienceSliceDefaultPrimary,
+      WorkExperienceSliceDefaultItem,
+      WorkExperienceSliceVariation,
+      WorkExperienceSliceDefault,
     };
   }
 }
