@@ -19,7 +19,7 @@ declare module "#build/prismic/proxy/richTextComponents.ts";
 declare module "#build/prismic/proxy/sliceZoneDefaultComponent.ts";
 declare module "#build/image-options.mjs";
 declare module "#build/devtools/settings.mjs";
-declare module "#build/runtime.vue-devtools-client.15CwT8NaHcHzbarMUvXQeCRV6E5_mJqAfV0NuX3AVtA.js";
+declare module "#build/runtime.vue-devtools-client.1-0Ai5Zc73db_Y-sxMrHcR6vYPnFkafxxA_KipyCOW0.js";
 declare module "#build/routes.mjs";
 declare module "#build/pages.mjs";
 declare module "#build/router.options.mjs";

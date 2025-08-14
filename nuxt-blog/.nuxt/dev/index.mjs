@@ -1,42 +1,42 @@
 import process from 'node:process';globalThis._importMeta_={url:import.meta.url,env:process.env};import { tmpdir } from 'node:os';
-import { defineEventHandler, handleCacheHeaders, splitCookiesString, createEvent, fetchWithEvent, isEvent, eventHandler, setHeaders, sendRedirect, proxyRequest, getRequestHeader, setResponseHeaders, setResponseStatus, send, getRequestHeaders, setResponseHeader, getRequestURL, getResponseHeader, getQuery as getQuery$1, readBody, getResponseStatus, createError, lazyEventHandler, useBase, createApp, createRouter as createRouter$1, toNodeListener, getRouterParam, getResponseStatusText } from 'file:///project/workspace/nuxt-blog/node_modules/h3/dist/index.mjs';
 import { Server } from 'node:http';
 import { resolve, dirname, join } from 'node:path';
 import nodeCrypto from 'node:crypto';
 import { parentPort, threadId } from 'node:worker_threads';
-import { escapeHtml } from 'file:///project/workspace/nuxt-blog/node_modules/@vue/shared/dist/shared.cjs.js';
-import { createRenderer, getRequestDependencies, getPreloadLinks, getPrefetchLinks } from 'file:///project/workspace/nuxt-blog/node_modules/vue-bundle-renderer/dist/runtime.mjs';
-import { parseURL, withoutBase, joinURL, getQuery, withQuery, withTrailingSlash, joinRelativeURL } from 'file:///project/workspace/nuxt-blog/node_modules/ufo/dist/index.mjs';
-import { renderToString } from 'file:///project/workspace/nuxt-blog/node_modules/vue/server-renderer/index.mjs';
-import destr, { destr as destr$1 } from 'file:///project/workspace/nuxt-blog/node_modules/destr/dist/index.mjs';
-import { createHooks } from 'file:///project/workspace/nuxt-blog/node_modules/hookable/dist/index.mjs';
-import { createFetch, Headers as Headers$1 } from 'file:///project/workspace/nuxt-blog/node_modules/ofetch/dist/node.mjs';
-import { fetchNodeRequestHandler, callNodeRequestHandler } from 'file:///project/workspace/nuxt-blog/node_modules/node-mock-http/dist/index.mjs';
-import { createStorage, prefixStorage } from 'file:///project/workspace/nuxt-blog/node_modules/unstorage/dist/index.mjs';
-import unstorage_47drivers_47fs from 'file:///project/workspace/nuxt-blog/node_modules/unstorage/drivers/fs.mjs';
-import { digest } from 'file:///project/workspace/nuxt-blog/node_modules/ohash/dist/index.mjs';
-import { klona } from 'file:///project/workspace/nuxt-blog/node_modules/klona/dist/index.mjs';
-import defu, { defuFn } from 'file:///project/workspace/nuxt-blog/node_modules/defu/dist/defu.mjs';
-import { snakeCase } from 'file:///project/workspace/nuxt-blog/node_modules/scule/dist/index.mjs';
-import { getContext } from 'file:///project/workspace/nuxt-blog/node_modules/unctx/dist/index.mjs';
-import { toRouteMatcher, createRouter } from 'file:///project/workspace/nuxt-blog/node_modules/radix3/dist/index.mjs';
+import { defineEventHandler, handleCacheHeaders, splitCookiesString, createEvent, fetchWithEvent, isEvent, eventHandler, setHeaders, sendRedirect, proxyRequest, getRequestHeader, setResponseHeaders, setResponseStatus, send, getRequestHeaders, setResponseHeader, getRequestURL, getResponseHeader, getQuery as getQuery$1, readBody, getResponseStatus, createError, lazyEventHandler, useBase, createApp, createRouter as createRouter$1, toNodeListener, getRouterParam, getResponseStatusText } from 'file://C:/Users/joshu/Desktop/joshuarte-ita/nuxt-blog/node_modules/h3/dist/index.mjs';
+import { escapeHtml } from 'file://C:/Users/joshu/Desktop/joshuarte-ita/nuxt-blog/node_modules/@vue/shared/dist/shared.cjs.js';
+import { createRenderer, getRequestDependencies, getPreloadLinks, getPrefetchLinks } from 'file://C:/Users/joshu/Desktop/joshuarte-ita/nuxt-blog/node_modules/vue-bundle-renderer/dist/runtime.mjs';
+import { parseURL, withoutBase, joinURL, getQuery, withQuery, withTrailingSlash, joinRelativeURL } from 'file://C:/Users/joshu/Desktop/joshuarte-ita/nuxt-blog/node_modules/ufo/dist/index.mjs';
+import { renderToString } from 'file://C:/Users/joshu/Desktop/joshuarte-ita/nuxt-blog/node_modules/vue/server-renderer/index.mjs';
+import { klona } from 'file://C:/Users/joshu/Desktop/joshuarte-ita/nuxt-blog/node_modules/klona/dist/index.mjs';
+import defu, { defuFn } from 'file://C:/Users/joshu/Desktop/joshuarte-ita/nuxt-blog/node_modules/defu/dist/defu.mjs';
+import destr, { destr as destr$1 } from 'file://C:/Users/joshu/Desktop/joshuarte-ita/nuxt-blog/node_modules/destr/dist/index.mjs';
+import { snakeCase } from 'file://C:/Users/joshu/Desktop/joshuarte-ita/nuxt-blog/node_modules/scule/dist/index.mjs';
+import { createHead as createHead$1, propsToString, renderSSRHead } from 'file://C:/Users/joshu/Desktop/joshuarte-ita/nuxt-blog/node_modules/unhead/dist/server.mjs';
+import { stringify, uneval } from 'file://C:/Users/joshu/Desktop/joshuarte-ita/nuxt-blog/node_modules/devalue/index.js';
+import { isVNode, toValue, isRef } from 'file://C:/Users/joshu/Desktop/joshuarte-ita/nuxt-blog/node_modules/vue/index.mjs';
+import { DeprecationsPlugin, PromisesPlugin, TemplateParamsPlugin, AliasSortingPlugin } from 'file://C:/Users/joshu/Desktop/joshuarte-ita/nuxt-blog/node_modules/unhead/dist/plugins.mjs';
+import { createHooks } from 'file://C:/Users/joshu/Desktop/joshuarte-ita/nuxt-blog/node_modules/hookable/dist/index.mjs';
+import { createFetch, Headers as Headers$1 } from 'file://C:/Users/joshu/Desktop/joshuarte-ita/nuxt-blog/node_modules/ofetch/dist/node.mjs';
+import { fetchNodeRequestHandler, callNodeRequestHandler } from 'file://C:/Users/joshu/Desktop/joshuarte-ita/nuxt-blog/node_modules/node-mock-http/dist/index.mjs';
+import { createStorage, prefixStorage } from 'file://C:/Users/joshu/Desktop/joshuarte-ita/nuxt-blog/node_modules/unstorage/dist/index.mjs';
+import unstorage_47drivers_47fs from 'file://C:/Users/joshu/Desktop/joshuarte-ita/nuxt-blog/node_modules/unstorage/drivers/fs.mjs';
+import { digest } from 'file://C:/Users/joshu/Desktop/joshuarte-ita/nuxt-blog/node_modules/ohash/dist/index.mjs';
+import { toRouteMatcher, createRouter } from 'file://C:/Users/joshu/Desktop/joshuarte-ita/nuxt-blog/node_modules/radix3/dist/index.mjs';
 import { readFile } from 'node:fs/promises';
-import consola, { consola as consola$1 } from 'file:///project/workspace/nuxt-blog/node_modules/consola/dist/index.mjs';
-import { ErrorParser } from 'file:///project/workspace/nuxt-blog/node_modules/youch-core/build/index.js';
-import { Youch } from 'file:///project/workspace/nuxt-blog/node_modules/youch/build/index.js';
-import { SourceMapConsumer } from 'file:///project/workspace/nuxt-blog/node_modules/source-map/source-map.js';
+import consola, { consola as consola$1 } from 'file://C:/Users/joshu/Desktop/joshuarte-ita/nuxt-blog/node_modules/consola/dist/index.mjs';
+import { ErrorParser } from 'file://C:/Users/joshu/Desktop/joshuarte-ita/nuxt-blog/node_modules/youch-core/build/index.js';
+import { Youch } from 'file://C:/Users/joshu/Desktop/joshuarte-ita/nuxt-blog/node_modules/youch/build/index.js';
+import { SourceMapConsumer } from 'file://C:/Users/joshu/Desktop/joshuarte-ita/nuxt-blog/node_modules/source-map/source-map.js';
 import { AsyncLocalStorage } from 'node:async_hooks';
-import { stringify, uneval } from 'file:///project/workspace/nuxt-blog/node_modules/devalue/index.js';
-import { captureRawStackTrace, parseRawStackTrace } from 'file:///project/workspace/nuxt-blog/node_modules/errx/dist/index.js';
-import { isVNode, toValue, isRef } from 'file:///project/workspace/nuxt-blog/node_modules/vue/index.mjs';
-import { createHead as createHead$1, propsToString, renderSSRHead } from 'file:///project/workspace/nuxt-blog/node_modules/unhead/dist/server.mjs';
-import { DeprecationsPlugin, PromisesPlugin, TemplateParamsPlugin, AliasSortingPlugin } from 'file:///project/workspace/nuxt-blog/node_modules/unhead/dist/plugins.mjs';
-import { walkResolver } from 'file:///project/workspace/nuxt-blog/node_modules/unhead/dist/utils.mjs';
+import { getContext } from 'file://C:/Users/joshu/Desktop/joshuarte-ita/nuxt-blog/node_modules/unctx/dist/index.mjs';
+import { captureRawStackTrace, parseRawStackTrace } from 'file://C:/Users/joshu/Desktop/joshuarte-ita/nuxt-blog/node_modules/errx/dist/index.js';
+import { walkResolver } from 'file://C:/Users/joshu/Desktop/joshuarte-ita/nuxt-blog/node_modules/unhead/dist/utils.mjs';
 import { fileURLToPath } from 'node:url';
-import { ipxFSStorage, ipxHttpStorage, createIPX, createIPXH3Handler } from 'file:///project/workspace/nuxt-blog/node_modules/ipx/dist/index.mjs';
-import { isAbsolute } from 'file:///project/workspace/nuxt-blog/node_modules/pathe/dist/index.mjs';
+import { ipxFSStorage, ipxHttpStorage, createIPX, createIPXH3Handler } from 'file://C:/Users/joshu/Desktop/joshuarte-ita/nuxt-blog/node_modules/ipx/dist/index.mjs';
+import { isAbsolute } from 'file://C:/Users/joshu/Desktop/joshuarte-ita/nuxt-blog/node_modules/pathe/dist/index.mjs';
 
-const serverAssets = [{"baseName":"server","dir":"/project/workspace/nuxt-blog/server/assets"}];
+const serverAssets = [{"baseName":"server","dir":"C:/Users/joshu/Desktop/joshuarte-ita/nuxt-blog/server/assets"}];
 
 const assets = createStorage();
 
@@ -48,11 +48,11 @@ const storage = createStorage({});
 
 storage.mount('/assets', assets);
 
-storage.mount('root', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"/project/workspace/nuxt-blog","watchOptions":{"ignored":[null]}}));
-storage.mount('src', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"/project/workspace/nuxt-blog/server","watchOptions":{"ignored":[null]}}));
-storage.mount('build', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"/project/workspace/nuxt-blog/.nuxt"}));
-storage.mount('cache', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"/project/workspace/nuxt-blog/.nuxt/cache"}));
-storage.mount('data', unstorage_47drivers_47fs({"driver":"fs","base":"/project/workspace/nuxt-blog/.data/kv"}));
+storage.mount('root', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"C:/Users/joshu/Desktop/joshuarte-ita/nuxt-blog","watchOptions":{"ignored":[null]}}));
+storage.mount('src', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"C:/Users/joshu/Desktop/joshuarte-ita/nuxt-blog/server","watchOptions":{"ignored":[null]}}));
+storage.mount('build', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"C:/Users/joshu/Desktop/joshuarte-ita/nuxt-blog/.nuxt"}));
+storage.mount('cache', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"C:/Users/joshu/Desktop/joshuarte-ita/nuxt-blog/.nuxt/cache"}));
+storage.mount('data', unstorage_47drivers_47fs({"driver":"fs","base":"C:/Users/joshu/Desktop/joshuarte-ita/nuxt-blog/.data/kv"}));
 
 function useStorage(base = "") {
   return base ? prefixStorage(storage, base) : storage;
@@ -686,7 +686,7 @@ const _inlineRuntimeConfig = {
     "alias": {},
     "fs": {
       "dir": [
-        "/project/workspace/nuxt-blog/public"
+        "C:/Users/joshu/Desktop/joshuarte-ita/nuxt-blog/public"
       ]
     },
     "http": {
@@ -736,11 +736,6 @@ new Proxy(/* @__PURE__ */ Object.create(null), {
     }
     return void 0;
   }
-});
-
-getContext("nitro-app", {
-  asyncContext: false,
-  AsyncLocalStorage: void 0
 });
 
 const config = useRuntimeConfig();
@@ -1058,13 +1053,13 @@ if (!window.__NUXT_DEVTOOLS_TIME_METRIC__) {
 window.__NUXT_DEVTOOLS_TIME_METRIC__.appInit = Date.now()
 `;
 
-const _gDdsxKS_FRO9FPQ3J0cyZ73UbhsddpqwZrQ8tR8aOc = (function(nitro) {
+const _0Ut_ThNCHZ41D_ysVP8vnqiHic80OhrTPRGJB3FE = (function(nitro) {
   nitro.hooks.hook("render:html", (htmlContext) => {
     htmlContext.head.push(`<script>${script}<\/script>`);
   });
 });
 
-const rootDir = "/project/workspace/nuxt-blog";
+const rootDir = "C:/Users/joshu/Desktop/joshuarte-ita/nuxt-blog";
 
 const appHead = {"meta":[{"name":"viewport","content":"width=device-width, initial-scale=1"},{"charset":"utf-8"},{"name":"google-adsense-account","content":"ca-pub-7716592172266156"},{"name":"description","content":""},{"name":"author","content":""},{"property":"og:title","content":""},{"property":"og:description","content":""},{"property":"og:url","content":""},{"property":"og:image","content":""},{"property":"og:type","content":"website"},{"name":"twitter:card","content":"summary_large_image"},{"name":"twitter:title","content":""},{"name":"twitter:description","content":""},{"name":"twitter:image","content":""}],"link":[{"rel":"canonical","href":"https://www.joshuarte.it"},{"rel":"preload","as":"image","imagesrcset":"/images/bg.avif","type":"image/avif","fetchpriority":"high"},{"rel":"preload","as":"image","imagesrcset":"/images/bg.webp","type":"image/webp","fetchpriority":"high"},{"rel":"preload","as":"image","href":"/images/bg.jpg","fetchpriority":"high"},{"rel":"preconnect","href":"https://fonts.googleapis.com"},{"rel":"preconnect","href":"https://fonts.gstatic.com","crossorigin":"anonymous"},{"rel":"preload","as":"style","href":"https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600&display=swap"},{"rel":"stylesheet","href":"https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600&display=swap","media":"print","onload":"this.media='all'"}],"style":[{"innerHTML":"\n            @font-face {\n              font-family: 'Source Sans Pro';\n              font-style: normal;\n              font-weight: 300;\n              font-display: swap;\n              src: local('Source Sans Pro Light'), local('SourceSansPro-Light');\n            }\n            @font-face {\n              font-family: 'Source Sans Pro';\n              font-style: normal;\n              font-weight: 400;\n              font-display: swap;\n              src: local('Source Sans Pro Regular'), local('SourceSansPro-Regular');\n            }\n            @font-face {\n              font-family: 'Source Sans Pro';\n              font-style: normal;\n              font-weight: 600;\n              font-display: swap;\n              src: local('Source Sans Pro SemiBold'), local('SourceSansPro-SemiBold');\n            }\n          "}],"script":[{"type":"application/ld+json","innerHTML":"{\"@context\":\"https://schema.org\",\"@type\":\"Person\",\"name\":\"Luca Joshua Mosca\",\"url\":\"https://www.joshuarte.it\",\"jobTitle\":\"Senior Developer e Game Designer\",\"knowsAbout\":[\"Frontend Development\",\"Game Design\",\"UI/UX\",\"Web Development\"],\"sameAs\":[\"https://discordapp.com/channels/@joshuarte\",\"https://it.linkedin.com/in/joshuarte\"]}"},{"src":"https://www.googletagmanager.com/gtag/js?id=G-W7H28M8MDY","defer":true},{"innerHTML":"\n            window.dataLayer = window.dataLayer || [];\n            function gtag() { dataLayer.push(arguments); }\n            gtag(\"js\", new Date());\n            gtag(\"config\", \"G-W7H28M8MDY\");\n          "},{"src":"https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7716592172266156","defer":true,"crossorigin":"anonymous"},{"src":"https://storage.ko-fi.com/cdn/scripts/overlay-widget.js"},{"innerHTML":"\n            kofiWidgetOverlay.draw('moscanellammerda', {\n              'type': 'floating-chat',\n              'floating-chat.donateButton.text': 'Support me',\n              'floating-chat.donateButton.background-color': '#ff38b8',\n              'floating-chat.donateButton.text-color': '#fff'\n            });\n          "}],"noscript":[],"htmlAttrs":{"lang":"it"},"charset":"utf-8","viewport":"width=device-width, initial-scale=1"};
 
@@ -1083,7 +1078,7 @@ const devReducers = {
   URL: (data) => data instanceof URL ? data.toString() : void 0
 };
 const asyncContext = getContext("nuxt-dev", { asyncContext: true, AsyncLocalStorage });
-const _smdfz_mqkjcT8cH2Ng7bA61sjmuxUwzpTuVH3c2_9xI = (nitroApp) => {
+const _YZX4Daax3NpNMi3KvCyDh1z67Dr9DAiVPlpkoJnLY = (nitroApp) => {
   const handler = nitroApp.h3App.handler;
   nitroApp.h3App.handler = (event) => {
     return asyncContext.callAsync({ logs: [], event }, () => handler(event));
@@ -1153,8 +1148,8 @@ function onConsoleLog(callback) {
 }
 
 const plugins = [
-  _gDdsxKS_FRO9FPQ3J0cyZ73UbhsddpqwZrQ8tR8aOc,
-_smdfz_mqkjcT8cH2Ng7bA61sjmuxUwzpTuVH3c2_9xI
+  _0Ut_ThNCHZ41D_ysVP8vnqiHic80OhrTPRGJB3FE,
+_YZX4Daax3NpNMi3KvCyDh1z67Dr9DAiVPlpkoJnLY
 ];
 
 const VueResolver = (_, value) => {
@@ -1228,8 +1223,8 @@ function publicAssetsURL(...path) {
 
 const APP_ROOT_OPEN_TAG = `<${appRootTag}${propsToString(appRootAttrs)}>`;
 const APP_ROOT_CLOSE_TAG = `</${appRootTag}>`;
-const getServerEntry = () => import('file:///project/workspace/nuxt-blog/.nuxt/dist/server/server.mjs').then((r) => r.default || r);
-const getClientManifest = () => import('file:///project/workspace/nuxt-blog/.nuxt/dist/server/client.manifest.mjs').then((r) => r.default || r).then((r) => typeof r === "function" ? r() : r);
+const getServerEntry = () => import('file://C:/Users/joshu/Desktop/joshuarte-ita/nuxt-blog/.nuxt/dist/server/server.mjs').then((r) => r.default || r);
+const getClientManifest = () => import('file://C:/Users/joshu/Desktop/joshuarte-ita/nuxt-blog/.nuxt/dist/server/client.manifest.mjs').then((r) => r.default || r).then((r) => typeof r === "function" ? r() : r);
 const getSSRRenderer = lazyCachedFunction(async () => {
   const manifest = await getClientManifest();
   if (!manifest) {
@@ -1551,7 +1546,7 @@ async function runTask(name, {
   }
 }
 
-const __elHHf = lazyEventHandler(() => {
+const _kUf2bW = lazyEventHandler(() => {
   const opts = useRuntimeConfig().ipx || {};
   const fsDir = opts?.fs?.dir ? (Array.isArray(opts.fs.dir) ? opts.fs.dir : [opts.fs.dir]).map((dir) => isAbsolute(dir) ? dir : fileURLToPath(new URL(dir, globalThis._importMeta_.url))) : void 0;
   const fsStorage = opts.fs?.dir ? ipxFSStorage({ ...opts.fs, dir: fsDir }) : void 0;
@@ -1569,13 +1564,13 @@ const __elHHf = lazyEventHandler(() => {
   return useBase(opts.baseURL, ipxHandler);
 });
 
-const _lazy_u84cKq = () => Promise.resolve().then(function () { return renderer$1; });
+const _lazy_qzbfje = () => Promise.resolve().then(function () { return renderer$1; });
 
 const handlers = [
-  { route: '/__nuxt_error', handler: _lazy_u84cKq, lazy: true, middleware: false, method: undefined },
+  { route: '/__nuxt_error', handler: _lazy_qzbfje, lazy: true, middleware: false, method: undefined },
   { route: '/__nuxt_island/**', handler: _SxA8c9, lazy: false, middleware: false, method: undefined },
-  { route: '/_ipx/**', handler: __elHHf, lazy: false, middleware: false, method: undefined },
-  { route: '/**', handler: _lazy_u84cKq, lazy: true, middleware: false, method: undefined }
+  { route: '/_ipx/**', handler: _kUf2bW, lazy: false, middleware: false, method: undefined },
+  { route: '/**', handler: _lazy_qzbfje, lazy: true, middleware: false, method: undefined }
 ];
 
 function createNitroApp() {

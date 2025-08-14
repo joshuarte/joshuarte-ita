@@ -23,6 +23,15 @@ const slice = props.slice as any;
     class="home-intro"
   >
     <div class="container">
+      <!-- Hero Image -->
+      <div v-if="slice.primary.hero_image?.url" class="hero-image">
+        <PrismicImage 
+          :field="slice.primary.hero_image" 
+          :alt="slice.primary.intro_title || 'Hero Image'"
+          class="hero-img"
+        />
+      </div>
+      
       <h1 v-if="slice.primary.intro_title" class="intro-title">
         {{ slice.primary.intro_title }}
       </h1>
@@ -46,6 +55,17 @@ const slice = props.slice as any;
   text-align: center;
   max-width: 1200px;
   margin: 0 auto;
+}
+
+.hero-image {
+  margin-bottom: 2rem;
+}
+
+.hero-img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .intro-title {

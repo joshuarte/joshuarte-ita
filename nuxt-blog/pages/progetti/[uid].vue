@@ -1,12 +1,7 @@
 <template>
     <div v-if="post" class="blog-post container">    <div class="post-header">      <h1>{{ post.data.article_title }}</h1>      <div class="meta">        <span class="date">{{ formatDate(post.first_publication_date) }}</span>        <span v-if="post.data.author" class="author">di {{ post.data.author }}</span>      </div>    </div>
     
-    <img 
-      v-if="post.data.featured_image?.url" 
-      :src="post.data.featured_image.url" 
-      :alt="post.data.featured_image.alt || post.data.title"
-      class="featured-image"
-    >
+   
     
     <!-- Rendering delle slice con SliceZone -->
     <SliceZone v-if="post.data.slices" :slices="post.data.slices" :components="components" />

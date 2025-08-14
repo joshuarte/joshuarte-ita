@@ -6,10 +6,12 @@
       class="item" 
       :to="`/progetti/${project.uid}`"
     >
-      <ProjectImage 
-        :project="project" 
-        :index="index" 
+      <PrismicImageWrapper 
+        :field="project.image"
         :alt="`frontend developer web designer napoli ${project.name} - ${getDescription}`" 
+        :fallback-src="projectImagePath"
+        image-class="project-image"
+        :loading="isImportantProject ? 'eager' : 'lazy'"
       />
       <div class="caption">
         <h2>{{ project.name }}</h2>
@@ -27,10 +29,12 @@
       target="_blank" 
       rel="noopener"
     >
-      <ProjectImage 
-        :project="project" 
-        :index="index" 
+      <PrismicImageWrapper 
+        :field="project.image"
         :alt="`frontend developer web designer napoli ${project.name} - ${getDescription}`" 
+        :fallback-src="projectImagePath"
+        image-class="project-image"
+        :loading="isImportantProject ? 'eager' : 'lazy'"
       />
       <div class="caption">
         <h2>{{ project.name }}</h2>
@@ -45,7 +49,7 @@
 <script setup>
 import { ref, computed, onMounted } from 'vue';
 import { useMainStore } from '~/stores';
-import ProjectImage from '~/components/ProjectImage.vue';
+import PrismicImageWrapper from '~/components/PrismicImageWrapper.vue';
 
 const mainStore = useMainStore();
 
@@ -195,4 +199,4 @@ onMounted(() => {
     opacity: 1;
   }
 }
-</style> 
+</style>

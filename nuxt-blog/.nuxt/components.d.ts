@@ -13,15 +13,25 @@ type HydrationStrategies = {
 type LazyComponent<T> = (T & DefineComponent<HydrationStrategies, {}, {}, {}, {}, {}, {}, { hydrated: () => void }>)
 interface _GlobalComponents {
       'AppIcons': typeof import("../components/AppIcons.vue")['default']
+    'PersonalProjectItem': typeof import("../components/PersonalProjectItem.vue")['default']
     'PortfolioPanel': typeof import("../components/PortfolioPanel.vue")['default']
+    'PrismicImageWrapper': typeof import("../components/PrismicImageWrapper.vue")['default']
     'ProjectCard': typeof import("../components/ProjectCard.vue")['default']
     'ProjectImage': typeof import("../components/ProjectImage.vue")['default']
     'RecentPosts': typeof import("../components/RecentPosts.vue")['default']
+    'RecentProjectsButton': typeof import("../components/RecentProjectsButton.vue")['default']
     'SocialIcons': typeof import("../components/SocialIcons.vue")['default']
+    'WorkExperienceItem': typeof import("../components/WorkExperienceItem.vue")['default']
     'IconsDiscordIcon': typeof import("../components/icons/DiscordIcon.vue")['default']
     'IconsLinkedinIcon': typeof import("../components/icons/LinkedinIcon.vue")['default']
     'IconsLogoJoshuarte': typeof import("../components/icons/LogoJoshuarte.vue")['default']
     'IconsLogoLJM': typeof import("../components/icons/LogoLJM.vue")['default']
+    'SectionsBioSection': typeof import("../components/sections/BioSection.vue")['default']
+    'SectionsFooterSection': typeof import("../components/sections/FooterSection.vue")['default']
+    'SectionsHeroSection': typeof import("../components/sections/HeroSection.vue")['default']
+    'SectionsPersonalProjectsSection': typeof import("../components/sections/PersonalProjectsSection.vue")['default']
+    'SectionsSkillsSection': typeof import("../components/sections/SkillsSection.vue")['default']
+    'SectionsWorkSection': typeof import("../components/sections/WorkSection.vue")['default']
     'NuxtWelcome': typeof import("../node_modules/nuxt/dist/app/components/welcome.vue")['default']
     'NuxtLayout': typeof import("../node_modules/nuxt/dist/app/components/nuxt-layout")['default']
     'NuxtErrorBoundary': typeof import("../node_modules/nuxt/dist/app/components/nuxt-error-boundary.vue")['default']
@@ -54,15 +64,25 @@ interface _GlobalComponents {
     'NuxtIsland': typeof import("../node_modules/nuxt/dist/app/components/nuxt-island")['default']
     'NuxtRouteAnnouncer': IslandComponent<typeof import("../node_modules/nuxt/dist/app/components/server-placeholder")['default']>
       'LazyAppIcons': LazyComponent<typeof import("../components/AppIcons.vue")['default']>
+    'LazyPersonalProjectItem': LazyComponent<typeof import("../components/PersonalProjectItem.vue")['default']>
     'LazyPortfolioPanel': LazyComponent<typeof import("../components/PortfolioPanel.vue")['default']>
+    'LazyPrismicImageWrapper': LazyComponent<typeof import("../components/PrismicImageWrapper.vue")['default']>
     'LazyProjectCard': LazyComponent<typeof import("../components/ProjectCard.vue")['default']>
     'LazyProjectImage': LazyComponent<typeof import("../components/ProjectImage.vue")['default']>
     'LazyRecentPosts': LazyComponent<typeof import("../components/RecentPosts.vue")['default']>
+    'LazyRecentProjectsButton': LazyComponent<typeof import("../components/RecentProjectsButton.vue")['default']>
     'LazySocialIcons': LazyComponent<typeof import("../components/SocialIcons.vue")['default']>
+    'LazyWorkExperienceItem': LazyComponent<typeof import("../components/WorkExperienceItem.vue")['default']>
     'LazyIconsDiscordIcon': LazyComponent<typeof import("../components/icons/DiscordIcon.vue")['default']>
     'LazyIconsLinkedinIcon': LazyComponent<typeof import("../components/icons/LinkedinIcon.vue")['default']>
     'LazyIconsLogoJoshuarte': LazyComponent<typeof import("../components/icons/LogoJoshuarte.vue")['default']>
     'LazyIconsLogoLJM': LazyComponent<typeof import("../components/icons/LogoLJM.vue")['default']>
+    'LazySectionsBioSection': LazyComponent<typeof import("../components/sections/BioSection.vue")['default']>
+    'LazySectionsFooterSection': LazyComponent<typeof import("../components/sections/FooterSection.vue")['default']>
+    'LazySectionsHeroSection': LazyComponent<typeof import("../components/sections/HeroSection.vue")['default']>
+    'LazySectionsPersonalProjectsSection': LazyComponent<typeof import("../components/sections/PersonalProjectsSection.vue")['default']>
+    'LazySectionsSkillsSection': LazyComponent<typeof import("../components/sections/SkillsSection.vue")['default']>
+    'LazySectionsWorkSection': LazyComponent<typeof import("../components/sections/WorkSection.vue")['default']>
     'LazyNuxtWelcome': LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/welcome.vue")['default']>
     'LazyNuxtLayout': LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/nuxt-layout")['default']>
     'LazyNuxtErrorBoundary': LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/nuxt-error-boundary.vue")['default']>
@@ -101,15 +121,25 @@ declare module 'vue' {
 }
 
 export const AppIcons: typeof import("../components/AppIcons.vue")['default']
+export const PersonalProjectItem: typeof import("../components/PersonalProjectItem.vue")['default']
 export const PortfolioPanel: typeof import("../components/PortfolioPanel.vue")['default']
+export const PrismicImageWrapper: typeof import("../components/PrismicImageWrapper.vue")['default']
 export const ProjectCard: typeof import("../components/ProjectCard.vue")['default']
 export const ProjectImage: typeof import("../components/ProjectImage.vue")['default']
 export const RecentPosts: typeof import("../components/RecentPosts.vue")['default']
+export const RecentProjectsButton: typeof import("../components/RecentProjectsButton.vue")['default']
 export const SocialIcons: typeof import("../components/SocialIcons.vue")['default']
+export const WorkExperienceItem: typeof import("../components/WorkExperienceItem.vue")['default']
 export const IconsDiscordIcon: typeof import("../components/icons/DiscordIcon.vue")['default']
 export const IconsLinkedinIcon: typeof import("../components/icons/LinkedinIcon.vue")['default']
 export const IconsLogoJoshuarte: typeof import("../components/icons/LogoJoshuarte.vue")['default']
 export const IconsLogoLJM: typeof import("../components/icons/LogoLJM.vue")['default']
+export const SectionsBioSection: typeof import("../components/sections/BioSection.vue")['default']
+export const SectionsFooterSection: typeof import("../components/sections/FooterSection.vue")['default']
+export const SectionsHeroSection: typeof import("../components/sections/HeroSection.vue")['default']
+export const SectionsPersonalProjectsSection: typeof import("../components/sections/PersonalProjectsSection.vue")['default']
+export const SectionsSkillsSection: typeof import("../components/sections/SkillsSection.vue")['default']
+export const SectionsWorkSection: typeof import("../components/sections/WorkSection.vue")['default']
 export const NuxtWelcome: typeof import("../node_modules/nuxt/dist/app/components/welcome.vue")['default']
 export const NuxtLayout: typeof import("../node_modules/nuxt/dist/app/components/nuxt-layout")['default']
 export const NuxtErrorBoundary: typeof import("../node_modules/nuxt/dist/app/components/nuxt-error-boundary.vue")['default']
@@ -142,15 +172,25 @@ export const Body: typeof import("../node_modules/nuxt/dist/head/runtime/compone
 export const NuxtIsland: typeof import("../node_modules/nuxt/dist/app/components/nuxt-island")['default']
 export const NuxtRouteAnnouncer: IslandComponent<typeof import("../node_modules/nuxt/dist/app/components/server-placeholder")['default']>
 export const LazyAppIcons: LazyComponent<typeof import("../components/AppIcons.vue")['default']>
+export const LazyPersonalProjectItem: LazyComponent<typeof import("../components/PersonalProjectItem.vue")['default']>
 export const LazyPortfolioPanel: LazyComponent<typeof import("../components/PortfolioPanel.vue")['default']>
+export const LazyPrismicImageWrapper: LazyComponent<typeof import("../components/PrismicImageWrapper.vue")['default']>
 export const LazyProjectCard: LazyComponent<typeof import("../components/ProjectCard.vue")['default']>
 export const LazyProjectImage: LazyComponent<typeof import("../components/ProjectImage.vue")['default']>
 export const LazyRecentPosts: LazyComponent<typeof import("../components/RecentPosts.vue")['default']>
+export const LazyRecentProjectsButton: LazyComponent<typeof import("../components/RecentProjectsButton.vue")['default']>
 export const LazySocialIcons: LazyComponent<typeof import("../components/SocialIcons.vue")['default']>
+export const LazyWorkExperienceItem: LazyComponent<typeof import("../components/WorkExperienceItem.vue")['default']>
 export const LazyIconsDiscordIcon: LazyComponent<typeof import("../components/icons/DiscordIcon.vue")['default']>
 export const LazyIconsLinkedinIcon: LazyComponent<typeof import("../components/icons/LinkedinIcon.vue")['default']>
 export const LazyIconsLogoJoshuarte: LazyComponent<typeof import("../components/icons/LogoJoshuarte.vue")['default']>
 export const LazyIconsLogoLJM: LazyComponent<typeof import("../components/icons/LogoLJM.vue")['default']>
+export const LazySectionsBioSection: LazyComponent<typeof import("../components/sections/BioSection.vue")['default']>
+export const LazySectionsFooterSection: LazyComponent<typeof import("../components/sections/FooterSection.vue")['default']>
+export const LazySectionsHeroSection: LazyComponent<typeof import("../components/sections/HeroSection.vue")['default']>
+export const LazySectionsPersonalProjectsSection: LazyComponent<typeof import("../components/sections/PersonalProjectsSection.vue")['default']>
+export const LazySectionsSkillsSection: LazyComponent<typeof import("../components/sections/SkillsSection.vue")['default']>
+export const LazySectionsWorkSection: LazyComponent<typeof import("../components/sections/WorkSection.vue")['default']>
 export const LazyNuxtWelcome: LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/welcome.vue")['default']>
 export const LazyNuxtLayout: LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/nuxt-layout")['default']>
 export const LazyNuxtErrorBoundary: LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/nuxt-error-boundary.vue")['default']>

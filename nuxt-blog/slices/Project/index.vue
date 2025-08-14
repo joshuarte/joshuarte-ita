@@ -23,7 +23,11 @@ defineProps(
       <h3 v-if="slice.primary.name">{{ slice.primary.name }}</h3>
       
       <div v-if="slice.primary.imageurl?.url" class="project-image">
-        <img :src="slice.primary.imageurl.url" :alt="slice.primary.name || 'Progetto'" />
+        <PrismicImage 
+          :field="slice.primary.imageurl" 
+          :alt="slice.primary.name?.toString() || 'Progetto'"
+          class="project-img"
+        />
       </div>
       
       <div v-if="slice.primary.jobdescription" class="project-description">
@@ -62,10 +66,11 @@ defineProps(
   border-radius: 8px;
 }
 
-.project-image img {
-  width: 100%;
+.project-img {
+  max-width: 100%;
   height: auto;
-  object-fit: cover;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .project-description {
